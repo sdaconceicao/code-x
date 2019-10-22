@@ -1,0 +1,32 @@
+{
+  "name": "@code-x/input",
+  "version": "0.1.0",
+  "description": "React Form Input",
+  "author": "Stephen da Conceicao",
+  "homepage": "https://github.com/sdaconceicao/code-x/tree/master/packages/input#readme",
+  "license": "ISC",
+  "main": "lib/input.js",
+  "directories": {
+    "src": "src"
+  },
+  "files": [
+    "src"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sdaconceicao/code-x.git"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "bugs": {
+    "url": "https://github.com/sdaconceicao/code-x/issues"
+  },
+  "dependencies": {
+    "react": "^16.10.2",
+    "react-dom": "^16.10.2"
+  }
+}

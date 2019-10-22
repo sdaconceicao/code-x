@@ -1,0 +1,28 @@
+{
+  "name": "code-x",
+  "version": "0.1.0",
+  "description": "A React visual design library",
+  "main": "index.js",
+  "private": true,
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sdaconceicao/code-x.git"
+  },
+  "keywords": [
+    "react",
+    "asset",
+    "library"
+  ],
+  "author": "Stephen da Conceicao",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sdaconceicao/code-x/issues"
+  },
+  "homepage": "https://github.com/sdaconceicao/code-x#readme",
+  "devDependencies": {
+    "lerna": "^3.18.1"
+  }
+}
