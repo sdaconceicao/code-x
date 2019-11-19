@@ -1,0 +1,25 @@
+{
+  "name": "@code-x/hooks",
+  "version": "0.1.0",
+  "description": "React custom hooks",
+  "author": "Stephen da Conceicao <daconcei472@gmail.com>",
+  "homepage": "https://github.com/sdaconceicao/code-x/tree/master/packages/hooks#readme",
+  "license": "ISC",
+  "main": "src/index.js",
+  "directories": {
+    "src": "src"
+  },
+  "files": [
+    "src"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sdaconceicao/code-x.git"
+  },
+  "bugs": {
+    "url": "https://github.com/sdaconceicao/code-x/issues"
+  },
+  "dependencies": {
+    "react": "^16.11.0"
+  }
+}

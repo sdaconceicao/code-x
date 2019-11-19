@@ -26,6 +26,7 @@
     "url": "https://github.com/sdaconceicao/code-x/issues"
   },
   "dependencies": {
+    "@code-x/hooks": "^0.1.0",
     "react": "^16.10.2",
     "react-dom": "^16.10.2"
   }
