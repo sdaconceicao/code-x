@@ -27,6 +27,7 @@
   },
   "dependencies": {
     "@code-x/hooks": "^0.1.0",
+    "prop-types": "^15.7.2",
     "react": "^16.10.2",
     "react-dom": "^16.10.2"
   }
