@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import injectSheet from 'react-jss';
+import styles from './Input.styles';
 
 export const Input = ({
-    id, className, label, errors, value,
+    id, classes, className, label, errors, value,
     onKeyDown, onChange, onBlur, onEnter, 
     ...rest
 }) => {
@@ -26,8 +28,10 @@ export const Input = ({
     };
 
     return (
-        <label htmlFor={id}>
-            {label}
+        <>
+            <label htmlFor={id} className={classes.label}>
+                {label}
+            </label>
             <input
                 id={id}
                 className={`form-control ${className} ${errors ? 'error' : ''}`}
@@ -37,7 +41,7 @@ export const Input = ({
                 onBlur={onBlur}
                 {...rest}
             />
-        </label>
+        </>
     )
 }
 
@@ -57,4 +61,4 @@ Input.defaultProps = {
     onKeyDown: () => {}
 }
 
-export default Input;
+export default injectSheet(styles)(Input)
