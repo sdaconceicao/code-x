@@ -4,16 +4,16 @@ import injectSheet from 'react-jss';
 import styles from './Input.styles';
 
 export const Input = ({
-    id, classes, className, label, errors, value,
+    id, name, classes, className, label, errors,
     onKeyDown, onChange, onBlur, onEnter, 
     ...rest
 }) => {
-    const [val, setValue] = useState(value);
+    const [value, setValue] = useState(rest.value);
 
     const handleChange = (e) => {
         setValue(e.target.value);
         onChange({
-            name: rest.name,
+            name,
             value: e.target.value,
             dirty: true
         });
@@ -34,8 +34,9 @@ export const Input = ({
             </label>
             <input
                 id={id}
+                name={name}
                 className={`form-control ${className} ${errors ? 'error' : ''}`}
-                value={val}
+                value={value}
                 onChange={handleChange}
                 onKeyDown={handleKeyDown}
                 onBlur={onBlur}
@@ -50,6 +51,7 @@ Input.propTypes = {
     name: PropTypes.string.isRequired,
     id: PropTypes.string.isRequired,
     label: PropTypes.string,
+    value: PropTypes.string,
     errors: PropTypes.instanceOf(Array),
     onChange: PropTypes.func,
     onBlur: PropTypes.func,
