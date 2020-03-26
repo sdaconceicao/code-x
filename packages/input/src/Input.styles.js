@@ -1,5 +1,8 @@
-export default {
+import {createUseStyles} from 'react-jss'
+
+export default createUseStyles({
     label: {
-        display: 'block'
+        display: 'block',
+        color: ({palette}) => palette.mediumDark
     }
-};
+})

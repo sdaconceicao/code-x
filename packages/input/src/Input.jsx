@@ -1,17 +1,18 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import injectSheet from 'react-jss';
-import styles from './Input.styles';
+import { useTheme } from 'react-jss';
+import useStyles from './Input.styles';
 
 export const Input = ({
-    id, name, classes, className, label, errors,
+    id, name, value, className, label, errors,
     onKeyDown, onChange, onBlur, onEnter, 
     ...rest
 }) => {
-    const [value, setValue] = useState(rest.value);
-
+    const [localValue, setLocalValue] = useState(value);
+    const theme = useTheme();
+    const classes = useStyles({...rest, ...theme});
     const handleChange = (e) => {
-        setValue(e.target.value);
+        setLocalValue(e.target.value);
         onChange({
             name,
             value: e.target.value,
@@ -29,17 +30,15 @@ export const Input = ({
 
     return (
         <>
-            <label htmlFor={id} className={classes.label}>
-                {label}
-            </label>
+            {label && <label htmlFor={id} className={classes.label}>{label}</label>}
             <input
                 id={id}
                 name={name}
                 className={`form-control ${className} ${errors ? 'error' : ''}`}
-                value={value}
                 onChange={handleChange}
                 onKeyDown={handleKeyDown}
                 onBlur={onBlur}
+                value={localValue}
                 {...rest}
             />
         </>
@@ -63,4 +62,4 @@ Input.defaultProps = {
     onKeyDown: () => {}
 }
 
-export default injectSheet(styles)(Input)
+export default Input;

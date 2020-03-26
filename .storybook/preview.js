@@ -1,6 +1,11 @@
-import { addDecorator } from '@storybook/react';
+import { addDecorator, addParameters } from '@storybook/react';
 import { withA11y } from '@storybook/addon-a11y';
-import { withInfo } from '@storybook/addon-info';
- 
-addDecorator(withInfo); 
+import { DocsPage, DocsContainer } from '@storybook/addon-docs/blocks';
+
 addDecorator(withA11y);
+addParameters({
+    docs: {
+        container: DocsContainer,
+        page: DocsPage,
+    },
+});
