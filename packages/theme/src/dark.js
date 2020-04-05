@@ -1,5 +1,10 @@
 export default {
-    
+    form: {
+        border: '1px solid #c2c2c2',
+        borderRadius: '.25rem',
+        padding: '0 .5rem',
+        height: '2.25rem'
+    },
     palette: {
         success: '#439843',
         successDark: '#2c572c',

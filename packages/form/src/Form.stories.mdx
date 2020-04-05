@@ -1,0 +1,30 @@
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+import { action } from '@storybook/addon-actions';
+import theme from '@code-x/theme';
+import { ThemeProvider } from 'react-jss';
+import { Input } from '@code-x/input';
+import { Form } from './Form';
+
+<Meta title="Form" component={Form} />
+
+# Form
+An form wraps input elements
+
+<Preview>
+  <Story name="Example">
+    <ThemeProvider theme={theme}>
+        <Form>
+            <Input name="example" 
+                id="example"
+                label="Label" 
+                type="text"
+                value="Lorem Exampum"
+                onChange={action('value changed')}
+                />
+        </Form>
+      </ThemeProvider>
+  </Story>
+</Preview>
+
+## Properties
+<Props of={Form} />

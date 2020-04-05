@@ -1,33 +1,38 @@
 {
-  "name": "@code-x/input",
+  "name": "@code-x/form",
   "version": "0.1.0",
-  "description": "React Form Input",
+  "description": "> TODO: description",
   "author": "Stephen da Conceicao <daconcei472@gmail.com>",
-  "homepage": "https://github.com/sdaconceicao/code-x/tree/master/packages/hooks#readme",
+  "homepage": "https://github.com/sdaconceicao/code-x/tree/master/packages/form#readme",
   "license": "ISC",
-  "main": "src/index.js",
+  "main": "lib/form.js",
   "directories": {
-    "src": "src"
+    "lib": "lib",
+    "test": "__tests__"
   },
   "files": [
-    "src"
+    "lib"
   ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/sdaconceicao/code-x.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
   },
   "bugs": {
     "url": "https://github.com/sdaconceicao/code-x/issues"
   },
   "dependencies": {
     "@code-x/hooks": "^0.1.0",
-    "@code-x/theme": "^0.1.0",
     "prop-types": "^15.7.2",
     "react": "^16.10.2",
     "react-dom": "^16.10.2",
     "react-jss": "^10.0.0"
   },
   "devDependencies": {
+    "@code-x/input": "^0.1.0",
+    "@code-x/theme": "^0.1.0",
     "@storybook/addon-a11y": "^5.3.17",
     "@storybook/addon-docs": "^5.3.17",
     "@storybook/addon-info": "^5.3.17",

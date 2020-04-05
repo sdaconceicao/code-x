@@ -34,7 +34,7 @@ export const Input = ({
             <input
                 id={id}
                 name={name}
-                className={`form-control ${className} ${errors ? 'error' : ''}`}
+                className={`${classes.input} ${className} ${errors ? 'error' : ''}`}
                 onChange={handleChange}
                 onKeyDown={handleKeyDown}
                 onBlur={onBlur}
