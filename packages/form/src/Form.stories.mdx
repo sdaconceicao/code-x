@@ -3,6 +3,7 @@ import { action } from '@storybook/addon-actions';
 import theme from '@code-x/theme';
 import { ThemeProvider } from 'react-jss';
 import { Input } from '@code-x/input';
+import { Checkbox } from '@code-x/checkbox'
 import { Form } from './Form';
 
 <Meta title="Code-X|Form" component={Form} />
@@ -16,11 +17,17 @@ An form wraps input elements
         <Form>
             <Input name="example" 
                 id="example"
-                label="Label" 
+                label="Input" 
                 type="text"
                 value="Lorem Exampum"
-                onChange={action('value changed')}
+                onChange={action('input changed')}
                 />
+             <Checkbox name="example" 
+                id="example"
+                label="Checkbox" 
+                value="Lorem Exampum"
+                onChange={action('checkbox changed')}
+                />   
         </Form>
       </ThemeProvider>
   </Story>

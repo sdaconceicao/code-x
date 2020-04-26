@@ -23,20 +23,25 @@
   "bugs": {
     "url": "https://github.com/sdaconceicao/code-x/issues"
   },
-  "dependencies": {
-    "@code-x/hooks": "^0.1.0",
+  "peerDependencies": {
+    "@code-x/theme": "^0.1.0",
     "prop-types": "^15.7.2",
     "react": "^16.10.2",
     "react-dom": "^16.10.2",
     "react-jss": "^10.0.0"
   },
   "devDependencies": {
+    "@code-x/checkbox": "^0.1.0",
     "@code-x/input": "^0.1.0",
     "@code-x/theme": "^0.1.0",
     "@storybook/addon-a11y": "^5.3.17",
     "@storybook/addon-docs": "^5.3.17",
     "@storybook/addon-info": "^5.3.17",
     "@storybook/addon-knobs": "^5.3.17",
-    "@storybook/addon-storysource": "^5.3.17"
+    "@storybook/addon-storysource": "^5.3.17",
+    "prop-types": "^15.7.2",
+    "react": "^16.10.2",
+    "react-dom": "^16.10.2",
+    "react-jss": "^10.0.0"
   }
 }
