@@ -2,21 +2,20 @@ import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
 import { action } from '@storybook/addon-actions';
 import theme from '@code-x/theme';
 import { ThemeProvider } from 'react-jss';
-import { Input } from '.';
+import Checkbox from './Checkbox';
 
 
-<Meta title="Form Components|Input" component={Input} />
+<Meta title="Form Components|Checkbox" component={Checkbox} />
 
-# Input
-An input is an html form element
+# Checkbox
+A Checkbox is an html form element for controlling boolean values
 
 <Preview>
   <Story name="Example">
     <ThemeProvider theme={theme}>
-      <Input name="example" 
+      <Checkbox name="example" 
         id="example"
         label="Label" 
-        type="text"
         value="Lorem ipsum"
         onChange={action('value changed')}
         />
@@ -25,4 +24,4 @@ An input is an html form element
 </Preview>
 
 ## Properties
-<Props of={Input} />
+<Props of={Checkbox} />
