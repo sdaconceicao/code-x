@@ -29,7 +29,8 @@
     "@storybook/addons": "^5.3.17",
     "@storybook/react": "^5.3.17",
     "babel-loader": "^8.0.6",
-    "lerna": "^3.18.1"
+    "lerna": "^3.18.1",
+    "lerna-update-wizard": "^0.17.8"
   },
   "dependencies": {
     "storybook": "^5.1.11"
