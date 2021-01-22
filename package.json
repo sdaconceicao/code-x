@@ -24,15 +24,13 @@
   "homepage": "https://github.com/sdaconceicao/code-x#readme",
   "devDependencies": {
     "@babel/core": "^7.7.2",
-    "@storybook/addon-actions": "^5.3.17",
-    "@storybook/addon-links": "^5.3.17",
-    "@storybook/addons": "^5.3.17",
-    "@storybook/react": "^5.3.17",
+    "@storybook/addon-a11y": "^6.1.15",
+    "@storybook/addon-actions": "^6.1.15",
+    "@storybook/addon-essentials": "^6.1.15",
+    "@storybook/addon-links": "^6.1.15",
+    "@storybook/react": "^6.1.15",
     "babel-loader": "^8.0.6",
     "lerna": "^3.18.1",
     "lerna-update-wizard": "^0.17.8"
-  },
-  "dependencies": {
-    "storybook": "^5.1.11"
   }
 }

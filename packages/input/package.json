@@ -6,12 +6,9 @@
   "homepage": "https://github.com/sdaconceicao/code-x/tree/master/packages/hooks#readme",
   "license": "ISC",
   "main": "src/index.js",
-  "directories": {
-    "src": "src"
+  "scripts": {
+    "start": "start-storybook -p 3001"
   },
-  "files": [
-    "src"
-  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/sdaconceicao/code-x.git"
@@ -20,7 +17,6 @@
     "url": "https://github.com/sdaconceicao/code-x/issues"
   },
   "peerDependencies": {
-    "@code-x/theme": "^0.1.0",
     "prop-types": "^15.7.2",
     "react": "^16.10.2",
     "react-dom": "^16.10.2",
@@ -28,11 +24,11 @@
   },
   "devDependencies": {
     "@code-x/theme": "^0.1.0",
-    "@storybook/addon-a11y": "^5.3.17",
-    "@storybook/addon-docs": "^5.3.17",
-    "@storybook/addon-info": "^5.3.17",
-    "@storybook/addon-knobs": "^5.3.17",
-    "@storybook/addon-storysource": "^5.3.17",
+    "@storybook/addon-a11y": "^6.1.15",
+    "@storybook/addon-actions": "^6.1.15",
+    "@storybook/addon-essentials": "^6.1.15",
+    "@storybook/addon-links": "^6.1.15",
+    "@storybook/react": "^6.1.15",
     "prop-types": "^15.7.2",
     "react": "^16.10.2",
     "react-dom": "^16.10.2",
