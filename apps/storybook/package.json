@@ -1,0 +1,35 @@
+{
+    "name": "@code-x/storybook",
+    "version": "0.1.0",
+    "description": "A React visual design library",
+    "private": true,
+    "scripts": {
+      "start": "start-storybook -p 6006",
+      "build-storybook": "build-storybook"
+    },
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/sdaconceicao/code-x.git"
+    },
+    "keywords": [
+      "react",
+      "asset",
+      "library"
+    ],
+    "author": "Stephen da Conceicao",
+    "license": "ISC",
+    "bugs": {
+      "url": "https://github.com/sdaconceicao/code-x/issues"
+    },
+    "homepage": "https://github.com/sdaconceicao/code-x#readme",
+    "devDependencies": {
+        "@babel/core": "^7.7.2",
+        "@storybook/addon-a11y": "^6.3.12",
+        "@storybook/addon-actions": "^6.3.12",
+        "@storybook/addon-essentials": "^6.3.12",
+        "@storybook/addon-links": "^6.3.12",
+        "@storybook/react": "^6.3.12",
+        "babel-loader": "^8.0.6"
+    }
+  }
+  

@@ -6,5 +6,5 @@ A React visual design library
 ## Setup
 
 1. npm ci
-2. npm start
-
+2. lerna bootstrap
+3. lerna run start
