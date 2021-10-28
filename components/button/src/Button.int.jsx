@@ -3,7 +3,7 @@ import { mount } from '@cypress/react';
 import { composeStories } from '@storybook/testing-react';
 import * as stories from './Button.template.jsx';
 
-const { BasicUsage } = composeStories(stories);
+const { Button } = composeStories(stories);
 
 describe('Button', () => {
     describe('A11y', () => {
@@ -30,7 +30,7 @@ describe('Button', () => {
             });
         });
         it('Passes a11y test', () => {
-            mount(<BasicUsage />);
+            mount(<Button />);
             cy.checkA11y();
         });
     });

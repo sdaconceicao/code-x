@@ -1,20 +1,18 @@
 import { Meta, Story, Preview, ArgsTable } from '@storybook/addon-docs/blocks';
-import { action } from '@storybook/addon-actions';
-import theme from '@code-x/theme';
-import { ThemeProvider } from 'react-jss';
-import Button from './Button';
+import ButtonComponent from './Button';
+import { Button } from './Button.template';
 
-<Meta title="Form Components/Button" component={Button} />
+<Meta title="Form Components/Button" component={ButtonComponent} />
 
 # Button
-A button is an html
+A button is an html control
 
 <Preview>
-  <Story name="Example">
-   {args => (
-        <Button {...args}>Lorem</Button>
-    )}  
-  </Story>
+    <Story name="Example">
+        {args => (
+            <Button {...args}/>
+        )}
+    </Story>
 </Preview>
 
 ## Properties

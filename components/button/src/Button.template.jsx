@@ -1,10 +1,10 @@
 import React from 'react';
-import { Button } from './index';
+import { Button as ButtonComponent } from './index';
 
 export default {
-    component: Button
+    component: ButtonComponent
 };
 
-export const BasicUsage = (args) => (
-    <Button {...args}>Lorem</Button>
+export const Button = (args) => (
+    <ButtonComponent {...args}>Lorem</ButtonComponent>
 )
