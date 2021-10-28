@@ -32,7 +32,6 @@ export const Checkbox = ({
                 checked={checked}
                 value={value}
                 {...rest}/>
-            
             </label>
     )
 }

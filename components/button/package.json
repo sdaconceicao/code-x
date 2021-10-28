@@ -1,11 +1,11 @@
 {
-  "name": "@code-x/form",
+  "name": "@code-x/button",
   "version": "0.1.0",
   "description": "> TODO: description",
   "author": "Stephen da Conceicao <daconcei472@gmail.com>",
-  "homepage": "https://github.com/sdaconceicao/code-x/tree/master/packages/form#readme",
+  "homepage": "https://github.com/sdaconceicao/code-x/tree/master/packages/checkbox#readme",
   "license": "ISC",
-  "main": "lib/form.js",
+  "main": "src/index",
   "directories": {
     "lib": "lib",
     "test": "__tests__"
@@ -18,7 +18,9 @@
     "url": "git+https://github.com/sdaconceicao/code-x.git"
   },
   "scripts": {
-    "test": "echo \"Error: run tests from root\" && exit 1"
+    "build": "npm run clean && npm run copy && rollup -c",
+    "clean": "shx rm -rf dist",
+    "copy": "shx mkdir dist && shx cp {package.json,README.md,.npmignore} dist"
   },
   "bugs": {
     "url": "https://github.com/sdaconceicao/code-x/issues"
@@ -31,13 +33,14 @@
     "react-jss": "^10.0.0"
   },
   "devDependencies": {
-    "@code-x/button": "^0.1.0",
-    "@code-x/checkbox": "^0.1.0",
-    "@code-x/input": "^0.1.0",
     "@code-x/theme": "^0.1.0",
     "prop-types": "^15.7.2",
     "react": "^16.10.2",
     "react-dom": "^16.10.2",
-    "react-jss": "^10.0.0"
+    "react-jss": "^10.0.0",
+    "rollup": "^2.29.0",
+    "rollup-plugin-babel": "^4.3.0",
+    "rollup-plugin-node-resolve": "^4.0.0",
+    "shx": "^0.3.2"
   }
 }

@@ -13,7 +13,7 @@ module.exports = {
     webpackFinal: async (config, { configType }) => {
         config.module.rules.push({
           test: /.jsx?$/,
-          exclude: /node_modules\/(?!@code-x\/(utilities\-react|buttons-react|theme))/,
+          exclude: /node_modules\/(?!@code-x\/*)/,
           resolve: {
             extensions: ['.js', '.jsx'],
             alias: {

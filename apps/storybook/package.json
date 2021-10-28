@@ -24,12 +24,14 @@
     "homepage": "https://github.com/sdaconceicao/code-x#readme",
     "devDependencies": {
         "@babel/core": "^7.7.2",
+        "@code-x/theme": "^0.1.0",
         "@storybook/addon-a11y": "^6.3.12",
         "@storybook/addon-actions": "^6.3.12",
         "@storybook/addon-essentials": "^6.3.12",
         "@storybook/addon-links": "^6.3.12",
         "@storybook/react": "^6.3.12",
-        "babel-loader": "^8.0.6"
+        "babel-loader": "^8.0.6",
+        "react-jss": "^10.0.0"
     }
   }
   
