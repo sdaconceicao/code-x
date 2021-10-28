@@ -1,3 +1,5 @@
-import dark from './dark';
+import defaultTheme from './default';
 
-export default dark;
+export { default as dark } from './dark';
+export { default as defaultTheme } from './default';
+export default defaultTheme;
