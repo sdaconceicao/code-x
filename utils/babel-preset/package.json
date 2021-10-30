@@ -1,0 +1,17 @@
+{
+  "name": "@code-x/babel-preset",
+  "version": "1.0.0",
+  "description": "Babel presets for use across code-x",
+  "main": "index.js",
+  "license": "ISC",
+  "dependencies": {
+    "@babel/core": "^7.12.10",
+    "@babel/helper-plugin-utils": "^7.10.4",
+    "@babel/parser": "^7.12.11",
+    "@babel/plugin-proposal-class-properties": "^7.12.1",
+    "@babel/plugin-proposal-object-rest-spread": "^7.12.1",
+    "@babel/plugin-proposal-private-methods": "7.16.0",
+    "@babel/preset-env": "^7.12.11",
+    "@babel/preset-react": "^7.12.10"
+  }
+}

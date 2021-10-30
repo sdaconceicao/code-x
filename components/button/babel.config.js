@@ -1,7 +1,4 @@
 module.exports = {
-    "presets": ["@babel/preset-react"],
-    "plugins": [
-        "@babel/plugin-proposal-export-default-from"
-    ]
+  "presets": ["@code-x/babel-preset"]
 }
 
