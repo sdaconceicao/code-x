@@ -1,0 +1,8 @@
+{
+  "name": "@code-x/cypress-config",
+  "version": "0.1.0",
+  "description": "Cypress config for use across code-x",
+  "main": "index.js",
+  "license": "ISC",
+  "private": true
+}

@@ -18,7 +18,12 @@ module.exports = {
   },
   overrides: [{
     files: ['src/**/*.test*'],
-    env: { jest: true },
+    env: {
+      jest: true,
+    },
+    globals: {
+      cy: true
+    },
     rules: {
       'import/no-extraneous-dependencies': 'off',
       'import/no-named-as-default': 'off',
