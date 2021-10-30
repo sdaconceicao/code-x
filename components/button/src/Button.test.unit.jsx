@@ -7,4 +7,4 @@ describe('Button', () => {
     const { getByText } = render(<Button>Lorem</Button>);
     expect(getByText('Lorem')).toBeTruthy();
   });
-})
+});

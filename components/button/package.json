@@ -6,13 +6,6 @@
   "homepage": "https://github.com/sdaconceicao/code-x/tree/master/packages/checkbox#readme",
   "license": "ISC",
   "main": "src/index",
-  "directories": {
-    "lib": "lib",
-    "test": "__tests__"
-  },
-  "files": [
-    "lib"
-  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/sdaconceicao/code-x.git"
@@ -20,7 +13,8 @@
   "scripts": {
     "build": "npm run clean && npm run copy && rollup -c",
     "clean": "shx rm -rf dist",
-    "copy": "shx mkdir dist && shx cp {package.json,README.md,.npmignore} dist"
+    "copy": "shx mkdir dist && shx cp {package.json,README.md,.npmignore} dist",
+    "lint": "eslint . --ext .js --ext .jsx --fix"
   },
   "bugs": {
     "url": "https://github.com/sdaconceicao/code-x/issues"
@@ -33,7 +27,8 @@
     "react-jss": "^10.0.0"
   },
   "devDependencies": {
-    "@code-x/babel-preset": "1.0.0",
+    "@code-x/babel-preset": "0.1.0",
+    "@code-x/eslint-config": "0.1.0",
     "@code-x/theme": "^0.1.0",
     "prop-types": "^15.7.2",
     "react": "^16.10.2",

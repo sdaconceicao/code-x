@@ -28,7 +28,7 @@
     "homepage": "https://github.com/sdaconceicao/code-x#readme",
     "devDependencies": {
       "@babel/plugin-proposal-export-default-from": "7.14.5",
-      "@code-x/babel-preset": "1.0.0",
+      "@code-x/babel-preset": "0.1.0",
       "@code-x/theme": "^0.1.0",
       "@cypress/react": "^5.9.4",
       "@cypress/webpack-dev-server": "^1.4.0",

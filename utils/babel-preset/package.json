@@ -1,11 +1,12 @@
 {
   "name": "@code-x/babel-preset",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "Babel presets for use across code-x",
   "main": "index.js",
   "license": "ISC",
+  "private": true,
   "dependencies": {
-    "@babel/core": "^7.12.10",
+    "@babel/core": "^7.16.0",
     "@babel/helper-plugin-utils": "^7.10.4",
     "@babel/parser": "^7.12.11",
     "@babel/plugin-proposal-class-properties": "^7.12.1",

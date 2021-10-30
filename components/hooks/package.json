@@ -19,7 +19,12 @@
   "bugs": {
     "url": "https://github.com/sdaconceicao/code-x/issues"
   },
+  "scripts": {
+    "lint": "eslint . --ext .js --ext .jsx --fix"
+  },
   "devDependencies": {
+    "@code-x/babel-preset": "0.1.0",
+    "@code-x/eslint-config": "0.1.0",
     "react": "^16.11.0"
   }
 }

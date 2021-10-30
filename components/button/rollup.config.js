@@ -35,7 +35,7 @@ export default {
           ...memo, [packageName]: createUMDName(packageName)
         }), {}),
       'prop-types': 'PropTypes',
-      react: 'React',
+      'react': 'React',
       'react-dom': 'ReactDOM'
     }
   }],

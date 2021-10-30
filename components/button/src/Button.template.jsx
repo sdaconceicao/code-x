@@ -2,9 +2,9 @@ import React from 'react';
 import { Button as ButtonComponent } from './index';
 
 export default {
-    component: ButtonComponent
+  component: ButtonComponent
 };
 
 export const Button = (args) => (
-    <ButtonComponent {...args}>Lorem</ButtonComponent>
-)
+  <ButtonComponent {...args}>Lorem</ButtonComponent>
+);
