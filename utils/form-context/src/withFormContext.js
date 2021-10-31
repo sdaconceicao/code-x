@@ -16,9 +16,9 @@ export default (Component) => {
 
     return (
       <Component errors={errors}
-                 onChange={onChange}
                  {...props}
-                 />
+                 onChange={onChange}
+      />
     )
   }
 };

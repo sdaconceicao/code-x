@@ -1,16 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { FormContext } from '@code-x/form-context';
 
 export const Form = ({ children, className, onSubmit }) => {
+  const [dirty, setDirty] = useState(false);
   const handleSubmit = (e) => {
     e.preventDefault();
     onSubmit();
+    setDirty(false);
   };
 
-  const onChange = (name, value) => {
-    // TODO
-    console.log('name:value', name, value);
+  const onChange = ({ name, value }) => {
+    console.log('name:value', name, value, dirty);
+    setDirty(true);
   };
 
   return (
