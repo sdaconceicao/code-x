@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
-import { FormContext } from './Form.context';
+import { FormContext } from '@code-x/form-context';
 
 export const Form = ({ children, className, onSubmit }) => {
   const handleSubmit = (e) => {

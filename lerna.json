@@ -1,6 +1,7 @@
 {
   "packages": [
     "apps/*",
+    "config/*",
     "components/*",
     "utils/*"
   ],
