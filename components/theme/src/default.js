@@ -20,7 +20,7 @@ export default {
         infoLight: '#63cfff',
         white: '#fff',
         light: '#E9EEF1',
-        mediumLight: 'c2c2c2',
+        mediumLight: '#c2c2c2',
         mediumDark: '#666'
     },
     fonts: {

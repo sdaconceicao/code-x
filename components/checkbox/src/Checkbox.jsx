@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { useTheme } from 'react-jss';
+import { withFormContext } from '@code-x/form-context';
 import useStyles from './Checkbox.styles';
 
 export const Checkbox = ({
@@ -59,4 +60,4 @@ Checkbox.defaultProps = {
   onKeyDown: () => {}
 };
 
-export default Checkbox;
+export default withFormContext(Checkbox);

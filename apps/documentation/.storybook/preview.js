@@ -1,9 +1,12 @@
-import { addDecorator, addParameters } from '@storybook/react';
+import { addParameters } from '@storybook/react';
 import { withA11y } from '@storybook/addon-a11y';
 import { DocsPage, DocsContainer } from '@storybook/addon-docs/blocks';
 import { ThemeProvider, createUseStyles } from 'react-jss';
+import { IntlProvider } from 'react-intl'
 import theme from '@code-x/theme';
+import { enUSMessages as enUSLabelMessages } from '@code-x/label';
 
+const messages = { ...enUSLabelMessages };
 const useStyles = createUseStyles({
     '@global': {
         html: {
@@ -15,15 +18,22 @@ const useStyles = createUseStyles({
     }
 });
 
+const withI18nProvider = (Story) => (
+  <IntlProvider messages={messages} locale="en" defaultLocale="en">
+    <Story />
+  </IntlProvider>
+)
+
+
 const withThemeProvider = (Story,context) => {
-    const classes = useStyles();
-    return (
-        <ThemeProvider theme={theme}>
-            <Story classes={classes} {...context}/>
-        </ThemeProvider>
-    )
+  const classes = useStyles();
+  return (
+    <ThemeProvider theme={theme}>
+      <Story classes={classes} {...context}/>
+    </ThemeProvider>
+  )
 }
-  
+
 addParameters({
     docs: {
         container: DocsContainer,
@@ -31,4 +41,4 @@ addParameters({
     },
 });
 
-export const decorators = [withThemeProvider, withA11y];
+export const decorators = [withI18nProvider, withThemeProvider, withA11y];

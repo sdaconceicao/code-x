@@ -10,8 +10,8 @@ export const Form = ({ children, className, onSubmit }) => {
     setDirty(false);
   };
 
-  const onChange = ({ name, value }) => {
-    console.log('name:value', name, value, dirty);
+  const onChange = ({ name, value, checked }) => {
+    console.log('name:value', name, value, checked, dirty);
     setDirty(true);
   };
 

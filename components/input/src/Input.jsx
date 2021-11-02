@@ -2,16 +2,19 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { useTheme } from 'react-jss';
 import { withFormContext } from '@code-x/form-context';
+import { Label } from '@code-x/label';
 import useStyles from './Input.styles';
 
 export const Input = ({
-  id, name, value, className, label, errors,
+  id, name, value, className, errors,
   onKeyDown, onChange, onBlur, onEnter,
+  label, required, optional,
   ...rest
 }) => {
   const [localValue, setLocalValue] = useState(value);
   const theme = useTheme();
   const classes = useStyles({ ...rest, ...theme });
+  const LabelProps = { required, optional };
   const handleChange = (e) => {
     setLocalValue(e.target.value);
     onChange({
@@ -31,7 +34,7 @@ export const Input = ({
 
   return (
     <>
-      {label && <label htmlFor={id} className={classes.label}>{label}</label>}
+      {label && <Label {...LabelProps}>{label}</Label>}
       <input
         id={id}
         name={name}
