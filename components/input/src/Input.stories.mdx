@@ -1,4 +1,4 @@
-import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs';
 import { action } from '@storybook/addon-actions';
 import theme from '@code-x/theme';
 import { ThemeProvider } from 'react-jss';
@@ -10,19 +10,20 @@ import { Input } from '.';
 # Input
 An input is an html form element
 
-<Preview>
+<Canvas>
   <Story name="Example">
-    <ThemeProvider theme={theme}>
+    {args => (
       <Input name="example" 
         id="example"
         label="Label" 
         type="text"
         value="Lorem ipsum"
         onChange={action('value changed')}
+        {...args}
         />
-      </ThemeProvider>
+    )}
   </Story>
-</Preview>
+</Canvas>
 
 ## Properties
-<Props of={Input} />
+<ArgsTable story="Example" />

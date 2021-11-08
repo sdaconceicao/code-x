@@ -1,6 +1,5 @@
 import { addParameters } from '@storybook/react';
-import { withA11y } from '@storybook/addon-a11y';
-import { DocsPage, DocsContainer } from '@storybook/addon-docs/blocks';
+import { DocsPage, DocsContainer } from '@storybook/addon-docs';
 import { ThemeProvider, createUseStyles } from 'react-jss';
 import { IntlProvider } from 'react-intl'
 import theme from '@code-x/theme';
@@ -24,7 +23,6 @@ const withI18nProvider = (Story) => (
   </IntlProvider>
 )
 
-
 const withThemeProvider = (Story,context) => {
   const classes = useStyles();
   return (
@@ -38,7 +36,7 @@ addParameters({
     docs: {
         container: DocsContainer,
         page: DocsPage,
-    },
+    }
 });
 
-export const decorators = [withI18nProvider, withThemeProvider, withA11y];
+export const decorators = [withI18nProvider, withThemeProvider];

@@ -1,4 +1,4 @@
-import { Meta, Story, Preview, ArgsTable } from '@storybook/addon-docs/blocks';
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs';
 import ButtonComponent from './Button';
 import { Button } from './Button.template';
 
@@ -7,13 +7,13 @@ import { Button } from './Button.template';
 # Button
 A button is an html control
 
-<Preview>
+<Canvas>
     <Story name="Example">
         {args => (
             <Button {...args}/>
         )}
     </Story>
-</Preview>
+</Canvas>
 
 ## Properties
 <ArgsTable story="Example" />
