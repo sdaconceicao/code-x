@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useTheme } from 'react-jss';
-import { FormattedMessage } from 'react-intl'
+import { FormattedMessage } from 'react-intl';
 import useStyles from './Label.styles';
 
 const Label = ({
@@ -13,9 +13,9 @@ const Label = ({
     <label htmlFor={htmlFor} className={classes.label}>
       <span className={classes.content}>{children}</span>
       {required && <span className={classes.required}>*</span>}
-      {optional && <span className={classes.optional}>
-        <FormattedMessage id="optional" />
-      </span>}
+      {optional && (
+        <span className={classes.optional}><FormattedMessage id="optional" /></span>
+      )}
     </label>
   );
 };
