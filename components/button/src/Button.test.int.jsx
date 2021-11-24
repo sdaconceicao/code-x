@@ -13,7 +13,7 @@ describe('Button', () => {
       cy.configureAxe(componentRuleExclusions);
     });
     it('Passes a11y test', () => {
-      mount(<Button />);
+      mount(<Button>Lorem</Button>);
       cy.checkA11y();
     });
   });

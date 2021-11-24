@@ -6,5 +6,5 @@ export default {
 };
 
 export const Button = (args) => (
-  <ButtonComponent {...args}>Lorem</ButtonComponent>
+  <ButtonComponent {...args} />
 );

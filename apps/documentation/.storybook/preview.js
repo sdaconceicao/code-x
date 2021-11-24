@@ -1,3 +1,4 @@
+import React from 'react';
 import { addParameters } from '@storybook/react';
 import { DocsPage, DocsContainer } from '@storybook/addon-docs';
 import { ThemeProvider, createUseStyles } from 'react-jss';
@@ -39,4 +40,4 @@ addParameters({
     }
 });
 
-export const decorators = [withI18nProvider, withThemeProvider];
+export const decorators = [withThemeProvider, withI18nProvider];

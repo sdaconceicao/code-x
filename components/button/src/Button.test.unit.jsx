@@ -1,6 +1,9 @@
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
-import Button from './Button';
+import { composeStories } from '@storybook/testing-react';
+import * as stories from './Button.template.jsx';
+
+const { Button } = composeStories(stories);
 
 describe('Button', () => {
   it('renders', () => {
