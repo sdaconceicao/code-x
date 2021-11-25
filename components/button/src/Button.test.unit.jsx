@@ -6,7 +6,7 @@ import * as stories from './Button.template.jsx';
 const { Button } = composeStories(stories);
 
 describe('Button', () => {
-  it('renders', () => {
+  it('renders a button with given text', () => {
     const { getByRole } = render(<Button>Lorem</Button>);
     expect(getByRole('button', { name: 'Lorem' })).toBeTruthy();
   });

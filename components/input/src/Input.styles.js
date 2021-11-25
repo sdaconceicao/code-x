@@ -1,9 +1,9 @@
-import { createUseStyles } from 'react-jss';
+import { createUseStyles } from '@code-x/theme';
 
 export default createUseStyles({
   input: {
     border: ({ form }) => form.border,
-    borderRadius: ({ form }) => form.border,
+    borderRadius: ({ form }) => form.borderRadius,
     height: ({ form }) => form.height,
     padding: '0 .5rem'
   },

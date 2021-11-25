@@ -1,4 +1,6 @@
-export default ({ palette, form }) => ({
+import { createUseStyles } from '@code-x/theme';
+
+const styles = ({ palette, form }) => ({
   button: {
     padding: 5,
     borderRadius: form.borderRadius
@@ -10,3 +12,5 @@ export default ({ palette, form }) => ({
     color: palette.success
   }
 });
+
+export default createUseStyles(styles);

@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { useTheme } from 'react-jss';
 import { withFormContext } from '@code-x/form-context';
 import { withFormElement } from '@code-x/form-element';
 import useStyles from './Input.styles';
@@ -11,8 +10,7 @@ export const Input = ({
   ...rest
 }) => {
   const [localValue, setLocalValue] = useState(value);
-  const theme = useTheme();
-  const classes = useStyles({ ...rest, ...theme });
+  const classes = useStyles({ ...rest });
   const handleChange = (e) => {
     setLocalValue(e.target.value);
     onChange({
@@ -47,7 +45,7 @@ export const Input = ({
 Input.propTypes = {
   className: PropTypes.string,
   name: PropTypes.string.isRequired,
-  id: PropTypes.string.isRequired,
+  id: PropTypes.string,
   label: PropTypes.string,
   value: PropTypes.string,
   errors: PropTypes.instanceOf(Array),
@@ -58,6 +56,7 @@ Input.propTypes = {
 };
 
 Input.defaultProps = {
+  id: undefined,
   className: '',
   label: '',
   value: undefined,

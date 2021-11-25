@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { useStylesWithTheme } from '@code-x/theme';
-import jssStyles from './Button.styles';
+import useStyles from './Button.styles';
 
 export const styles = {
   primary: 'primary',
@@ -12,7 +11,7 @@ export const styles = {
 export const Button = ({
   children, disabled, className, onClick, type, style, ...rest
 }) => {
-  const classes = useStylesWithTheme(jssStyles);
+  const classes = useStyles();
   return (
     <button className={`${classes.button} ${classes[style]} ${className}`} type={type} onClick={onClick} {...rest}>
       {children}
