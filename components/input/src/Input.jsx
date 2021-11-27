@@ -7,6 +7,7 @@ import useStyles from './Input.styles';
 export const Input = ({
   id, name, value, className, errors,
   onKeyDown, onChange, onBlur, onEnter,
+  getValue, doValidate, //Form Context provided props to not include in dom
   ...rest
 }) => {
   const [localValue, setLocalValue] = useState(value);
