@@ -60,4 +60,7 @@ Checkbox.defaultProps = {
   onKeyDown: () => {}
 };
 
-export default withFormContext(Checkbox);
+const FormElementCheckbox = withFormContext(Checkbox);
+FormElementCheckbox.displayName = 'Checkbox';
+
+export default FormElementCheckbox;

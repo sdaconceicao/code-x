@@ -1,6 +1,6 @@
 import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs';
 import { action } from '@storybook/addon-actions';
-import Checkbox from './Checkbox';
+import CheckboxFormElement, { Checkbox } from './Checkbox';
 
 <Meta title="Form Components/Checkbox" component={Checkbox} />
 
@@ -10,9 +10,9 @@ A Checkbox is an html form element for controlling boolean values
 <Canvas>
   <Story name="Example">
     {args => (
-    <Checkbox name="example" 
+    <CheckboxFormElement name="example"
       id="example"
-      label="Label" 
+      label="Label"
       value="Lorem ipsum"
       onChange={action('value changed')}
       {...args}

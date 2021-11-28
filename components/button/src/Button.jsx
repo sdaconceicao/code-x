@@ -6,14 +6,20 @@ export const styles = {
   primary: 'primary',
   secondary: 'secondary',
   tertiary: 'tertiary'
-}
+};
+
+export const sizes = {
+  sm: 'sm',
+  md: 'md',
+  lg: 'lg'
+};
 
 export const Button = ({
-  children, disabled, className, onClick, type, style, ...rest
+  children, disabled, className, onClick, type, style, size, withInput, ...rest
 }) => {
-  const classes = useStyles();
+  const classes = useStyles({withInput});
   return (
-    <button className={`${classes.button} ${classes[style]} ${className}`} type={type} onClick={onClick} {...rest}>
+    <button className={`${classes.button} ${classes[style]} ${classes[size]} ${className}`} type={type} onClick={onClick} {...rest}>
       {children}
     </button>
   )
@@ -28,8 +34,12 @@ Button.propTypes = {
   disabled: PropTypes.bool,
   /** HTML button type */
   type: PropTypes.oneOf(['submit', 'button']),
+  /** Size of button */
+  size: PropTypes.oneOf(Object.keys(sizes)),
   /** Visual style of button */
   style: PropTypes.oneOf(Object.keys(styles)),
+  /** Button attached to an input */
+  withInput: PropTypes.bool,
   /** Contents of button */
   children: PropTypes.oneOfType([PropTypes.string, PropTypes.node]).isRequired,
   /** Callback for button click */
@@ -41,6 +51,8 @@ Button.defaultProps = {
   disabled: false,
   type: 'button',
   style: styles.primary,
+  size: sizes.md,
+  withInput: false,
   className: '',
   onClick: undefined
 };

@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { Meta, Story, Preview, Props } from '@storybook/addon-docs';
-import { action } from '@storybook/addon-actions';
 import { Input } from '@code-x/input';
 import { Checkbox } from '@code-x/checkbox';
 import { Button } from '@code-x/button';
@@ -20,18 +19,28 @@ An form wraps input elements
             setResults(result);
           })}>
           <Input name="example"
-              id="example"
-              label="Input"
-              type="text"
-              value="Lorem Exampum"
+            id="example"
+            label="Input"
+            type="text"
+            value="Lorem Exampum"
+            />
+            <span>
+              <Input name="example2"
+                     id="example2"
+                     label="Input With Button"
+                     type="text"
+                     value="Lorem"
+                     withButton
               />
-            <Checkbox name="example"
-              id="example"
-              label="Checkbox"
-              value="Lorem Exampum"
-              />
-              <div>{results?.toString()}</div>
-            <Button type="submit">Submit</Button>
+              <Button withInput>Search</Button>
+            </span>
+          <Checkbox name="checkboxEx"
+            id="checkboxEx"
+            label="Checkbox"
+            value="Lorem Exampum"
+            />
+            <div>{results?.toString()}</div>
+          <Button type="submit">Submit</Button>
       </Form>
       )
     }}

@@ -10,15 +10,16 @@ export const withFormElement = (FormElement) => {
   };
   return ({
     // eslint-disable-next-line react/prop-types
-    label, required, optional, error, ...rest
+    label, required, optional, error, id, ...rest
   }) => (
     <FormElementWrapper
       label={label}
       required={required}
       optional={optional}
       error={error}
+      id={id}
     >
-      <FormElement doValidate={doValidate} getValue={getValue} {...rest} />
+      <FormElement id={id} doValidate={doValidate} getValue={getValue} {...rest} />
     </FormElementWrapper>
   );
 };

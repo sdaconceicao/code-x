@@ -5,17 +5,17 @@ import { Label } from '@code-x/label';
 import useStyles from './FormElementWrapper.styles';
 
 const FormElementWrapper = ({
-  label, required, optional,
+  label, required, optional, id,
   error, children
 }) => {
   const theme = useTheme();
   const classes = useStyles({ ...theme });
   return (
-    <div className={classes.formComponent}>
-      {label && <Label required={required} optional={optional}>label</Label>}
+    <span className={classes.formComponent}>
+      {label && <Label required={required} optional={optional} htmlFor={id}>{label}</Label>}
       {children}
       {error && <div>{error}</div>}
-    </div>
+    </span>
   );
 };
 

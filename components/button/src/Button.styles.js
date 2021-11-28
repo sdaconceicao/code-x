@@ -2,10 +2,14 @@ import { createUseStyles } from '@code-x/theme';
 
 const styles = ({ palette, form }) => ({
   button: {
-    padding: 5,
-    borderRadius: form.borderRadius,
+    borderRadius: ({withInput})=> withInput
+      ? `0 ${form.borderRadius} ${form.borderRadius} 0`
+      : form.borderRadius,
+    borderWidth: ({withInput})=> withInput ? `1px 1px 1px 0` : 1,
+    borderStyle: 'solid',
     cursor: 'pointer',
-    transition: form.transition
+    transition: form.transition,
+    display: 'inline-block'
   },
   primary: {
     backgroundColor: palette.primaryBg,
@@ -37,8 +41,14 @@ const styles = ({ palette, form }) => ({
       borderColor: palette.tertiaryBorderHover,
     }
   },
-  disabled: {
-
+  sm: {
+    padding: '.25rem',
+  },
+  md: {
+    padding: form.padding,
+  },
+  lg: {
+    padding: '1rem'
   }
 });
 
