@@ -9,7 +9,11 @@ const styles = ({ palette, form }) => ({
     borderStyle: 'solid',
     cursor: 'pointer',
     transition: form.transition,
-    display: 'inline-block'
+    display: 'inline-block',
+    '&:focus': {
+      outline: 'none',
+      boxShadow: `0 0 0 1pt ${form.focusColor}`
+    }
   },
   primary: {
     backgroundColor: palette.primaryBg,

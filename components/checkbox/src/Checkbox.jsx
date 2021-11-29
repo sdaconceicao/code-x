@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { useTheme } from 'react-jss';
 import { withFormContext } from '@code-x/form-context';
 import useStyles from './Checkbox.styles';
 
@@ -10,8 +9,7 @@ export const Checkbox = ({
   ...rest
 }) => {
   const [checked, setChecked] = useState(rest.checked);
-  const theme = useTheme();
-  const classes = useStyles({ ...rest, ...theme });
+  const classes = useStyles();
   const handleChange = (e) => {
     setChecked(e.target.checked);
     onChange({
@@ -21,21 +19,20 @@ export const Checkbox = ({
       dirty: true
     });
   };
-
   return (
     <label htmlFor={id} className={classes.label}>
-      {label}
       <input
         id={id}
         type="checkbox"
         name={name}
-        className={`${classes.input} ${className} ${errors ? 'error' : ''}`}
+        className={`${classes.checkbox} ${className} ${errors ? 'error' : ''}`}
         onChange={handleChange}
-        checked={checked}
         value={value}
         onKeyDown={onKeyDown}
         {...rest}
+        checked={checked}
       />
+      {label}
     </label>
   );
 };
@@ -47,6 +44,7 @@ Checkbox.propTypes = {
   label: PropTypes.string,
   value: PropTypes.string,
   errors: PropTypes.instanceOf(Array),
+  checked: PropTypes.bool,
   onChange: PropTypes.func,
   onKeyDown: PropTypes.func
 };
@@ -55,6 +53,7 @@ Checkbox.defaultProps = {
   className: '',
   label: '',
   value: undefined,
+  checked: false,
   errors: [],
   onChange: () => {},
   onKeyDown: () => {}

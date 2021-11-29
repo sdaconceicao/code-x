@@ -20,11 +20,15 @@ const colors = {
 
 export default {
   form: {
-    border: '1px solid #c2c2c2',
+    border: `1px solid ${colors.g400}`,
+    borderColor: colors.g400,
     borderRadius: '.25rem',
+    margin: '.5rem 0',
     padding: '.5rem',
     height: '2.25rem',
-    transition: 'color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out'
+    transition: 'color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out',
+    focusColor: colors.primary,
+    disabledColor: colors.g300
   },
   palette: {
     primaryBg: colors.primary,
