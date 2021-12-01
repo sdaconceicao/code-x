@@ -4,7 +4,7 @@ import { withFormContext } from '@code-x/form-context';
 import { withFormElement } from '@code-x/form-element';
 import useStyles from './Input.styles';
 
-export const Input = ({
+export const InputComponent = ({
   id, name, value, className, errors, withButton,
   onKeyDown, onChange, onBlur, onEnter,
   getValue, doValidate, //Form Context provided props to not include in dom
@@ -43,7 +43,7 @@ export const Input = ({
   );
 };
 
-Input.propTypes = {
+InputComponent.propTypes = {
   /** HTML id of element */
   id: PropTypes.string,
   /** Classname to override default element styling */
@@ -68,7 +68,7 @@ Input.propTypes = {
   withButton: PropTypes.bool
 };
 
-Input.defaultProps = {
+InputComponent.defaultProps = {
   id: undefined,
   className: '',
   label: '',
@@ -80,8 +80,8 @@ Input.defaultProps = {
   onKeyDown: () => {},
   withButton: false
 };
-
-const InputFormElement = withFormElement(withFormContext(Input));
+export const InputWithContext = withFormContext(InputComponent);
+const InputFormElement = withFormElement(InputWithContext);
 InputFormElement.displayName = 'Input';
 
 export default InputFormElement;

@@ -1,51 +1,51 @@
 import { useState } from 'react';
 import { Meta, Story, Preview, Props } from '@storybook/addon-docs';
-import { Input } from '@code-x/input';
+import { Input, InputWithContext } from '@code-x/input';
 import { Checkbox } from '@code-x/checkbox';
 import { Button } from '@code-x/button';
+import { FormElementWrapper } from '@code-x/form-element';
 import { Form } from './Form';
 
-<Meta title="Form Components/Form" component={Form} />
+<Meta title="Form Components/Form" component={Form}/>
 
 # Form
 An form wraps input elements
 
 <Preview>
   <Story name="Example">
-      {()=>{
-        const [results, setResults] = useState();
-        return (
-          <Form onSubmit={(result=>{
-            setResults(result);
-          })}>
+    {() => {
+      const [results, setResults] = useState(null);
+      return (
+        <Form onSubmit={(result => {
+          setResults(result);
+        })}>
           <Input name="example"
-            id="example"
-            label="Input"
-            type="text"
-            value="Lorem Exampum"
+                 id="example"
+                 label="Input"
+                 type="text"
+                 value="Lorem Exampum"
+          />
+          <FormElementWrapper label="Input With Button" id="example2">
+            <InputWithContext name="example2"
+                              id="example2"
+                              type="text"
+                              value="Lorem"
+                              withButton
             />
-            <span>
-              <Input name="example2"
-                     id="example2"
-                     label="Input With Button"
-                     type="text"
-                     value="Lorem"
-                     withButton
-              />
-              <Button withInput>Search</Button>
-            </span>
+            <Button withInput>Search</Button>
+          </FormElementWrapper>
           <Checkbox name="checkboxEx"
-            id="checkboxEx"
-            label="Checkbox"
-            value="Lorem Exampum"
-            />
-            <div>{results?.toString()}</div>
+                    id="checkboxEx"
+                    label="Checkbox"
+                    value="Lorem Exampum"
+          />
+          <div>{results?.toString()}</div>
           <Button type="submit">Submit</Button>
-      </Form>
+        </Form>
       )
     }}
   </Story>
 </Preview>
 
 ## Properties
-<Props of={Form} />
+<Props of={Form}/>

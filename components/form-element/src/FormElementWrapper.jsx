@@ -11,11 +11,11 @@ const FormElementWrapper = ({
   const theme = useTheme();
   const classes = useStyles({ ...theme });
   return (
-    <span className={classes.formComponent}>
+    <div className={classes.formComponent}>
       {label && <Label required={required} optional={optional} htmlFor={id}>{label}</Label>}
       {children}
       {error && <div>{error}</div>}
-    </span>
+    </div>
   );
 };
 
