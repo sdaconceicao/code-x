@@ -1,12 +1,21 @@
-import React, { useState } from 'react';
+import React, { useState, useReducer } from 'react';
 import PropTypes from 'prop-types';
 import { FormContext } from '@code-x/form-context';
+import reducer, { actions } from './Form.reducer';
 
 export const Form = ({ children, className, onSubmit }) => {
   const [dirty, setDirty] = useState(false);
+  const [elements, updateElements] = useReducer(reducer, []);
   const handleSubmit = (e) => {
     e.preventDefault();
-    onSubmit();
+    let result = [];
+    elements.map(element=>{
+      result.push({
+        name: element.props.name,
+        value: element.props.innerRef.current.getValue()
+      });
+    });
+    onSubmit(result);
     setDirty(false);
   };
 
@@ -15,9 +24,19 @@ export const Form = ({ children, className, onSubmit }) => {
     setDirty(true);
   };
 
+  const addFormElement = (element) =>{
+    updateElements({type: actions.ADD, value: element});
+  };
+
+  const removeFormElement = (element) =>{
+    updateElements({type: actions.REMOVE, value: element});
+  };
+
   return (
     <FormContext.Provider value={{
-      onChange
+      onChange,
+      addFormElement,
+      removeFormElement
     }}
     >
       <form onSubmit={handleSubmit} className={`${className}`}>

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useImperativeHandle } from 'react';
 import PropTypes from 'prop-types';
 import { withFormContext } from '@code-x/form-context';
 import { withFormElement } from '@code-x/form-element';
@@ -6,8 +6,7 @@ import useStyles from './Input.styles';
 
 export const InputComponent = ({
   id, name, value, className, errors, withButton,
-  onKeyDown, onChange, onBlur, onEnter,
-  getValue, doValidate, //Form Context provided props to not include in dom
+  onKeyDown, onChange, onBlur, onEnter, innerRef,
   ...rest
 }) => {
   const [localValue, setLocalValue] = useState(value);
@@ -29,10 +28,15 @@ export const InputComponent = ({
     onKeyDown(e);
   };
 
+  useImperativeHandle(innerRef, () => ({
+    getValue: () => localValue
+  }));
+
   return (
     <input
       id={id}
       name={name}
+      ref={innerRef}
       className={`${classes.input} ${className} ${errors ? 'error' : ''}`}
       onChange={handleChange}
       onKeyDown={handleKeyDown}
@@ -65,7 +69,9 @@ InputComponent.propTypes = {
   /** Callback for keydown event */
   onKeyDown: PropTypes.func,
   /** Display input with a sibling attached button */
-  withButton: PropTypes.bool
+  withButton: PropTypes.bool,
+  /** Ref for input */
+  innerRef: PropTypes.object
 };
 
 InputComponent.defaultProps = {
@@ -78,7 +84,8 @@ InputComponent.defaultProps = {
   onChange: () => {},
   onEnter: () => {},
   onKeyDown: () => {},
-  withButton: false
+  withButton: false,
+  innerRef: undefined
 };
 export const InputWithContext = withFormContext(InputComponent);
 const InputFormElement = withFormElement(InputWithContext);

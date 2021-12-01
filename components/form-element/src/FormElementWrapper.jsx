@@ -1,19 +1,23 @@
-import React from 'react';
+import React, { Children, useRef, cloneElement } from 'react';
 import PropTypes from 'prop-types';
-import { useTheme } from 'react-jss';
 import { Label } from '@code-x/label';
+import { useFormContext } from '@code-x/form-context';
 import useStyles from './FormElementWrapper.styles';
 
 const FormElementWrapper = ({
   label, required, optional, id,
   error, children
 }) => {
-  const theme = useTheme();
-  const classes = useStyles({ ...theme });
+  const ref = useRef();
+  const refWithChildren = Children.map(children, (child) => cloneElement(child, {
+    innerRef: ref
+  }))
+  const classes = useStyles();
+  useFormContext(refWithChildren);
   return (
     <div className={classes.formComponent}>
       {label && <Label required={required} optional={optional} htmlFor={id}>{label}</Label>}
-      {children}
+      {refWithChildren}
       {error && <div>{error}</div>}
     </div>
   );

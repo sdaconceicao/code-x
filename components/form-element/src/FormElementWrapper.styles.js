@@ -1,4 +1,4 @@
-import { createUseStyles } from 'react-jss';
+import { createUseStyles } from '@code-x/theme';
 
 export default createUseStyles({
   formComponent: {
