@@ -1,6 +1,6 @@
 import { createUseStyles } from '@code-x/theme';
 
-const styles = ({ form }) => ({
+export default createUseStyles(({ palette, form })=>({
   input: {
     border: form.border,
     borderRadius: ({withButton}) => withButton ? `${form.borderRadius} 0 0 ${form.borderRadius}` : form.borderRadius,
@@ -11,8 +11,6 @@ const styles = ({ form }) => ({
     }
   },
   error: {
-    borderColor: ({ palette }) => palette.error
+    borderColor: palette.error
   }
-});
-
-export default createUseStyles(styles);
+}));

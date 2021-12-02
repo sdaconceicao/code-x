@@ -1,15 +1,15 @@
 import { createUseStyles } from '@code-x/theme';
 
-const styles = ({ palette, form }) => ({
+export default createUseStyles(({ palette, form })=>({
   button: {
-    borderRadius: ({withInput})=> withInput
+    borderRadius: ({ withInput })=> withInput
       ? `0 ${form.borderRadius} ${form.borderRadius} 0`
       : form.borderRadius,
     borderWidth: ({withInput})=> withInput ? `1px 1px 1px 0` : 1,
     borderStyle: 'solid',
     cursor: 'pointer',
     transition: form.transition,
-    display: 'inline-block',
+    display: ({ display }) => display,
     '&:focus': {
       outline: 'none',
       boxShadow: `0 0 0 1pt ${form.focusColor}`
@@ -54,6 +54,4 @@ const styles = ({ palette, form }) => ({
   lg: {
     padding: '1rem'
   }
-});
-
-export default createUseStyles(styles);
+}));

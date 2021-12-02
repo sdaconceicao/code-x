@@ -15,6 +15,7 @@ An form wraps input elements
   <Story name="Example">
     {() => {
       const [results, setResults] = useState(null);
+      const [searchValue, setSearchValue] = useState('lorem');
       return (
         <Form onSubmit={(result => {
           setResults(result);
@@ -29,27 +30,35 @@ An form wraps input elements
             <InputWithContext name="example2"
                               id="example2"
                               type="text"
-                              value="Lorem"
+                              value={searchValue}
                               withButton
             />
-            <Button withInput>Search</Button>
+            <Button withInput display="inlineBlock"
+                    onClick={()=>setSearchValue(`${searchValue} searched`)}>Search</Button>
           </FormElementWrapper>
           <Checkbox name="checkboxEx"
-                    id="checkboxEx"
-                    label="Checkbox"
-                    value="Lorem Exampum"
+                    id="checkboxEx1"
+                    label="Lorem Checkum"
+                    value="Lorem Checkum"
+                    inline
           />
+          <Checkbox name="checkboxEx"
+                    id="checkboxEx2"
+                    label="Ipsum Checkum"
+                    value="Ipsum Checkum"
+                    inline
+          />
+          <Button type="submit">Submit</Button>
           {results && (
             <div>
               <h2>Form Output</h2>
               <ul>
-                {results.map(result =>(
-                  <li key={result.name}>{result.name} - {result.value}</li>
+                {Object.keys(results).map(name =>(
+                  <li key={name}>{name} - {results[name].value}</li>
                 ))}
               </ul>
             </div>
           )}
-          <Button type="submit">Submit</Button>
         </Form>
       )
     }}

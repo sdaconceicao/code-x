@@ -1,8 +1,7 @@
 import { createUseStyles } from '@code-x/theme';
 
-const styles = ({ palette, form }) => ({
+export default createUseStyles(({ palette, form })=>({
   label: {
-    margin: form.margin,
     display: 'grid',
     gridTemplateColumns: '1rem auto',
     gap: '.5rem'
@@ -15,7 +14,7 @@ const styles = ({ palette, form }) => ({
     color: palette.primary,
     width: '1.15rem',
     height: '1.15rem',
-    border: `1px   solid ${form.borderColor}`,
+    border: `1px solid ${form.borderColor}`,
     borderRadius: form.borderRadius,
     transform: 'translateY(-0.075rem)',
     display: 'grid',
@@ -44,6 +43,4 @@ const styles = ({ palette, form }) => ({
   error: {
     borderColor: ({ palette }) => palette.error
   }
-});
-
-export default createUseStyles(styles);
+}));

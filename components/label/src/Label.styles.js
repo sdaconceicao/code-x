@@ -1,16 +1,17 @@
 import { createUseStyles } from 'react-jss';
 
-export default createUseStyles({
+export default createUseStyles(({ palette })=>({
+
   label: {
-    color: ({ palette }) => palette.mediumDark,
+    color: palette.mediumDark,
     display: ({ inline }) => (inline ? 'inline' : 'block')
   },
   required: {
-    color: ({ palette }) => palette.error
+    color: palette.error
   },
   optional: {
     fontStyle: 'italic',
-    color: ({ palette }) => palette.mediumDark,
+    color: palette.mediumDark,
     float: 'right'
   }
-});
+}));

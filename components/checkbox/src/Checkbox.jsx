@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useImperativeHandle } from 'react';
 import PropTypes from 'prop-types';
 import { withFormContext } from '@code-x/form-context';
+import { withFormElement } from '@code-x/form-element';
 import useStyles from './Checkbox.styles';
 
-export const Checkbox = ({
-  id, name, value, className, label, errors,
+export const CheckboxComponent = ({
+  id, name, value, className, label, errors, innerRef,
   onChange, onKeyDown,
   ...rest
 }) => {
@@ -19,8 +20,13 @@ export const Checkbox = ({
       dirty: true
     });
   };
+
+  useImperativeHandle(innerRef, () => ({
+    getValue: () => checked ? value : undefined
+  }));
+
   return (
-    <label htmlFor={id} className={classes.label}>
+    <label htmlFor={id} className={classes.label} ref={innerRef}>
       <input
         id={id}
         type="checkbox"
@@ -37,7 +43,7 @@ export const Checkbox = ({
   );
 };
 
-Checkbox.propTypes = {
+CheckboxComponent.propTypes = {
   className: PropTypes.string,
   name: PropTypes.string.isRequired,
   id: PropTypes.string.isRequired,
@@ -49,7 +55,7 @@ Checkbox.propTypes = {
   onKeyDown: PropTypes.func
 };
 
-Checkbox.defaultProps = {
+CheckboxComponent.defaultProps = {
   className: '',
   label: '',
   value: undefined,
@@ -59,7 +65,8 @@ Checkbox.defaultProps = {
   onKeyDown: () => {}
 };
 
-const FormElementCheckbox = withFormContext(Checkbox);
-FormElementCheckbox.displayName = 'Checkbox';
+export const CheckboxWithContext = withFormContext(CheckboxComponent);
+const CheckboxFormElement = (props) => withFormElement(CheckboxWithContext)({hideLabel: true, ...props});
+CheckboxFormElement.displayName = 'Checkbox';
 
-export default FormElementCheckbox;
+export default CheckboxFormElement;

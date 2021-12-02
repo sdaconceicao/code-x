@@ -1,13 +1,14 @@
 import { createUseStyles } from '@code-x/theme';
 
-export default createUseStyles({
+export default createUseStyles(( {palette, form})=>({
   formComponent: {
-    margin: '0 0 1rem'
+    margin: form.margin,
+    display: ({ inline }) => inline ? 'inline-block' : 'block'
   },
   error: {
-    borderColor: ({ palette }) => palette.error
+    borderColor: palette.error
   },
   label: {
-    display: 'block'
+    display: ({ inline }) => inline ? 'inline-block' : 'block'
   }
-});
+}));

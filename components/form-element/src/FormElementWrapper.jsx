@@ -5,14 +5,16 @@ import { useFormContext } from '@code-x/form-context';
 import useStyles from './FormElementWrapper.styles';
 
 const FormElementWrapper = ({
-  label, required, optional, id,
+  label, required, optional, id, inline,
   error, children
 }) => {
   const ref = useRef();
-  const refWithChildren = Children.map(children, (child) => cloneElement(child, {
-    innerRef: ref
-  }))
-  const classes = useStyles();
+  const refWithChildren = Children.map(children, (child) => (
+    child.props.name
+      ? cloneElement(child, { innerRef: ref })
+      : child
+  ));
+  const classes = useStyles({inline});
   useFormContext(refWithChildren);
   return (
     <div className={classes.formComponent}>

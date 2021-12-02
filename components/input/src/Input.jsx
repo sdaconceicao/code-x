@@ -1,4 +1,4 @@
-import React, { useState, useImperativeHandle } from 'react';
+import React, { useState, useEffect, useImperativeHandle } from 'react';
 import PropTypes from 'prop-types';
 import { withFormContext } from '@code-x/form-context';
 import { withFormElement } from '@code-x/form-element';
@@ -27,6 +27,10 @@ export const InputComponent = ({
     }
     onKeyDown(e);
   };
+
+  useEffect(()=>{
+    setLocalValue(value);
+  }, [value]);
 
   useImperativeHandle(innerRef, () => ({
     getValue: () => localValue

@@ -10,10 +10,14 @@ export const Form = ({ children, className, onSubmit }) => {
     e.preventDefault();
     let result = [];
     elements.map(element=>{
-      result.push({
-        name: element.props.name,
-        value: element.props.innerRef.current.getValue()
-      });
+      if (element.props.innerRef.current.getValue()) {
+        result[element.props.name] = {
+          name: element.props.name,
+          value: result[element.props.name]?.value
+            ? [...result[element.props.name].value, element.props.innerRef.current.getValue()]
+            : element.props.innerRef.current.getValue()
+        };
+      }
     });
     onSubmit(result);
     setDirty(false);
