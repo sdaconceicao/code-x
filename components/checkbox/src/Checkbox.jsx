@@ -22,7 +22,7 @@ export const CheckboxComponent = ({
   };
 
   useImperativeHandle(innerRef, () => ({
-    getValue: () => checked ? value : undefined
+    getValue: () => (checked ? value : undefined)
   }));
 
   return (
@@ -47,6 +47,10 @@ CheckboxComponent.propTypes = {
   className: PropTypes.string,
   name: PropTypes.string.isRequired,
   id: PropTypes.string.isRequired,
+  innerRef: PropTypes.oneOfType([
+    PropTypes.func,
+    PropTypes.shape({ current: PropTypes.instanceOf(Element) })
+  ]),
   label: PropTypes.string,
   value: PropTypes.string,
   errors: PropTypes.instanceOf(Array),
@@ -57,6 +61,7 @@ CheckboxComponent.propTypes = {
 
 CheckboxComponent.defaultProps = {
   className: '',
+  innerRef: undefined,
   label: '',
   value: undefined,
   checked: false,
@@ -66,7 +71,9 @@ CheckboxComponent.defaultProps = {
 };
 
 export const CheckboxWithContext = withFormContext(CheckboxComponent);
-const CheckboxFormElement = (props) => withFormElement(CheckboxWithContext)({hideLabel: true, ...props});
+const CheckboxFormElement = (props) => (
+  withFormElement(CheckboxWithContext)({ hideLabel: true, ...props })
+);
 CheckboxFormElement.displayName = 'Checkbox';
 
 export default CheckboxFormElement;

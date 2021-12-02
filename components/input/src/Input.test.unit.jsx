@@ -13,8 +13,8 @@ describe('Input', () => {
   it('returns onChange whenever value is changed', () => {
     const spy = jest.fn();
     const { getByRole } = render(<Input name="input1" value="Lorem" onChange={spy} />);
-    fireEvent.change(getByRole('textbox', { value: 'Lorem' }), { target: { value: 'ipsum'}} );
+    fireEvent.change(getByRole('textbox', { value: 'Lorem' }), { target: { value: 'ipsum' } });
     expect(getByRole('textbox', { value: 'ipsum' })).toBeTruthy();
     expect(spy).toHaveBeenCalledWith({ name: 'input1', value: 'ipsum', dirty: true });
-  })
+  });
 });

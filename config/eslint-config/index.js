@@ -9,7 +9,7 @@ module.exports = {
     'import/extensions': 'off',
     'import/prefer-default-export': 'off',
     'no-nested-ternary': 'off',
-    'quote-props': ['error', 'consistent-as-needed'],
+    'quote-props': ['error', 'as-needed'],
     'react/button-has-type': 'off',
     'react/destructuring-assignment': 'off',
     'react/jsx-props-no-spreading': 'warn',

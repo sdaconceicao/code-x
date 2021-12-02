@@ -10,10 +10,10 @@ describe('Button', () => {
     const { getByRole } = render(<Button>Lorem</Button>);
     expect(getByRole('button', { name: 'Lorem' })).toBeTruthy();
   });
-  it('returns an onClick event', () =>{
+  it('returns an onClick event', () => {
     const spy = jest.fn();
     const { getByRole } = render(<Button onClick={spy}>Lorem</Button>);
-    fireEvent.click(getByRole('button', { name: 'Lorem' }))
+    fireEvent.click(getByRole('button', { name: 'Lorem' }));
     expect(spy).toBeCalledTimes(1);
-  })
+  });
 });

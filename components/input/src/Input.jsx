@@ -28,7 +28,7 @@ export const InputComponent = ({
     onKeyDown(e);
   };
 
-  useEffect(()=>{
+  useEffect(() => {
     setLocalValue(value);
   }, [value]);
 
@@ -52,18 +52,21 @@ export const InputComponent = ({
 };
 
 InputComponent.propTypes = {
-  /** HTML id of element */
-  id: PropTypes.string,
   /** Classname to override default element styling */
   className: PropTypes.string,
-  /** HTML name of element */
-  name: PropTypes.string.isRequired,
-  /** Label for element */
-  label: PropTypes.string,
-  /** HTML value of element */
-  value: PropTypes.string,
   /** Errors array from form validation */
   errors: PropTypes.instanceOf(Array),
+  /** HTML id of element */
+  id: PropTypes.string,
+  /** Ref for input */
+  innerRef: PropTypes.oneOfType([
+    PropTypes.func,
+    PropTypes.shape({ current: PropTypes.instanceOf(Element) })
+  ]),
+  /** Label for element */
+  label: PropTypes.string,
+  /** HTML name of element */
+  name: PropTypes.string.isRequired,
   /** Callback for blur event */
   onBlur: PropTypes.func,
   /** Callback for change event */
@@ -72,24 +75,26 @@ InputComponent.propTypes = {
   onEnter: PropTypes.func,
   /** Callback for keydown event */
   onKeyDown: PropTypes.func,
+  /** HTML value of element */
+  value: PropTypes.string,
   /** Display input with a sibling attached button */
-  withButton: PropTypes.bool,
-  /** Ref for input */
-  innerRef: PropTypes.object
+  withButton: PropTypes.bool
+
 };
 
 InputComponent.defaultProps = {
-  id: undefined,
   className: '',
-  label: '',
-  value: undefined,
   errors: [],
+  id: undefined,
+  innerRef: undefined,
+  label: '',
   onBlur: () => {},
   onChange: () => {},
   onEnter: () => {},
   onKeyDown: () => {},
-  withButton: false,
-  innerRef: undefined
+  value: undefined,
+  withButton: false
+
 };
 export const InputWithContext = withFormContext(InputComponent);
 const InputFormElement = withFormElement(InputWithContext);

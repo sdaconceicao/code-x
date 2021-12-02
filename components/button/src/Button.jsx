@@ -14,21 +14,21 @@ export const sizes = {
   lg: 'lg'
 };
 
-export const display = {
-  'block': 'block',
-  'inline': 'inline',
-  'inlineBlock': 'inline-block'
-}
+export const displays = {
+  block: 'block',
+  inline: 'inline',
+  inlineBlock: 'inline-block'
+};
 
 export const Button = ({
   children, disabled, className, onClick, type, style, size, withInput, display, ...rest
 }) => {
-  const classes = useStyles({withInput, display});
+  const classes = useStyles({ withInput, display });
   return (
     <button className={`${classes.button} ${classes[style]} ${classes[size]} ${className}`} type={type} onClick={onClick} {...rest}>
       {children}
     </button>
-  )
+  );
 };
 
 Button.propTypes = {
@@ -38,6 +38,8 @@ Button.propTypes = {
   className: PropTypes.string,
   /** State of button */
   disabled: PropTypes.bool,
+  /** Display type */
+  display: PropTypes.oneOf(Object.keys(displays)),
   /** HTML button type */
   type: PropTypes.oneOf(['submit', 'button']),
   /** Size of button */
@@ -46,8 +48,6 @@ Button.propTypes = {
   style: PropTypes.oneOf(Object.keys(styles)),
   /** Button attached to an input */
   withInput: PropTypes.bool,
-  /** Display type */
-  display: PropTypes.oneOf(Object.keys(display)),
   /** Contents of button */
   children: PropTypes.oneOfType([PropTypes.string, PropTypes.node]).isRequired,
   /** Callback for button click */
@@ -61,7 +61,7 @@ Button.defaultProps = {
   style: styles.primary,
   size: sizes.md,
   withInput: false,
-  display: display.block,
+  display: displays.block,
   className: '',
   onClick: undefined
 };

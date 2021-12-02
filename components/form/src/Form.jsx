@@ -8,8 +8,8 @@ export const Form = ({ children, className, onSubmit }) => {
   const [elements, updateElements] = useReducer(reducer, []);
   const handleSubmit = (e) => {
     e.preventDefault();
-    let result = [];
-    elements.map(element=>{
+    const result = [];
+    elements.foreach(element => {
       if (element.props.innerRef.current.getValue()) {
         result[element.props.name] = {
           name: element.props.name,
@@ -28,12 +28,12 @@ export const Form = ({ children, className, onSubmit }) => {
     setDirty(true);
   };
 
-  const addFormElement = (element) =>{
-    updateElements({type: actions.ADD, value: element});
+  const addFormElement = (element) => {
+    updateElements({ type: actions.ADD, value: element });
   };
 
-  const removeFormElement = (element) =>{
-    updateElements({type: actions.REMOVE, value: element});
+  const removeFormElement = (element) => {
+    updateElements({ type: actions.REMOVE, value: element });
   };
 
   return (

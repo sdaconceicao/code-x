@@ -14,7 +14,7 @@ const FormElementWrapper = ({
       ? cloneElement(child, { innerRef: ref })
       : child
   ));
-  const classes = useStyles({inline});
+  const classes = useStyles({ inline });
   useFormContext(refWithChildren);
   return (
     <div className={classes.formComponent}>
@@ -26,6 +26,8 @@ const FormElementWrapper = ({
 };
 
 FormElementWrapper.propTypes = {
+  id: PropTypes.string,
+  inline: PropTypes.bool,
   label: PropTypes.string,
   required: PropTypes.bool,
   optional: PropTypes.bool,
@@ -34,6 +36,8 @@ FormElementWrapper.propTypes = {
 };
 
 FormElementWrapper.defaultProps = {
+  id: undefined,
+  inline: false,
   label: undefined,
   required: false,
   optional: false,
