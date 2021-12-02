@@ -2,6 +2,7 @@ module.exports = {
   extends: ['airbnb', 'plugin:cypress/recommended'],
   plugins: ['react-hooks'],
   rules: {
+    'array-callback-return': 'off',
     'arrow-parens': 'off',
     'comma-dangle': ['error', 'never'],
     'func-names': ['warn', 'as-needed'],

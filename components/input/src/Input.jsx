@@ -6,11 +6,11 @@ import useStyles from './Input.styles';
 
 export const InputComponent = ({
   id, name, value, className, errors, withButton,
-  onKeyDown, onChange, onBlur, onEnter, innerRef,
+  onKeyDown, onChange, onBlur, onEnter, innerRef, required,
   ...rest
 }) => {
   const [localValue, setLocalValue] = useState(value);
-  const classes = useStyles({ withButton });
+  const classes = useStyles({ withButton, errors });
   const handleChange = (e) => {
     setLocalValue(e.target.value);
     onChange({
@@ -33,7 +33,17 @@ export const InputComponent = ({
   }, [value]);
 
   useImperativeHandle(innerRef, () => ({
-    getValue: () => localValue
+    doValidate: () => {
+      const localErrors = [];
+      if (required && (localValue === undefined || localValue === '')) {
+        localErrors.push(`${name} Required`); // TODO localize
+      }
+      return {
+        errors: localErrors.length === 0 ? undefined : localErrors,
+        value: localValue,
+        valid: localErrors.length === 0
+      };
+    }
   }));
 
   return (
@@ -41,7 +51,7 @@ export const InputComponent = ({
       id={id}
       name={name}
       ref={innerRef}
-      className={`${classes.input} ${className} ${errors ? 'error' : ''}`}
+      className={`${classes.input} ${className}`}
       onChange={handleChange}
       onKeyDown={handleKeyDown}
       onBlur={onBlur}
@@ -61,7 +71,7 @@ InputComponent.propTypes = {
   /** Ref for input */
   innerRef: PropTypes.oneOfType([
     PropTypes.func,
-    PropTypes.shape({ current: PropTypes.instanceOf(Element) })
+    PropTypes.shape({ current: PropTypes.shape({}) })
   ]),
   /** Label for element */
   label: PropTypes.string,
@@ -75,6 +85,8 @@ InputComponent.propTypes = {
   onEnter: PropTypes.func,
   /** Callback for keydown event */
   onKeyDown: PropTypes.func,
+  /** Is Input required */
+  required: PropTypes.bool,
   /** HTML value of element */
   value: PropTypes.string,
   /** Display input with a sibling attached button */
@@ -92,9 +104,9 @@ InputComponent.defaultProps = {
   onChange: () => {},
   onEnter: () => {},
   onKeyDown: () => {},
+  required: false,
   value: undefined,
   withButton: false
-
 };
 export const InputWithContext = withFormContext(InputComponent);
 const InputFormElement = withFormElement(InputWithContext);

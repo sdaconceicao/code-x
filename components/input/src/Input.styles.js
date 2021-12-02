@@ -2,7 +2,7 @@ import { createUseStyles } from '@code-x/theme';
 
 export default createUseStyles(({ palette, form }) => ({
   input: {
-    border: form.border,
+    border: ({ errors }) => (errors ? form.errorBorder : form.border),
     borderRadius: ({ withButton }) => (withButton ? `${form.borderRadius} 0 0 ${form.borderRadius}` : form.borderRadius),
     padding: form.padding,
     '&:focus': {

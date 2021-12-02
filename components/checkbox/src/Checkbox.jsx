@@ -22,7 +22,10 @@ export const CheckboxComponent = ({
   };
 
   useImperativeHandle(innerRef, () => ({
-    getValue: () => (checked ? value : undefined)
+    doValidate: () => ({
+      value: (checked ? value : undefined),
+      valid: true
+    })
   }));
 
   return (
@@ -49,7 +52,7 @@ CheckboxComponent.propTypes = {
   id: PropTypes.string.isRequired,
   innerRef: PropTypes.oneOfType([
     PropTypes.func,
-    PropTypes.shape({ current: PropTypes.instanceOf(Element) })
+    PropTypes.shape({ current: PropTypes.shape({}) })
   ]),
   label: PropTypes.string,
   value: PropTypes.string,

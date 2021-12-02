@@ -13,7 +13,7 @@ export const withFormElement = (FormElement) => (({
     id={id}
     inline={inline}
   >
-    <FormElement id={id} label={label} {...rest} />
+    <FormElement id={id} label={label} error={error} required={required} {...rest} />
   </FormElementWrapper>
 )
 );

@@ -9,18 +9,26 @@ export const Form = ({ children, className, onSubmit }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const result = [];
-    elements.foreach(element => {
-      if (element.props.innerRef.current.getValue()) {
+    const formErrors = [];
+    elements.map(element => {
+      const { doValidate } = element.props.innerRef.current;
+      const { valid, value, errors } = doValidate();
+      if (valid && value) {
         result[element.props.name] = {
           name: element.props.name,
           value: result[element.props.name]?.value
-            ? [...result[element.props.name].value, element.props.innerRef.current.getValue()]
-            : element.props.innerRef.current.getValue()
+            ? [...result[element.props.name].value, value]
+            : value
         };
+      } else if (errors) {
+        formErrors.push(errors);
       }
     });
-    onSubmit(result);
-    setDirty(false);
+    if (formErrors.length === 0) setDirty(false);
+    onSubmit({
+      errors: formErrors,
+      result
+    });
   };
 
   const onChange = ({ name, value, checked }) => {
