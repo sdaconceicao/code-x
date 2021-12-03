@@ -2,9 +2,9 @@ import React, { useState, useImperativeHandle, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { withFormContext } from '@code-x/form-context';
 import { withFormElement } from '@code-x/form-element';
-import useStyles from './Checkbox.styles';
+import useStyles from './Radio.styles';
 
-export const CheckboxComponent = ({
+export const RadioComponent = ({
   id, name, value, className, label, errors, innerRef,
   onChange, onKeyDown,
   ...rest
@@ -36,9 +36,9 @@ export const CheckboxComponent = ({
     <label htmlFor={id} className={classes.label} ref={innerRef}>
       <input
         id={id}
-        type="checkbox"
+        type="radio"
         name={name}
-        className={`${classes.checkbox} ${className} ${errors ? 'error' : ''}`}
+        className={`${classes.radio} ${className} ${errors ? 'error' : ''}`}
         onChange={handleChange}
         value={value}
         onKeyDown={onKeyDown}
@@ -50,7 +50,7 @@ export const CheckboxComponent = ({
   );
 };
 
-CheckboxComponent.propTypes = {
+RadioComponent.propTypes = {
   className: PropTypes.string,
   name: PropTypes.string.isRequired,
   id: PropTypes.string.isRequired,
@@ -66,7 +66,7 @@ CheckboxComponent.propTypes = {
   onKeyDown: PropTypes.func
 };
 
-CheckboxComponent.defaultProps = {
+RadioComponent.defaultProps = {
   className: '',
   innerRef: undefined,
   label: '',
@@ -77,10 +77,10 @@ CheckboxComponent.defaultProps = {
   onKeyDown: () => {}
 };
 
-export const CheckboxWithContext = withFormContext(CheckboxComponent);
-const CheckboxFormElement = (props) => (
-  withFormElement(CheckboxWithContext)({ hideLabel: true, ...props })
+export const RadioWithContext = withFormContext(RadioComponent);
+const RadioFormElement = (props) => (
+  withFormElement(RadioWithContext)({ hideLabel: true, ...props })
 );
-CheckboxFormElement.displayName = 'Checkbox';
+RadioFormElement.displayName = 'Radio';
 
-export default CheckboxFormElement;
+export default RadioFormElement;

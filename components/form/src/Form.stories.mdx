@@ -1,9 +1,10 @@
 import { useState } from 'react';
 import { Meta, Story, Preview, Props } from '@storybook/addon-docs';
-import { Input, InputWithContext } from '@code-x/input';
-import { Checkbox } from '@code-x/checkbox';
 import { Button } from '@code-x/button';
+import { Checkbox } from '@code-x/checkbox';
+import { Input, InputWithContext } from '@code-x/input';
 import { FormElementWrapper } from '@code-x/form-element';
+import { Radio, RadioGroup } from '@code-x/radio';
 import { Form } from './Form';
 
 <Meta title="Form Components/Form" component={Form}/>
@@ -55,6 +56,22 @@ An form wraps input elements
                     value="Ipsum Checkum"
                     inline
           />
+          <RadioGroup label="Radio Groups">
+            <Radio name="radioEx"
+                  id="radioEx1"
+                  label="Lorem Radio"
+                  value="Lorem Radio"
+                  inline
+          />
+          <Radio name="radioEx"
+                  id="radioEx2"
+                  label="Ipsum Radio"
+                  value="Ipsum Radio"
+                  inline
+          />
+          </RadioGroup>
+          
+          
           <Button type="submit">Submit</Button>
           {results && (
             <div>

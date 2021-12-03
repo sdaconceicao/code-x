@@ -6,7 +6,7 @@ export default createUseStyles(({ palette, form }) => ({
     gridTemplateColumns: '1rem auto',
     gap: '.5rem'
   },
-  checkbox: {
+  radio: {
     appearance: 'none',
     backgroundColor: 'white',
     margin: 0,
@@ -15,17 +15,16 @@ export default createUseStyles(({ palette, form }) => ({
     width: '1.15rem',
     height: '1.15rem',
     border: `1px solid ${form.borderColor}`,
-    borderRadius: form.borderRadius,
+    borderRadius: '50%',
     transform: 'translateY(-0.075rem)',
     display: 'grid',
     placeContent: 'center',
     '&::before': {
       content: '""',
       width: '0.65rem',
-      height: ' 0.65rem',
-      clipPath: 'polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%)',
+      height: '0.65rem',
+      borderRadius: '50%',
       transform: 'scale(0)',
-      transformOrigin: 'bottom left',
       transition: '120ms transform ease-in-out',
       boxShadow: `inset 1rem 1rem ${palette.primary}`
     },

@@ -1,5 +1,5 @@
 {
-  "name": "@code-x/checkbox",
+  "name": "@code-x/radio",
   "version": "0.1.0",
   "description": "> TODO: description",
   "author": "Stephen da Conceicao <daconcei472@gmail.com>",
@@ -17,6 +17,7 @@
     "url": "https://github.com/sdaconceicao/code-x/issues"
   },
   "peerDependencies": {
+    "@code-x/fieldset": "0.1.0",
     "@code-x/form-context": "0.1.0",
     "@code-x/form-element": "0.1.0",
     "@code-x/theme": "^0.1.0",
