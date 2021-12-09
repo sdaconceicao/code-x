@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useImperativeHandle } from 'react';
 import PropTypes from 'prop-types';
-import { withFormContext } from '@code-x/form-context';
 import { withFormElement } from '@code-x/form-element';
 import useStyles from './Input.styles';
 
@@ -96,7 +95,7 @@ InputComponent.propTypes = {
 
 InputComponent.defaultProps = {
   className: '',
-  errors: [],
+  errors: undefined,
   id: undefined,
   innerRef: undefined,
   label: '',
@@ -108,8 +107,8 @@ InputComponent.defaultProps = {
   value: undefined,
   withButton: false
 };
-export const InputWithContext = withFormContext(InputComponent);
-const InputFormElement = withFormElement(InputWithContext);
+
+const InputFormElement = withFormElement(InputComponent);
 InputFormElement.displayName = 'Input';
 
 export default InputFormElement;

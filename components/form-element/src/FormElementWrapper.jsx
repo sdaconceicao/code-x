@@ -1,4 +1,4 @@
-import React, { Children, useRef, cloneElement } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { Label } from '@code-x/label';
 import { useFormContext } from '@code-x/form-context';
@@ -8,19 +8,14 @@ const FormElementWrapper = ({
   label, required, optional, id, inline,
   error, children
 }) => {
-  const ref = useRef();
-  const refWithChildren = Children.map(children, (child) => (
-    child.props.name
-      ? cloneElement(child, { innerRef: ref })
-      : child
-  ));
+  const childrenWithContext = useFormContext(children);
   const classes = useStyles({ inline });
-  useFormContext(refWithChildren);
+
   return (
     <div className={classes.formComponent}>
       {label && <Label required={required} optional={optional} htmlFor={id}>{label}</Label>}
-      {refWithChildren}
-      {error && <div>{error}</div>}
+      {childrenWithContext}
+      {error && <div className={classes.error}>{error}</div>}
     </div>
   );
 };

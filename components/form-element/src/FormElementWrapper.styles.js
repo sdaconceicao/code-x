@@ -6,7 +6,7 @@ export default createUseStyles(({ palette, form }) => ({
     display: ({ inline }) => (inline ? 'inline-block' : 'block')
   },
   error: {
-    borderColor: palette.error
+    color: palette.error
   },
   label: {
     display: ({ inline }) => (inline ? 'inline-block' : 'block')

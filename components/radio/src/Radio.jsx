@@ -1,6 +1,5 @@
 import React, { useState, useImperativeHandle, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { withFormContext } from '@code-x/form-context';
 import { withFormElement } from '@code-x/form-element';
 import useStyles from './Radio.styles';
 
@@ -77,9 +76,8 @@ RadioComponent.defaultProps = {
   onKeyDown: () => {}
 };
 
-export const RadioWithContext = withFormContext(RadioComponent);
 const RadioFormElement = (props) => (
-  withFormElement(RadioWithContext)({ hideLabel: true, ...props })
+  withFormElement(RadioComponent)({ hideLabel: true, ...props })
 );
 RadioFormElement.displayName = 'Radio';
 

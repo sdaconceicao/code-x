@@ -1,1 +1,1 @@
-export { default as Checkbox, CheckboxComponent, CheckboxWithContext } from './Checkbox';
+export { default as Checkbox, CheckboxComponent } from './Checkbox';

@@ -1,6 +1,5 @@
 import React, { useState, useImperativeHandle, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { withFormContext } from '@code-x/form-context';
 import { withFormElement } from '@code-x/form-element';
 import useStyles from './Checkbox.styles';
 
@@ -77,9 +76,8 @@ CheckboxComponent.defaultProps = {
   onKeyDown: () => {}
 };
 
-export const CheckboxWithContext = withFormContext(CheckboxComponent);
 const CheckboxFormElement = (props) => (
-  withFormElement(CheckboxWithContext)({ hideLabel: true, ...props })
+  withFormElement(CheckboxComponent)({ hideLabel: true, ...props })
 );
 CheckboxFormElement.displayName = 'Checkbox';
 

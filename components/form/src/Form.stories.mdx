@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Meta, Story, Preview, Props } from '@storybook/addon-docs';
 import { Button } from '@code-x/button';
 import { Checkbox } from '@code-x/checkbox';
-import { Input, InputWithContext } from '@code-x/input';
+import { Input, InputComponent } from '@code-x/input';
 import { FormElementWrapper } from '@code-x/form-element';
 import { Radio, RadioGroup } from '@code-x/radio';
 import { Form } from './Form';
@@ -35,7 +35,7 @@ An form wraps input elements
                  required
           />
           <FormElementWrapper label="Input With Button" id="example2">
-            <InputWithContext name="example2"
+            <InputComponent name="example2"
                               id="example2"
                               type="text"
                               value={searchValue}

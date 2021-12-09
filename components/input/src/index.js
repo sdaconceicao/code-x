@@ -1,1 +1,1 @@
-export { default as Input, InputComponent, InputWithContext } from './Input';
+export { default as Input, InputComponent } from './Input';

@@ -18,7 +18,6 @@
   },
   "peerDependencies": {
     "@code-x/fieldset": "0.1.0",
-    "@code-x/form-context": "0.1.0",
     "@code-x/form-element": "0.1.0",
     "@code-x/theme": "^0.1.0",
     "prop-types": "^15.7.2",
@@ -29,7 +28,7 @@
   "devDependencies": {
     "@code-x/babel-preset": "0.1.0",
     "@code-x/eslint-config": "0.1.0",
-    "@code-x/form-context": "0.1.0",
+    "@code-x/fieldset": "0.1.0",
     "@code-x/form-element": "0.1.0",
     "@code-x/theme": "^0.1.0",
     "prop-types": "^15.7.2",

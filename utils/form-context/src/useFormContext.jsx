@@ -1,12 +1,23 @@
-import { useEffect, useContext } from 'react';
+import {
+  Children, useContext, useEffect, useRef, cloneElement
+} from 'react';
 import FormContext from './Form.context';
 
 export default (children) => {
-  const { addFormElement, removeFormElement } = useContext(FormContext);
+  const ref = useRef();
+  const { addFormElement, removeFormElement, onChange } = useContext(FormContext);
+  const refWithChildren = Children.map(children, (child) => (
+    child.props.name
+      ? cloneElement(child, { onChange, innerRef: ref })
+      : child
+  ));
+
   useEffect(() => {
-    addFormElement?.(children);
+    addFormElement?.(refWithChildren);
     return () => {
-      removeFormElement?.(children);
+      removeFormElement?.(refWithChildren);
     };
   }, []);
+
+  return refWithChildren;
 };
