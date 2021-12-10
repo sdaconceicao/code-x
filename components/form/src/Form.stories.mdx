@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Meta, Story, Preview, Props } from '@storybook/addon-docs';
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs';
 import { Button } from '@code-x/button';
 import { Checkbox } from '@code-x/checkbox';
 import { Input, InputComponent } from '@code-x/input';
@@ -10,23 +10,20 @@ import { Form } from './Form';
 <Meta title="Form Components/Form" component={Form}/>
 
 # Form
-An form wraps input elements
+An **Form** wraps Form Elements and connects them to the **Form Context**
 
-<Preview>
+<Canvas>
   <Story name="Example">
     {() => {
       const [results, setResults] = useState(null);
       const [errors, setErrors] = useState(null);
       const [searchValue, setSearchValue] = useState('lorem');
+      const handleSubmit = (response) => {
+        setResults(response.errors.length === 0 ? response.result : null)
+        setErrors(response.errors);
+      }
       return (
-        <Form onSubmit={(response => {
-          if(response.errors.length === 0){
-            setResults(response.result);
-          } else {
-            setResults(null);
-          }
-          setErrors(response.errors);
-        })}>
+        <Form onSubmit={handleSubmit}>
           <Input name="example"
                  id="example"
                  label="Input"
@@ -70,8 +67,6 @@ An form wraps input elements
                   inline
           />
           </RadioGroup>
-          
-          
           <Button type="submit">Submit</Button>
           {results && (
             <div>
@@ -97,7 +92,7 @@ An form wraps input elements
       )
     }}
   </Story>
-</Preview>
+</Canvas>
 
 ## Properties
-<Props of={Form}/>
+<ArgsTable story="Example"/>

@@ -1,21 +1,22 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Label } from '@code-x/label';
 import { useFormContext } from '@code-x/form-context';
 import useStyles from './FormElementWrapper.styles';
 
 const FormElementWrapper = ({
-  label, required, optional, id, inline,
-  error, children
+  label, required, optional, id, inline, children
 }) => {
-  const childrenWithContext = useFormContext(children);
+  const [errors, setErrors] = useState();
+  const handleBlur = (e) => setErrors(e.errors);
+  const childrenWithContext = useFormContext(children, handleBlur);
   const classes = useStyles({ inline });
 
   return (
     <div className={classes.formComponent}>
       {label && <Label required={required} optional={optional} htmlFor={id}>{label}</Label>}
       {childrenWithContext}
-      {error && <div className={classes.error}>{error}</div>}
+      {errors && <div className={classes.error}>{errors.map((error) => (error))}</div>}
     </div>
   );
 };
@@ -26,7 +27,6 @@ FormElementWrapper.propTypes = {
   label: PropTypes.string,
   required: PropTypes.bool,
   optional: PropTypes.bool,
-  error: PropTypes.string,
   children: PropTypes.node.isRequired
 };
 
@@ -35,8 +35,7 @@ FormElementWrapper.defaultProps = {
   inline: false,
   label: undefined,
   required: false,
-  optional: false,
-  error: undefined
+  optional: false
 };
 
 export default FormElementWrapper;

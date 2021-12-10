@@ -4,12 +4,13 @@ import { withFormElement } from '@code-x/form-element';
 import useStyles from './Input.styles';
 
 export const InputComponent = ({
-  id, name, value, className, errors, withButton,
+  id, name, label, value, className, errors, withButton,
   onKeyDown, onChange, onBlur, onEnter, innerRef, required,
   ...rest
 }) => {
   const [localValue, setLocalValue] = useState(value);
-  const classes = useStyles({ withButton, errors });
+  const [localErrors, setLocalErrors] = useState(errors);
+  const classes = useStyles({ withButton, errors: localErrors });
   const handleChange = (e) => {
     setLocalValue(e.target.value);
     onChange({
@@ -17,6 +18,19 @@ export const InputComponent = ({
       value: e.target.value,
       dirty: true
     });
+  };
+
+  const validate = () => {
+    let validationErrors;
+    if (required && (localValue === undefined || localValue === '')) {
+      validationErrors = [(`${label} Required`)]; // TODO localize
+    }
+    setLocalErrors(validationErrors);
+    return {
+      errors: validationErrors,
+      value: localValue,
+      valid: !validationErrors
+    };
   };
 
   const handleKeyDown = (e) => {
@@ -27,22 +41,22 @@ export const InputComponent = ({
     onKeyDown(e);
   };
 
+  const handleBlur = (e) => {
+    const results = validate();
+    onBlur?.({ ...e, ...results });
+  };
+
+  useEffect(() => {
+    setLocalErrors(errors);
+  }, [errors]);
+
   useEffect(() => {
     setLocalValue(value);
   }, [value]);
 
   useImperativeHandle(innerRef, () => ({
-    doValidate: () => {
-      const localErrors = [];
-      if (required && (localValue === undefined || localValue === '')) {
-        localErrors.push(`${name} Required`); // TODO localize
-      }
-      return {
-        errors: localErrors.length === 0 ? undefined : localErrors,
-        value: localValue,
-        valid: localErrors.length === 0
-      };
-    }
+    doValidate: validate,
+    setErrors: (e) => setLocalErrors(e)
   }));
 
   return (
@@ -51,11 +65,11 @@ export const InputComponent = ({
       name={name}
       ref={innerRef}
       className={`${classes.input} ${className}`}
+      {...rest}
       onChange={handleChange}
       onKeyDown={handleKeyDown}
-      onBlur={onBlur}
+      onBlur={handleBlur}
       value={localValue}
-      {...rest}
     />
   );
 };

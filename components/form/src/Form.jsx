@@ -27,12 +27,12 @@ export const Form = ({ children, className, onSubmit }) => {
     if (formErrors.length === 0) setDirty(false);
     onSubmit({
       errors: formErrors,
-      result
+      result,
+      dirty
     });
   };
 
-  const onChange = ({ name, value, checked }) => {
-    console.log('name:value', name, value, checked, dirty);
+  const onChange = () => {
     setDirty(true);
   };
 
@@ -59,8 +59,11 @@ export const Form = ({ children, className, onSubmit }) => {
 };
 
 Form.propTypes = {
+  /** Array of Form Elements connected to Form Context */
   children: PropTypes.oneOfType([PropTypes.array, PropTypes.object]).isRequired,
+  /** Classname to override default form styling */
   className: PropTypes.string,
+  /** Callback for onSubmit event */
   onSubmit: PropTypes.func.isRequired
 };
 

@@ -3,12 +3,12 @@ import {
 } from 'react';
 import FormContext from './Form.context';
 
-export default (children) => {
+export default (children, onBlur) => {
   const ref = useRef();
   const { addFormElement, removeFormElement, onChange } = useContext(FormContext);
   const refWithChildren = Children.map(children, (child) => (
     child.props.name
-      ? cloneElement(child, { onChange, innerRef: ref })
+      ? cloneElement(child, { onBlur, onChange, innerRef: ref })
       : child
   ));
 
