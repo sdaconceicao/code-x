@@ -1,0 +1,67 @@
+import { useState } from 'react';
+import { Meta, Story, Canvas, Source, ArgsTable } from '@storybook/addon-docs';
+import { I18nProvider, i18n } from './index.js';
+
+<Meta 
+  title="Utilities/I18n/Usage"
+  component={I18nProvider}
+/>
+
+# i18n
+
+i18n provides internalization options for both any js method. It can be used in React Components,
+as well as plain js functions.
+
+## Messages
+
+Messages are stored as json key/value pairs. Objects can be any level deep, and 
+referenced via dot notation when retrieving via the getMessage method.
+
+## Methods
+
+### setMessages 
+
+Adds messages to i18n
+
+<Source 
+  language="js"
+  code={`i18n.setMessages({ lorem: 'ipsum'})`}
+/>
+
+### setLocale
+
+Set current locale for i18n
+
+#### Example 
+
+<Source 
+  language="js"
+  code={'i18n.setLocale("en")'}
+/>
+
+
+### getMessage
+
+Retrieve message with a key using dot annotation. Additional params can be passed to perform variable substitution 
+
+#### message.json
+
+<Source 
+  language="js"
+  code={`{ 
+    lorem: {
+      ipsum: 'Hello {name}'
+    }
+  }`}
+/>
+
+#### Example
+
+<Source 
+  language="js"
+  code={'i18n.getMessage("lorem.ipsum", { name: "John" })'}
+/>
+
+#### Output
+
+Hello John

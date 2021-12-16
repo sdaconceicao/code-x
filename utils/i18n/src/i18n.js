@@ -1,8 +1,6 @@
 class I18n {
   constructor() {
-    this.messages = {
-      en: []
-    };
+    this.messages = {};
     this.locale = 'en';
   }
 
@@ -11,8 +9,8 @@ class I18n {
    * @param {*} messages
    * @param {*} locale
    */
-  setMessages = (messages, locale) => {
-    this.messages[locale].messages = { ...this.messages[locale].messages, ...messages };
+  setMessages = (messages) => {
+    this.messages = { ...this.messages, ...messages };
   }
 
   /**
@@ -42,7 +40,7 @@ class I18n {
     keyDepth.map(value => {
       template = template
         ? template[value]
-        : this.messages[this.locale].messages[value];
+        : this.messages[value];
     });
     return template;
   }
@@ -54,7 +52,7 @@ class I18n {
    * @returns
    */
   generateString = (template, values) => {
-    if (template.indexOf('{') === -1 || !values) {
+    if (!template || template.indexOf('{') === -1 || !values) {
       return template;
     }
     let result = template;

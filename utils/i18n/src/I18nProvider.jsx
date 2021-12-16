@@ -5,7 +5,7 @@ import i18n from './i18n';
 
 const I18nProvider = ({ children, messages, locale }) => {
   i18n.setLocale(locale);
-  i18n.setMessages(messages, locale);
+  i18n.setMessages(messages);
   return (
     <I18nContext.Provider value={{ i18n }} key={locale}>
       {children}
@@ -18,7 +18,8 @@ I18nProvider.propTypes = {
     PropTypes.arrayOf(PropTypes.node),
     PropTypes.node
   ]).isRequired,
-  messages: PropTypes.arrayOf({}).isRequired,
+  messages: PropTypes.shape({}).isRequired,
+  /** Locale string to use */
   locale: PropTypes.string.isRequired
 };
 

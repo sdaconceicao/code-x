@@ -5,10 +5,17 @@ import FormContext from './Form.context';
 
 export default (children, onBlur) => {
   const ref = useRef();
-  const { addFormElement, removeFormElement, onChange } = useContext(FormContext);
+  const { addFormElement, removeFormElement, onChange: handleChange } = useContext(FormContext);
   const refWithChildren = Children.map(children, (child) => (
     child.props.name
-      ? cloneElement(child, { onBlur, onChange, innerRef: ref })
+      ? cloneElement(child, {
+        onBlur,
+        onChange: (e) => {
+          child.props.onChange?.(e);
+          handleChange?.(e);
+        },
+        innerRef: ref
+      })
       : child
   ));
 
