@@ -1,30 +1,30 @@
 {
-  "name": "@code-x/hooks",
+  "name": "@code-x/i18n",
   "version": "0.1.0",
-  "description": "React custom hooks",
+  "description": "Provides i18n provider for retreiving i18n text",
   "author": "Stephen da Conceicao <daconcei472@gmail.com>",
-  "homepage": "https://github.com/sdaconceicao/code-x/tree/master/packages/hooks#readme",
   "license": "ISC",
   "main": "src/index.js",
-  "directories": {
-    "src": "src"
-  },
-  "files": [
-    "src"
-  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/sdaconceicao/code-x.git"
   },
+  "scripts": {
+    "lint": "eslint . --ext .js --ext .jsx --fix"
+  },
   "bugs": {
     "url": "https://github.com/sdaconceicao/code-x/issues"
   },
-  "scripts": {
-    "lint": "eslint . --ext .js --ext .jsx --fix"
+  "peerDependencies": {
+    "prop-types": "^15.7.2",
+    "react": "^16.10.2",
+    "react-dom": "^16.10.2"
   },
   "devDependencies": {
     "@code-x/babel-preset": "0.1.0",
     "@code-x/eslint-config": "0.1.0",
-    "react": "^16.11.0"
+    "prop-types": "^15.7.2",
+    "react": "^16.10.2",
+    "react-dom": "^16.10.2"
   }
 }

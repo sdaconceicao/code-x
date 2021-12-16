@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useTheme } from 'react-jss';
-import { FormattedMessage } from 'react-intl';
+import { i18n } from '@code-x/i18n';
 import useStyles from './Label.styles';
 
 const Label = ({
@@ -14,7 +14,7 @@ const Label = ({
       <span className={classes.content}>{children}</span>
       {required && <span className={classes.required}>*</span>}
       {optional && (
-        <span className={classes.optional}><FormattedMessage id="optional" /></span>
+        <span className={classes.optional}>{i18n.getMessage('label.optional')}</span>
       )}
     </label>
   );

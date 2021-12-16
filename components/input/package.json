@@ -19,6 +19,7 @@
   "peerDependencies": {
     "@code-x/form-element": "0.1.0",
     "@code-x/theme": "^0.1.0",
+    "@code-x/validators": "0.1.0",
     "prop-types": "^15.7.2",
     "react": "^16.10.2",
     "react-dom": "^16.10.2",
@@ -28,7 +29,9 @@
     "@code-x/babel-preset": "0.1.0",
     "@code-x/eslint-config": "0.1.0",
     "@code-x/form-element": "0.1.0",
+    "@code-x/i18n": "0.1.0",
     "@code-x/theme": "^0.1.0",
+    "@code-x/validators": "0.1.0",
     "prop-types": "^15.7.2",
     "react": "^16.10.2",
     "react-dom": "^16.10.2",

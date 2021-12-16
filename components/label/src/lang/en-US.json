@@ -1,4 +1,6 @@
 {
-  "required": "Required",
-  "optional": "Optional"
+  "label": {
+    "required": "Required",
+    "optional": "Optional"
+  }
 }

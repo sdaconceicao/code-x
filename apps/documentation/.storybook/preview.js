@@ -2,11 +2,12 @@ import React from 'react';
 import { addParameters } from '@storybook/react';
 import { DocsPage, DocsContainer } from '@storybook/addon-docs';
 import { ThemeProvider, createUseStyles } from 'react-jss';
-import { IntlProvider } from 'react-intl'
+import { I18nProvider } from '@code-x/i18n'
 import theme from '@code-x/theme';
 import { enUSMessages as enUSLabelMessages } from '@code-x/label';
+import { enUSMessages as enUSValidationMessages } from '@code-x/validators';
 
-const messages = { ...enUSLabelMessages };
+const messages = { ...enUSLabelMessages, ...enUSValidationMessages };
 const useStyles = createUseStyles({
     '@global': {
         html: {
@@ -19,9 +20,9 @@ const useStyles = createUseStyles({
 });
 
 const withI18nProvider = (Story) => (
-  <IntlProvider messages={messages} locale="en" defaultLocale="en">
+  <I18nProvider messages={messages} locale="en">
     <Story />
-  </IntlProvider>
+  </I18nProvider>
 )
 
 const withThemeProvider = (Story,context) => {

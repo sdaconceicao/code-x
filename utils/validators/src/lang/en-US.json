@@ -1,0 +1,6 @@
+{
+  "validators":{
+    "required": "{name} Required"
+  }
+}
+  

@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useImperativeHandle } from 'react';
 import PropTypes from 'prop-types';
 import { withFormElement } from '@code-x/form-element';
+import { required as requiredValidator, doValidate } from '@code-x/validators';
 import useStyles from './Input.styles';
 
 export const InputComponent = ({
@@ -21,15 +22,14 @@ export const InputComponent = ({
   };
 
   const validate = () => {
-    let validationErrors;
-    if (required && (localValue === undefined || localValue === '')) {
-      validationErrors = [(`${label} Required`)]; // TODO localize
-    }
-    setLocalErrors(validationErrors);
+    const response = doValidate({
+      name: label || name, value: localValue, required
+    }, [requiredValidator]);
+    setLocalErrors(response.errors);
     return {
-      errors: validationErrors,
+      errors: response.errors,
       value: localValue,
-      valid: !validationErrors
+      valid: response.passed
     };
   };
 
@@ -55,8 +55,7 @@ export const InputComponent = ({
   }, [value]);
 
   useImperativeHandle(innerRef, () => ({
-    doValidate: validate,
-    setErrors: (e) => setLocalErrors(e)
+    doValidate: validate
   }));
 
   return (
