@@ -6,6 +6,7 @@ import { Checkbox } from '@code-x/checkbox';
 import { Input, InputComponent } from '@code-x/input';
 import { FormElementWrapper } from '@code-x/form-element';
 import { Radio, RadioGroup } from '@code-x/radio';
+import { Select } from '@code-x/select';
 import { Form } from './Form';
 
 <Meta 
@@ -49,6 +50,17 @@ An **Form** wraps Form Elements and connects them to the **Form Context**
             <Button withInput display="inlineBlock"
                     onClick={()=>setSearchValue(`${searchValue} searched`)}>Search</Button>
           </FormElementWrapper>
+          <Select name="singleSelect"
+                  label="Select"
+                  type="text"
+                  label="Lorem"
+                  value="ipsum"
+                  onChange={action('value changed')}
+                  options={[
+                    {displayName: 'Lorem', value: 'lorem'},
+                    {displayName: 'Ipsum', value: 'ipsum'}
+                  ]}
+          />
           <Checkbox name="checkboxEx"
                     id="checkboxEx1"
                     label="Lorem Checkum"

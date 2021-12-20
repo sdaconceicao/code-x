@@ -6,8 +6,9 @@ import { I18nProvider } from '@code-x/i18n'
 import theme from '@code-x/theme';
 import { enUSMessages as enUSLabelMessages } from '@code-x/label';
 import { enUSMessages as enUSValidationMessages } from '@code-x/validators';
+import { enUSMessages as enUSSelectMessages } from '@code-x/select';
 
-const messages = { ...enUSLabelMessages, ...enUSValidationMessages };
+const messages = { ...enUSLabelMessages, ...enUSValidationMessages, ...enUSSelectMessages };
 const useStyles = createUseStyles({
     '@global': {
         html: {

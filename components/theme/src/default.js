@@ -22,11 +22,12 @@ const colors = {
   infoLight: '#63cfff',
   white: '#fff',
   g100: '#f1f1f1',
-  g200: '#E9EEF1',
-  g300: '#a7a7a7',
-  g400: '#808080',
-  g500: '#333',
-  g600: '#010101',
+  g200: '#eee',
+  g300: '#ddd',
+  g400: '#a7a7a7',
+  g500: '#808080',
+  g600: '#333',
+  g700: '#010101',
   black: '#000'
 }
 
@@ -41,7 +42,9 @@ const theme = {
     height: '2.25rem',
     transition: 'color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out',
     focusColor: colors.primary,
-    disabledColor: colors.g300
+    focusColorText: colors.white,
+    disabledColor: colors.g300,
+    backgroundColor: colors.g200
   },
   palette: {
     primaryBg: colors.primary,
