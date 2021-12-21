@@ -10,5 +10,8 @@ export default createUseStyles(({ palette, form }) => ({
   },
   label: {
     display: ({ inline }) => (inline ? 'inline-block' : 'block')
+  },
+  childWrapper: {
+    display: ({ flex, inline }) => (flex ? 'flex' : inline ? 'inline-block' : 'block')
   }
 }));

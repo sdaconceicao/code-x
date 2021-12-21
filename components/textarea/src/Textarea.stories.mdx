@@ -1,0 +1,31 @@
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs';
+import { action } from '@storybook/addon-actions';
+import { TextareaComponent } from './Textarea';
+import { Textarea } from './Textarea.template.jsx';
+
+<Meta 
+  title="Form Components/Textarea" 
+  component={TextareaComponent} 
+/>
+
+# Textarea
+An Textarea is an html form element
+
+<Canvas>
+  <Story name="Example">
+    {args => (
+      <Textarea name="example"
+        id="example"
+        label="Label"
+        type="text"
+        value="Lorem ipsum"
+        label="Lorem"
+        onChange={action('value changed')}
+        {...args}
+        />
+    )}
+  </Story>
+</Canvas>
+
+## Properties
+<ArgsTable story="Example" />

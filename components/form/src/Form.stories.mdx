@@ -7,6 +7,7 @@ import { Input, InputComponent } from '@code-x/input';
 import { FormElementWrapper } from '@code-x/form-element';
 import { Radio, RadioGroup } from '@code-x/radio';
 import { Select } from '@code-x/select';
+import { Textarea } from '@code-x/textarea';
 import { Form } from './Form';
 
 <Meta 
@@ -40,8 +41,8 @@ An **Form** wraps Form Elements and connects them to the **Form Context**
                  onChange={action('Input changed')}
                  required
           />
-          <FormElementWrapper label="Input With Button" id="example2">
-            <InputComponent name="example2"
+          <FormElementWrapper label="Input With Button" id="example2" flex>
+              <InputComponent name="example2"
                               id="example2"
                               type="text"
                               value={searchValue}
@@ -50,6 +51,11 @@ An **Form** wraps Form Elements and connects them to the **Form Context**
             <Button withInput display="inlineBlock"
                     onClick={()=>setSearchValue(`${searchValue} searched`)}>Search</Button>
           </FormElementWrapper>
+          <Textarea name="textarea"
+                    id="textarea"
+                    value="Lorem Ipsum" 
+                    required
+                    label="Textarea" />
           <Select name="singleSelect"
                   label="Select"
                   type="text"

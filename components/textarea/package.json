@@ -1,24 +1,25 @@
 {
-  "name": "@code-x/form",
+  "name": "@code-x/textarea",
   "version": "0.1.0",
-  "description": "> TODO: description",
+  "description": "React Form Textarea",
   "author": "Stephen da Conceicao <daconcei472@gmail.com>",
-  "homepage": "https://github.com/sdaconceicao/code-x/tree/master/packages/form#readme",
+  "homepage": "https://github.com/sdaconceicao/code-x/tree/master/packages/hooks#readme",
   "license": "ISC",
   "main": "src/index.js",
+  "scripts": {
+    "lint": "eslint . --ext .js --ext .jsx --fix"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/sdaconceicao/code-x.git"
-  },
-  "scripts": {
-    "lint": "eslint . --ext .js --ext .jsx --fix"
   },
   "bugs": {
     "url": "https://github.com/sdaconceicao/code-x/issues"
   },
   "peerDependencies": {
-    "@code-x/form-context": "0.1.0",
+    "@code-x/form-element": "0.1.0",
     "@code-x/theme": "^0.1.0",
+    "@code-x/validators": "0.1.0",
     "prop-types": "^15.7.2",
     "react": "^16.10.2",
     "react-dom": "^16.10.2",
@@ -26,16 +27,11 @@
   },
   "devDependencies": {
     "@code-x/babel-preset": "0.1.0",
-    "@code-x/button": "^0.1.0",
-    "@code-x/checkbox": "0.1.0",
     "@code-x/eslint-config": "0.1.0",
-    "@code-x/form-context": "0.1.0",
     "@code-x/form-element": "0.1.0",
-    "@code-x/input": "0.1.0",
-    "@code-x/radio": "0.1.0",
-    "@code-x/select": "0.1.0",
-    "@code-x/textarea": "0.1.0",
-    "@code-x/theme": "0.1.0",
+    "@code-x/i18n": "0.1.0",
+    "@code-x/theme": "^0.1.0",
+    "@code-x/validators": "0.1.0",
     "prop-types": "^15.7.2",
     "react": "^16.10.2",
     "react-dom": "^16.10.2",

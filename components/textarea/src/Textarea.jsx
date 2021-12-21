@@ -2,16 +2,23 @@ import React, { useState, useEffect, useImperativeHandle } from 'react';
 import PropTypes from 'prop-types';
 import { withFormElement } from '@code-x/form-element';
 import { required as requiredValidator, doValidate } from '@code-x/validators';
-import useStyles from './Input.styles';
+import useStyles from './Textarea.styles';
 
-export const InputComponent = ({
-  id, name, label, value, className, errors, withButton, inline,
+export const resizes = {
+  horizontal: 'horizontal',
+  vertical: 'vertical',
+  both: 'both',
+  none: 'none'
+};
+
+export const TextareaComponent = ({
+  id, name, label, value, className, errors, resize,
   onKeyDown, onChange, onBlur, onEnter, innerRef, required,
   ...rest
 }) => {
   const [localValue, setLocalValue] = useState(value);
   const [localErrors, setLocalErrors] = useState(errors);
-  const classes = useStyles({ withButton, errors: localErrors, inline });
+  const classes = useStyles({ errors: localErrors, resize });
   const handleChange = (e) => {
     setLocalValue(e.target.value);
     onChange({
@@ -34,10 +41,6 @@ export const InputComponent = ({
   };
 
   const handleKeyDown = (e) => {
-    if (e.keyCode === 13 && onEnter) {
-      e.preventDefault();
-      onEnter();
-    }
     onKeyDown(e);
   };
 
@@ -59,29 +62,27 @@ export const InputComponent = ({
   }));
 
   return (
-    <input
+    <textarea
       id={id}
       name={name}
       ref={innerRef}
-      className={`${classes.input} ${className}`}
+      className={`${classes.textarea} ${className}`}
       {...rest}
+      value={localValue}
       onChange={handleChange}
       onKeyDown={handleKeyDown}
       onBlur={handleBlur}
-      value={localValue}
     />
   );
 };
 
-InputComponent.propTypes = {
+TextareaComponent.propTypes = {
   /** Classname to override default element styling */
   className: PropTypes.string,
   /** Errors array from form validation */
   errors: PropTypes.instanceOf(Array),
   /** HTML id of element */
   id: PropTypes.string,
-  /** Is element inline */
-  inline: PropTypes.bool,
   /** Ref for input */
   innerRef: PropTypes.oneOfType([
     PropTypes.func,
@@ -89,6 +90,8 @@ InputComponent.propTypes = {
   ]),
   /** Label for element */
   label: PropTypes.string,
+  /** Max number of characters allowed in textarea */
+  maxLength: PropTypes.number,
   /** HTML name of element */
   name: PropTypes.string.isRequired,
   /** Callback for blur event */
@@ -101,30 +104,29 @@ InputComponent.propTypes = {
   onKeyDown: PropTypes.func,
   /** Is Input required */
   required: PropTypes.bool,
+  /** Allow vertical/horizontal resize */
+  resize: PropTypes.oneOf(Object.keys(resizes)),
   /** HTML value of element */
-  value: PropTypes.string,
-  /** Display input with a sibling attached button */
-  withButton: PropTypes.bool
-
+  value: PropTypes.string
 };
 
-InputComponent.defaultProps = {
+TextareaComponent.defaultProps = {
   className: '',
   errors: undefined,
   id: undefined,
-  inline: false,
   innerRef: undefined,
   label: '',
+  maxLength: undefined,
   onBlur: () => {},
   onChange: () => {},
   onEnter: () => {},
   onKeyDown: () => {},
   required: false,
-  value: undefined,
-  withButton: false
+  resize: resizes.vertical,
+  value: undefined
 };
 
-const InputFormElement = withFormElement(InputComponent);
-InputFormElement.displayName = 'Input';
+const TextareaFormElement = withFormElement(TextareaComponent);
+TextareaFormElement.displayName = 'Textarea';
 
-export default InputFormElement;
+export default TextareaFormElement;

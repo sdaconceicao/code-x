@@ -5,17 +5,17 @@ import { useFormContext } from '@code-x/form-context';
 import useStyles from './FormElementWrapper.styles';
 
 const FormElementWrapper = ({
-  label, required, optional, id, inline, children
+  label, required, optional, id, inline, flex, children
 }) => {
   const [errors, setErrors] = useState();
   const handleBlur = (e) => setErrors(e.errors);
   const childrenWithContext = useFormContext(children, handleBlur);
-  const classes = useStyles({ inline });
+  const classes = useStyles({ inline, flex });
 
   return (
     <div className={classes.formComponent}>
       {label && <Label required={required} optional={optional} htmlFor={id}>{label}</Label>}
-      {childrenWithContext}
+      <div className={classes.childWrapper}>{childrenWithContext}</div>
       {errors && <div className={classes.error}>{errors.map((error) => (error))}</div>}
     </div>
   );
@@ -24,6 +24,7 @@ const FormElementWrapper = ({
 FormElementWrapper.propTypes = {
   id: PropTypes.string,
   inline: PropTypes.bool,
+  flex: PropTypes.bool,
   label: PropTypes.string,
   required: PropTypes.bool,
   optional: PropTypes.bool,
@@ -33,6 +34,7 @@ FormElementWrapper.propTypes = {
 FormElementWrapper.defaultProps = {
   id: undefined,
   inline: false,
+  flex: false,
   label: undefined,
   required: false,
   optional: false
