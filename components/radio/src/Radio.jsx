@@ -4,8 +4,8 @@ import { withFormElement } from '@code-x/form-element';
 import useStyles from './Radio.styles';
 
 export const RadioComponent = ({
-  id, name, value, className, label, errors, innerRef,
-  onChange, onKeyDown,
+  id, name, value, className, label, errors, innerRef, addFormElement,
+  onChange, onBlur, onKeyDown,
   ...rest
 }) => {
   const [checked, setChecked] = useState(rest.checked);
@@ -39,8 +39,9 @@ export const RadioComponent = ({
         name={name}
         className={`${classes.radio} ${className} ${errors ? 'error' : ''}`}
         onChange={handleChange}
-        value={value}
         onKeyDown={onKeyDown}
+        onBlur={onBlur}
+        value={value}
         {...rest}
         checked={checked}
       />
@@ -50,6 +51,7 @@ export const RadioComponent = ({
 };
 
 RadioComponent.propTypes = {
+  addFormElement: PropTypes.bool,
   className: PropTypes.string,
   name: PropTypes.string.isRequired,
   id: PropTypes.string.isRequired,
@@ -61,17 +63,20 @@ RadioComponent.propTypes = {
   value: PropTypes.string,
   errors: PropTypes.instanceOf(Array),
   checked: PropTypes.bool,
+  onBlur: PropTypes.func,
   onChange: PropTypes.func,
   onKeyDown: PropTypes.func
 };
 
 RadioComponent.defaultProps = {
+  addFormElement: true,
   className: '',
   innerRef: undefined,
   label: '',
   value: undefined,
   checked: false,
   errors: [],
+  onBlur: () => {},
   onChange: () => {},
   onKeyDown: () => {}
 };

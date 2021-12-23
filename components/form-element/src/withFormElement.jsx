@@ -3,9 +3,10 @@ import FormElementWrapper from './FormElementWrapper';
 
 export const withFormElement = (FormElement) => (({
   // eslint-disable-next-line react/prop-types
-  label, required, optional, error, inline, id, hideLabel, ...rest
+  className, label, required, optional, error, inline, id, hideLabel, ...rest
 }) => (
   <FormElementWrapper
+    className={className}
     label={hideLabel ? null : label}
     required={required}
     optional={optional}

@@ -2,13 +2,13 @@ export default (props, validators) => {
   let errors;
   validators.forEach(validator => {
     const result = validator(props);
-    if (!result.passed) {
+    if (!result.valid) {
       if (!errors) errors = [result.error];
       else errors.push(result.error);
     }
   });
   return {
-    passed: errors === undefined,
+    valid: errors === undefined,
     errors
   };
 };

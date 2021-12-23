@@ -7,7 +7,7 @@ export default (children, onBlur) => {
   const ref = useRef();
   const { addFormElement, removeFormElement, onChange: handleChange } = useContext(FormContext);
   const refWithChildren = Children.map(children, (child) => (
-    child.props.name
+    child.props.name && child.props.addFormElement !== false
       ? cloneElement(child, {
         onBlur,
         onChange: (e) => {
@@ -18,7 +18,6 @@ export default (children, onBlur) => {
       })
       : child
   ));
-
   useEffect(() => {
     addFormElement?.(refWithChildren);
     return () => {

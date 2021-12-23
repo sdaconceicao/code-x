@@ -7,7 +7,7 @@ export default (elements, action) => {
     case actions.ADD:
       if (Array.isArray(action.value)) {
         action.value.map(element => {
-          if (element.props.name) elements.push(element);
+          if (element.props.name && element.props.addFormElement !== false) elements.push(element);
         });
       } else {
         elements.push(action.value);

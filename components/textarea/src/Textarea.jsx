@@ -34,9 +34,8 @@ export const TextareaComponent = ({
     }, [requiredValidator]);
     setLocalErrors(response.errors);
     return {
-      errors: response.errors,
-      value: localValue,
-      valid: response.passed
+      ...response,
+      value: localValue
     };
   };
 
