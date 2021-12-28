@@ -14,9 +14,11 @@
     "url": "https://github.com/sdaconceicao/code-x/issues"
   },
   "peerDependencies": {
-    "react-jss": "^10.0.0"
+    "react-jss": "^10.0.0",
+    "react-icons": "^4.3.1"
   },
   "dependencies": {
+    "react-icons": "^4.3.1",
     "react-jss": "^10.0.0"
   }
 }

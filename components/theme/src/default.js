@@ -1,3 +1,5 @@
+import { FaTimesCircle, FaExclamationCircle, FaInfoCircle, FaCheckCircle, FaInfo } from 'react-icons/fa';
+
 const colors = {
   primary: '#2171bb',
   primaryDark: '#1a4171',
@@ -10,16 +12,16 @@ const colors = {
   tertiaryLight: '#a2aaa5',
   success: '#439843',
   successDark: '#2c572c',
-  successLight: '#60bf60',
-  warning: '#d08e50',
+  successLight: '#b5eeb5',
+  warning: '#f79722',
   warningDark: '#764612',
-  warningLight: '#f79722',
+  warningLight: '#ffca88',
   error: '#de4045',
   errorDark: '#762427',
-  errorLight: '#d16f6f',
+  errorLight: '#ffbbbb',
   info: '#2a7bca',
   infoDark: '#1a4171',
-  infoLight: '#63cfff',
+  infoLight: '#c3ecff',
   white: '#fff',
   g100: '#f1f1f1',
   g200: '#eee',
@@ -69,6 +71,12 @@ const theme = {
   },
   fonts: {
     fontFamily: 'arial'
+  },
+  icons: {
+    success: FaCheckCircle,
+    error: FaTimesCircle,
+    warning: FaExclamationCircle,
+    info: FaInfoCircle
   }
 }
 
