@@ -1,0 +1,19 @@
+import { Meta, Story, Canvas } from '@storybook/addon-docs';
+import { ButtonGroup } from './index.js';
+import { Button } from './Button.template';
+
+<Meta title="Form Components/Button Group" component={ButtonGroup} />
+
+# Button Group
+
+Buttons can be grouped together visually using the **ButtonGroup** component
+
+<Canvas>
+  <Story name="ButtonGroup">
+    <ButtonGroup>
+      <Button type="button" kind="secondary" display="inline">Lorem</Button>
+      <Button type="button" kind="secondary" display="inline">Ipsum</Button>
+      <Button type="button" kind="secondary" display="inline">Small</Button>
+    </ButtonGroup>
+  </Story>
+</Canvas>

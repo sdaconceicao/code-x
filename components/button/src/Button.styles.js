@@ -46,12 +46,15 @@ export default createUseStyles(({ palette, form }) => ({
     }
   },
   sm: {
-    padding: '.25rem'
+    padding: '.5rem',
+    fontSize: '.5rem'
   },
   md: {
-    padding: form.padding
+    padding: form.padding,
+    fontSize: '.75rem'
   },
   lg: {
-    padding: '1rem'
+    padding: '.75rem',
+    fontSize: '1rem'
   }
 }));

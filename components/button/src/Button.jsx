@@ -1,31 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import useStyles from './Button.styles';
-
-export const styles = {
-  primary: 'primary',
-  secondary: 'secondary',
-  tertiary: 'tertiary'
-};
-
-export const sizes = {
-  sm: 'sm',
-  md: 'md',
-  lg: 'lg'
-};
-
-export const displays = {
-  block: 'block',
-  inline: 'inline',
-  inlineBlock: 'inline-block'
-};
+import { kinds, sizes, displays } from './vars';
 
 export const Button = ({
-  children, disabled, className, onClick, type, style, size, withInput, display, ...rest
+  children, disabled, className, onClick, type, kind, size, withInput, display, ...rest
 }) => {
   const classes = useStyles({ withInput, display });
   return (
-    <button className={`${classes.button} ${classes[style]} ${classes[size]} ${className}`} type={type} onClick={onClick} {...rest}>
+    <button className={`${classes.button} ${classes[kind]} ${classes[size]} ${className}`} type={type} onClick={onClick} {...rest}>
       {children}
     </button>
   );
@@ -44,8 +27,8 @@ Button.propTypes = {
   type: PropTypes.oneOf(['submit', 'button']),
   /** Size of button */
   size: PropTypes.oneOf(Object.keys(sizes)),
-  /** Visual style of button */
-  style: PropTypes.oneOf(Object.keys(styles)),
+  /** Visual kind of button */
+  kind: PropTypes.oneOf(Object.keys(kinds)),
   /** Button attached to an input */
   withInput: PropTypes.bool,
   /** Contents of button */
@@ -58,7 +41,7 @@ Button.defaultProps = {
   id: '',
   disabled: false,
   type: 'button',
-  style: styles.primary,
+  kind: kinds.primary,
   size: sizes.md,
   withInput: false,
   display: displays.block,
