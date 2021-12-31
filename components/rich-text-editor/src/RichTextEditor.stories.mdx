@@ -10,7 +10,12 @@ A ** Rich Text Editor** provides the ability to generate rich text
 <Canvas>
   <Story name="Example">
     {args => (
-      <RichTextEditor label="HTML Editor" {...args} value="<p>Lorem Ipsum</p>" />
+      <RichTextEditor 
+        name="example" 
+        label="HTML Editor" 
+        {...args} 
+        value="<p>Lor<strong>em</strong> Ipsum</p><ol><li>Lorem</li><li>Ipsum</li></ol>" 
+      />
     )}
   </Story>
 </Canvas>

@@ -26,7 +26,7 @@ const BlockButton = ({ format, icon }) => {
 
 BlockButton.propTypes = {
   format: PropTypes.string.isRequired,
-  icon: PropTypes.string.isRequired
+  icon: PropTypes.oneOfType([PropTypes.object]).isRequired
 };
 
 export default BlockButton;

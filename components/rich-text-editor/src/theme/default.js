@@ -1,5 +1,7 @@
 import {
-  FaBold, FaItalic, FaUnderline, FaCode, FaQuoteLeft, FaListOl, FaListUl
+  FaBold, FaItalic, FaUnderline, FaCode,
+  FaAlignCenter, FaAlignLeft, FaAlignRight, FaAlignJustify,
+  FaQuoteRight, FaListOl, FaListUl, FaStrikethrough
 } from 'react-icons/fa';
 
 export default {
@@ -7,8 +9,13 @@ export default {
     bold: FaBold,
     italic: FaItalic,
     underline: FaUnderline,
-    quote: FaQuoteLeft,
+    quote: FaQuoteRight,
     code: FaCode,
+    strikethrough: FaStrikethrough,
+    alignLeft: FaAlignLeft,
+    alignRight: FaAlignRight,
+    alignCenter: FaAlignCenter,
+    alignJustify: FaAlignJustify,
     ol: FaListOl,
     ul: FaListUl
   }

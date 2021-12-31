@@ -4,17 +4,29 @@ import useStyles from './Button.styles';
 import { kinds, sizes, displays } from './vars';
 
 export const Button = ({
-  children, disabled, className, onClick, type, kind, size, withInput, display, ...rest
+  active, children, disabled, className, onClick, type, kind, size, withInput, display, ...rest
 }) => {
   const classes = useStyles({ withInput, display });
   return (
-    <button className={`${classes.button} ${classes[kind]} ${classes[size]} ${className}`} type={type} onClick={onClick} {...rest}>
+    <button
+      className={`
+      ${classes.button} 
+      ${classes[kind]} 
+      ${classes[size]} 
+      ${active ? classes.active : ''}
+      ${className}`}
+      type={type}
+      onClick={onClick}
+      {...rest}
+    >
       {children}
     </button>
   );
 };
 
 Button.propTypes = {
+  /** Is Button active */
+  active: PropTypes.bool,
   /** HTML id of element */
   id: PropTypes.string,
   /** Classname to override default element styling */
@@ -38,6 +50,7 @@ Button.propTypes = {
 };
 
 Button.defaultProps = {
+  active: false,
   id: '',
   disabled: false,
   type: 'button',

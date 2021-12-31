@@ -46,12 +46,19 @@ export const RichTextEditorComponent = ({
           <MarkButton format="bold" icon={theme.icons.bold()} />
           <MarkButton format="italic" icon={theme.icons.italic()} />
           <MarkButton format="underline" icon={theme.icons.underline()} />
+          <MarkButton format="strikethrough" icon={theme.icons.strikethrough()} />
           <MarkButton format="code" icon={theme.icons.code()} />
         </ButtonGroup>
         <ButtonGroup className={classes.controlGroup}>
-          <BlockButton format="block-quote" icon={theme.icons.quote()} />
           <BlockButton format="numbered-list" icon={theme.icons.ol()} />
           <BlockButton format="bulleted-list" icon={theme.icons.ul()} />
+          <BlockButton format="block-quote" icon={theme.icons.quote()} />
+        </ButtonGroup>
+        <ButtonGroup className={classes.controlGroup}>
+          <BlockButton format="align-left" icon={theme.icons.alignLeft()} />
+          <BlockButton format="align-center" icon={theme.icons.alignCenter()} />
+          <BlockButton format="align-right" icon={theme.icons.alignRight()} />
+          <BlockButton format="align-justify" icon={theme.icons.alignJustify()} />
         </ButtonGroup>
       </Toolbar>
       <Editable

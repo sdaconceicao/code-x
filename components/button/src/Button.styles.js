@@ -15,11 +15,12 @@ export default createUseStyles(({ palette, form }) => ({
       boxShadow: `0 0 0 1pt ${form.focusColor}`
     }
   },
+  active: {},
   primary: {
     backgroundColor: palette.primaryBg,
     color: palette.primaryFg,
     borderColor: palette.primaryBorder,
-    '&:hover': {
+    '&:hover, &$active': {
       backgroundColor: palette.primaryBgHover,
       color: palette.primaryFgHover,
       borderColor: palette.primaryBorderHover
@@ -29,7 +30,7 @@ export default createUseStyles(({ palette, form }) => ({
     backgroundColor: palette.secondaryBg,
     color: palette.secondaryFg,
     borderColor: palette.secondaryBorder,
-    '&:hover': {
+    '&:hover, &$active': {
       backgroundColor: palette.secondaryBgHover,
       color: palette.secondaryFgHover,
       borderColor: palette.secondaryBorderHover
@@ -39,7 +40,7 @@ export default createUseStyles(({ palette, form }) => ({
     backgroundColor: palette.tertiaryBg,
     color: palette.tertiaryFg,
     borderColor: palette.tertiaryBorder,
-    '&:hover': {
+    '&:hover, &$active': {
       backgroundColor: palette.tertiaryBgHover,
       color: palette.tertiaryFgHover,
       borderColor: palette.tertiaryBorderHover

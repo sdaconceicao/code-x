@@ -19,15 +19,20 @@ const Leaf = ({ attributes, children, leaf }) => {
     wrappedChild = <u>{wrappedChild}</u>;
   }
 
+  if (leaf.strikethrough) {
+    wrappedChild = <del>{wrappedChild}</del>;
+  }
+
   return <span {...attributes}>{wrappedChild}</span>;
 };
 
 Leaf.propTypes = {
-  attributes: PropTypes.objectOf(PropTypes.string),
-  leaf: PropTypes.objectOf({
+  attributes: PropTypes.oneOfType([PropTypes.object]),
+  leaf: PropTypes.shape({
     bold: PropTypes.bool,
     code: PropTypes.bool,
     italic: PropTypes.bool,
+    strikethrough: PropTypes.bool,
     underline: PropTypes.bool
   }).isRequired,
   children: PropTypes.oneOfType([PropTypes.string, PropTypes.node]).isRequired

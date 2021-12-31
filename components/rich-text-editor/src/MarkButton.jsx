@@ -26,7 +26,7 @@ const MarkButton = ({ format, icon }) => {
 
 MarkButton.propTypes = {
   format: PropTypes.string.isRequired,
-  icon: PropTypes.string.isRequired
+  icon: PropTypes.oneOfType([PropTypes.object]).isRequired
 };
 
 export default MarkButton;

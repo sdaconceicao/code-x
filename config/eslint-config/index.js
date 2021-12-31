@@ -10,6 +10,7 @@ module.exports = {
     'import/extensions': 'off',
     'import/prefer-default-export': 'off',
     'no-nested-ternary': 'off',
+    "prefer-destructuring": ["error", {"object": true, "array": false}],
     'quote-props': ['error', 'as-needed'],
     'react/button-has-type': 'off',
     'react/destructuring-assignment': 'off',
