@@ -8,26 +8,15 @@ import {
   createEditor
 } from 'slate';
 import { withHistory } from 'slate-history';
-import { ButtonGroup } from '@code-x/button';
 import { withFormElement } from '@code-x/form-element';
 import Toolbar from './Toolbar';
 import Element from './Element';
 import Leaf from './Leaf';
-import { deserialize, toggleMark } from './utils.js';
-import BlockButton from './BlockButton';
-import MarkButton from './MarkButton';
+import { deserialize, toggleMark, HOTKEYS } from './utils.js';
 import useStyles from './RichTextEditor.styles';
-import theme from './theme/default'; // TODO read this with ThemeProvider
-
-const HOTKEYS = {
-  'mod+b': 'bold',
-  'mod+i': 'italic',
-  'mod+u': 'underline',
-  'mod+`': 'code'
-};
 
 export const RichTextEditorComponent = ({
-  name, value, placeholder, onChange, label
+  name, value, placeholder, onChange, options, label
 }) => {
   const document = new DOMParser().parseFromString(value, 'text/html');
   const [localValue, setLocalValue] = useState(deserialize(document.body));
@@ -39,28 +28,10 @@ export const RichTextEditorComponent = ({
     setLocalValue(val);
     onChange({ name, value: val });
   };
+
   return (
     <Slate editor={editor} value={localValue} onChange={handleChange}>
-      <Toolbar>
-        <ButtonGroup className={classes.controlGroup}>
-          <MarkButton format="bold" icon={theme.icons.bold()} />
-          <MarkButton format="italic" icon={theme.icons.italic()} />
-          <MarkButton format="underline" icon={theme.icons.underline()} />
-          <MarkButton format="strikethrough" icon={theme.icons.strikethrough()} />
-          <MarkButton format="code" icon={theme.icons.code()} />
-        </ButtonGroup>
-        <ButtonGroup className={classes.controlGroup}>
-          <BlockButton format="numbered-list" icon={theme.icons.ol()} />
-          <BlockButton format="bulleted-list" icon={theme.icons.ul()} />
-          <BlockButton format="block-quote" icon={theme.icons.quote()} />
-        </ButtonGroup>
-        <ButtonGroup className={classes.controlGroup}>
-          <BlockButton format="align-left" icon={theme.icons.alignLeft()} />
-          <BlockButton format="align-center" icon={theme.icons.alignCenter()} />
-          <BlockButton format="align-right" icon={theme.icons.alignRight()} />
-          <BlockButton format="align-justify" icon={theme.icons.alignJustify()} />
-        </ButtonGroup>
-      </Toolbar>
+      <Toolbar options={options} />
       <Editable
         renderElement={renderElement}
         renderLeaf={renderLeaf}
@@ -89,6 +60,10 @@ RichTextEditorComponent.propTypes = {
   label: PropTypes.string,
   name: PropTypes.string.isRequired,
   onChange: PropTypes.func,
+  /** List of controls for editor */
+  options: PropTypes.arrayOf(PropTypes.arrayOf(
+    PropTypes.oneOfType([PropTypes.string, PropTypes.node])
+  )),
   placeholder: PropTypes.string,
   value: PropTypes.string
 };
@@ -96,6 +71,11 @@ RichTextEditorComponent.propTypes = {
 RichTextEditorComponent.defaultProps = {
   label: '',
   onChange: () => {},
+  options: [
+    ['bold', 'italic', 'underline', 'strikethrough', 'code'],
+    ['ol', 'ul'],
+    ['alignLeft', 'alignCenter', 'alignRight', 'alignJustify']
+  ],
   placeholder: '',
   value: undefined
 };

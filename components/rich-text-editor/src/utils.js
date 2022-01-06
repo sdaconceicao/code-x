@@ -5,8 +5,14 @@ import {
 } from 'slate';
 import { jsx } from 'slate-hyperscript';
 
-const LIST_TYPES = ['numbered-list', 'bulleted-list'];
-const ELEMENT_TAGS = {
+export const HOTKEYS = {
+  'mod+b': 'bold',
+  'mod+i': 'italic',
+  'mod+u': 'underline',
+  'mod+`': 'code'
+};
+export const LIST_TYPES = ['numbered-list', 'bulleted-list'];
+export const ELEMENT_TAGS = {
   A: el => ({ type: 'link', url: el.getAttribute('href') }),
   BLOCKQUOTE: () => ({ type: 'quote' }),
   H1: () => ({ type: 'heading-one' }),
@@ -22,7 +28,7 @@ const ELEMENT_TAGS = {
   PRE: () => ({ type: 'code' }),
   UL: () => ({ type: 'bulleted-list' })
 };
-const TEXT_TAGS = {
+export const TEXT_TAGS = {
   CODE: () => ({ code: true }),
   DEL: () => ({ strikethrough: true }),
   EM: () => ({ italic: true }),
