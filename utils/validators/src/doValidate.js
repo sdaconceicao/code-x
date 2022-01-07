@@ -1,6 +1,6 @@
 export default (props, validators) => {
   let errors;
-  validators.forEach(validator => {
+  validators.forEach((validator) => {
     const result = validator(props);
     if (!result.valid) {
       if (!errors) errors = [result.error];

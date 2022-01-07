@@ -3,15 +3,9 @@ import PropTypes from 'prop-types';
 import useStyles from './ButtonGroup.styles';
 import { displays } from './vars';
 
-export const ButtonGroup = ({
-  children, className, display
-}) => {
+export const ButtonGroup = ({ children, className, display }) => {
   const classes = useStyles({ display });
-  return (
-    <div className={`${classes.buttonGroup} ${className}`}>
-      {children}
-    </div>
-  );
+  return <div className={`${classes.buttonGroup} ${className}`}>{children}</div>;
 };
 
 ButtonGroup.propTypes = {

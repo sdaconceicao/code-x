@@ -1,21 +1,21 @@
-import { useState } from "react";
-import { Meta, Story, Canvas, ArgsTable } from "@storybook/addon-docs";
-import { action } from "@storybook/addon-actions";
-import { Button } from "@code-x/button";
-import { Checkbox } from "@code-x/checkbox";
-import { Input, InputComponent } from "@code-x/input";
-import { FormElementWrapper } from "@code-x/form-element";
-import { Radio, RadioGroup } from "@code-x/radio";
-import { Select } from "@code-x/select";
-import { Textarea } from "@code-x/textarea";
-import { RichTextEditor } from "@code-x/rich-text-editor";
-import { Form } from "./Form";
+import { useState } from 'react';
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs';
+import { action } from '@storybook/addon-actions';
+import { Button } from '@code-x/button';
+import { Checkbox } from '@code-x/checkbox';
+import { Input, InputComponent } from '@code-x/input';
+import { FormElementWrapper } from '@code-x/form-element';
+import { Radio, RadioGroup } from '@code-x/radio';
+import { Select } from '@code-x/select';
+import { Textarea } from '@code-x/textarea';
+import { RichTextEditor } from '@code-x/rich-text-editor';
+import { Form } from './Form';
 
 <Meta
   title="Form Components/Form"
   component={Form}
   parameters={{
-    actions: { argTypesRegex: "^handle.*" },
+    actions: { argTypesRegex: '^handle.*' }
   }}
 />
 
@@ -28,7 +28,7 @@ An **Form** wraps Form Elements and connects them to the **Form Context**
     {() => {
       const [results, setResults] = useState(null);
       const [errors, setErrors] = useState(null);
-      const [searchValue, setSearchValue] = useState("lorem");
+      const [searchValue, setSearchValue] = useState('lorem');
       const handleSubmit = (response) => {
         setResults(response.errors.length === 0 ? response.result : null);
         setErrors(response.errors);
@@ -41,7 +41,7 @@ An **Form** wraps Form Elements and connects them to the **Form Context**
             label="Input"
             type="text"
             value="Lorem Exampum"
-            onChange={action("Input changed")}
+            onChange={action('Input changed')}
             required
           />
           <FormElementWrapper label="Input With Button" id="example2" flex>
@@ -60,13 +60,7 @@ An **Form** wraps Form Elements and connects them to the **Form Context**
               Search
             </Button>
           </FormElementWrapper>
-          <Textarea
-            name="textarea"
-            id="textarea"
-            value="Lorem Ipsum"
-            required
-            label="Textarea"
-          />
+          <Textarea name="textarea" id="textarea" value="Lorem Ipsum" required label="Textarea" />
           <RichTextEditor
             name="richTextEditor"
             value="<p>Lorem Ipsum</p>"
@@ -79,10 +73,10 @@ An **Form** wraps Form Elements and connects them to the **Form Context**
             type="text"
             label="Lorem"
             value="ipsum"
-            onChange={action("value changed")}
+            onChange={action('value changed')}
             options={[
-              { displayName: "Lorem", value: "lorem" },
-              { displayName: "Ipsum", value: "ipsum" },
+              { displayName: 'Lorem', value: 'lorem' },
+              { displayName: 'Ipsum', value: 'ipsum' }
             ]}
           />
           <Checkbox
@@ -100,20 +94,8 @@ An **Form** wraps Form Elements and connects them to the **Form Context**
             inline
           />
           <RadioGroup label="Radio Groups" required name="radioEx">
-            <Radio
-              name="radioEx"
-              id="radioEx1"
-              label="Lorem Radio"
-              value="Lorem Radio"
-              inline
-            />
-            <Radio
-              name="radioEx"
-              id="radioEx2"
-              label="Ipsum Radio"
-              value="Ipsum Radio"
-              inline
-            />
+            <Radio name="radioEx" id="radioEx1" label="Lorem Radio" value="Lorem Radio" inline />
+            <Radio name="radioEx" id="radioEx2" label="Ipsum Radio" value="Ipsum Radio" inline />
           </RadioGroup>
           <Button type="submit">Submit</Button>
           {results && (

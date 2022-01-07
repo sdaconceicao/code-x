@@ -5,6 +5,4 @@ export default {
   component: AlertCompontent
 };
 
-export const Alert = (args) => (
-  <AlertCompontent {...args} />
-);
+export const Alert = (args) => <AlertCompontent {...args} />;

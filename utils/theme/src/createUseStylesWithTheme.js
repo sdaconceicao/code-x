@@ -7,6 +7,5 @@ import { useTheme, createUseStyles as originalUseStyles } from 'react-jss';
  */
 export const createUseStyles = (styles) => (props) => {
   const theme = useTheme();
-  return originalUseStyles(styles)({...theme, ...props});
+  return originalUseStyles(styles)({ ...theme, ...props });
 };
-

@@ -14,10 +14,7 @@ const I18nProvider = ({ children, messages, locale }) => {
 };
 
 I18nProvider.propTypes = {
-  children: PropTypes.oneOfType([
-    PropTypes.arrayOf(PropTypes.node),
-    PropTypes.node
-  ]).isRequired,
+  children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]).isRequired,
   messages: PropTypes.shape({}).isRequired,
   /** Locale string to use */
   locale: PropTypes.string.isRequired

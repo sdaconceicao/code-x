@@ -1,15 +1,15 @@
 {
-    "fixturesFolder": false,
-    "componentFolder": "./",
-    "testFiles": "components/**/*.int.{js,ts,jsx,tsx}",
-    "env": {
-        "cypress-plugin-snapshots": {
-            "imageConfig": {
-                "createDiffImage": true,
-                "resizeDevicePixelRatio": true,
-                "threshold": 0.3,
-                "thresholdType": "percent"
-            }
-        }
+  "fixturesFolder": false,
+  "componentFolder": "./",
+  "testFiles": "components/**/*.int.{js,ts,jsx,tsx}",
+  "env": {
+    "cypress-plugin-snapshots": {
+      "imageConfig": {
+        "createDiffImage": true,
+        "resizeDevicePixelRatio": true,
+        "threshold": 0.3,
+        "thresholdType": "percent"
+      }
     }
+  }
 }

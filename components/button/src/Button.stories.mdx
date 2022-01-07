@@ -5,17 +5,15 @@ import { Button } from './Button.template';
 <Meta title="Form Components/Button/Button" component={ButtonComponent} />
 
 # Button
+
 A button is an html control
 
 <Canvas>
-    <Story name="Example">
-        {args => (
-          <Button {...args}>Lorem</Button>
-        )}
-    </Story>
+  <Story name="Example">{(args) => <Button {...args}>Lorem</Button>}</Story>
 </Canvas>
 
 ## Properties
+
 <ArgsTable story="Example" />
 
 ## Kinds
@@ -23,23 +21,41 @@ A button is an html control
 ### Primary (Default)
 
 <Story name="Primary">
-  <Button type="button" kind="primary" display="inline" size="lg">Large</Button>
-  <Button type="button" kind="primary" display="inline" size="md">Medium</Button>
-  <Button type="button" kind="primary" display="inline" size="sm">Small</Button>
+  <Button type="button" kind="primary" display="inline" size="lg">
+    Large
+  </Button>
+  <Button type="button" kind="primary" display="inline" size="md">
+    Medium
+  </Button>
+  <Button type="button" kind="primary" display="inline" size="sm">
+    Small
+  </Button>
 </Story>
 
 ### Secondary
 
 <Story name="Secondary">
-  <Button type="button" kind="secondary" display="inline" size="lg">Large</Button>
-  <Button type="button" kind="secondary" display="inline" size="md">Medium</Button>
-  <Button type="button" kind="secondary" display="inline" size="sm">Small</Button>
+  <Button type="button" kind="secondary" display="inline" size="lg">
+    Large
+  </Button>
+  <Button type="button" kind="secondary" display="inline" size="md">
+    Medium
+  </Button>
+  <Button type="button" kind="secondary" display="inline" size="sm">
+    Small
+  </Button>
 </Story>
 
-### Tertiary 
+### Tertiary
 
 <Story name="Tertiary">
-  <Button type="button" kind="tertiary" display="inline" size="lg">Large</Button>
-  <Button type="button" kind="tertiary" display="inline" size="md">Medium</Button>
-  <Button type="button" kind="tertiary" display="inline" size="sm">Small</Button>
+  <Button type="button" kind="tertiary" display="inline" size="lg">
+    Large
+  </Button>
+  <Button type="button" kind="tertiary" display="inline" size="md">
+    Medium
+  </Button>
+  <Button type="button" kind="tertiary" display="inline" size="sm">
+    Small
+  </Button>
 </Story>

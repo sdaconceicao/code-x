@@ -1,4 +1,3 @@
 module.exports = {
-  "presets": ["@code-x/babel-preset"]
-}
-
+  presets: ['@code-x/babel-preset']
+};

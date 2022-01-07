@@ -11,7 +11,7 @@ class I18n {
    */
   setMessages = (messages) => {
     this.messages = { ...this.messages, ...messages };
-  }
+  };
 
   /**
    * Set locale to use
@@ -19,7 +19,7 @@ class I18n {
    */
   setLocale = (locale) => {
     this.locale = locale;
-  }
+  };
 
   /**
    * Get localized parameterized string
@@ -27,7 +27,7 @@ class I18n {
    * @param {*} values
    * @returns
    */
-  getMessage = (key, values) => this.generateString(this.findTemplate(key), values)
+  getMessage = (key, values) => this.generateString(this.findTemplate(key), values);
 
   /**
    * Find template string in messages object based on key
@@ -37,13 +37,11 @@ class I18n {
   findTemplate = (key) => {
     const keyDepth = key.split('.');
     let template;
-    keyDepth.map(value => {
-      template = template
-        ? template[value]
-        : this.messages[value];
+    keyDepth.map((value) => {
+      template = template ? template[value] : this.messages[value];
     });
     return template;
-  }
+  };
 
   /**
    * Generate paramaterized string from template and values
@@ -62,7 +60,7 @@ class I18n {
     });
 
     return result;
-  }
+  };
 }
 const instance = new I18n();
 export default instance;

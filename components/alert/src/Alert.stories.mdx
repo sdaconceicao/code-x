@@ -5,55 +5,53 @@ import { Alert } from './Alert.template';
 <Meta title="Form Components/Alert" component={AlertComponent} />
 
 # Alert
+
 An **Alert** provides important information to a form or page to summarize any issues.
 
 <Canvas>
-    <Story name="Example">
-        {args => (
-          <Alert {...args}>Lorem</Alert>
-        )}
-    </Story>
+  <Story name="Example">{(args) => <Alert {...args}>Lorem</Alert>}</Story>
 </Canvas>
 
 ## Properties
+
 <ArgsTable story="Example" />
 
 ### Success
 
 <Story name="Success">
-    <Alert type="success">
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-      sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-      Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
-    </Alert>
+  <Alert type="success">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+    labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+    laboris nisi ut aliquip ex ea commodo consequat.
+  </Alert>
 </Story>
 
 ### Error
 
 <Story name="Error">
-    <Alert type="error">
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-      sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-      Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
-    </Alert>
+  <Alert type="error">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+    labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+    laboris nisi ut aliquip ex ea commodo consequat.
+  </Alert>
 </Story>
 
 ### Warning
 
 <Story name="Warning">
-    <Alert type="warning">
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-      sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-      Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
-    </Alert>
+  <Alert type="warning">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+    labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+    laboris nisi ut aliquip ex ea commodo consequat.
+  </Alert>
 </Story>
 
 ### Info
 
 <Story name="Info">
-    <Alert type="info">
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-      sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-      Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
-    </Alert>
+  <Alert type="info">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+    labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+    laboris nisi ut aliquip ex ea commodo consequat.
+  </Alert>
 </Story>

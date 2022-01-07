@@ -1,7 +1,6 @@
 import { createUseStyles } from 'react-jss';
 
 export default createUseStyles(({ palette }) => ({
-
   label: {
     color: palette.mediumDark,
     display: ({ inline }) => (inline ? 'inline' : 'block')

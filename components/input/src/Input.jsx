@@ -5,8 +5,20 @@ import { required as requiredValidator, doValidate } from '@code-x/validators';
 import useStyles from './Input.styles';
 
 export const InputComponent = ({
-  id, name, label, value, className, errors, withButton, inline,
-  onKeyDown, onChange, onBlur, onEnter, innerRef, required,
+  id,
+  name,
+  label,
+  value,
+  className,
+  errors,
+  withButton,
+  inline,
+  onKeyDown,
+  onChange,
+  onBlur,
+  onEnter,
+  innerRef,
+  required,
   ...rest
 }) => {
   const [localValue, setLocalValue] = useState(value);
@@ -22,9 +34,14 @@ export const InputComponent = ({
   };
 
   const validate = () => {
-    const response = doValidate({
-      name: label || name, value: localValue, required
-    }, [requiredValidator]);
+    const response = doValidate(
+      {
+        name: label || name,
+        value: localValue,
+        required
+      },
+      [requiredValidator]
+    );
     setLocalErrors(response.errors);
     return {
       ...response,
@@ -104,7 +121,6 @@ InputComponent.propTypes = {
   value: PropTypes.string,
   /** Display input with a sibling attached button */
   withButton: PropTypes.bool
-
 };
 
 InputComponent.defaultProps = {

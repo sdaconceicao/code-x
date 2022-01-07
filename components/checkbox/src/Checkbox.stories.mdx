@@ -5,21 +5,24 @@ import CheckboxFormElement, { CheckboxComponent } from './Checkbox';
 <Meta title="Form Components/Checkbox" component={CheckboxComponent} />
 
 # Checkbox
+
 A Checkbox is an html form element for controlling boolean values
 
 <Canvas>
   <Story name="Example">
-    {args => (
-    <CheckboxFormElement name="example"
-      id="example"
-      label="Label"
-      value="Lorem ipsum"
-      onChange={action('value changed')}
-      {...args}
+    {(args) => (
+      <CheckboxFormElement
+        name="example"
+        id="example"
+        label="Label"
+        value="Lorem ipsum"
+        onChange={action('value changed')}
+        {...args}
       />
     )}
   </Story>
 </Canvas>
 
 ## Properties
+
 <ArgsTable story="Example" />

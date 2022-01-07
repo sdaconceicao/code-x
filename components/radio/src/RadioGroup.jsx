@@ -1,6 +1,4 @@
-import React, {
-  useState, Children, cloneElement, useImperativeHandle
-} from 'react';
+import React, { useState, Children, cloneElement, useImperativeHandle } from 'react';
 import PropTypes from 'prop-types';
 import { Fieldset } from '@code-x/fieldset';
 import { withFormElement } from '@code-x/form-element';
@@ -8,16 +6,29 @@ import { doValidate, required as requiredValidator } from '@code-x/validators';
 import useStyles from './RadioGroup.styles';
 
 const RadioGroup = ({
-  label, children, onBlur, onChange, required, name, innerRef, value, errors
+  label,
+  children,
+  onBlur,
+  onChange,
+  required,
+  name,
+  innerRef,
+  value,
+  errors
 }) => {
   const [localValue, setLocalValue] = useState(value);
   const [localErrors, setLocalErrors] = useState(errors);
   const classes = useStyles();
 
   const validate = () => {
-    const response = doValidate({
-      name: label || name, value: localValue, required
-    }, [requiredValidator]);
+    const response = doValidate(
+      {
+        name: label || name,
+        value: localValue,
+        required
+      },
+      [requiredValidator]
+    );
     setLocalErrors(response.errors);
     return { ...response, value: localValue };
   };
@@ -45,25 +56,21 @@ const RadioGroup = ({
         errors={localErrors}
         className={classes.formElement}
       >
-        {Children.map(children, (child) => (
+        {Children.map(children, (child) =>
           cloneElement(child, {
             onChange: handleChange,
             onBlur: handleBlur,
             checked: localValue === child.props.value,
             addFormElement: false
           })
-        ))}
+        )}
       </Fieldset>
     </span>
-
   );
 };
 
 RadioGroup.propTypes = {
-  children: PropTypes.oneOfType([
-    PropTypes.arrayOf(PropTypes.node),
-    PropTypes.node
-  ]).isRequired,
+  children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]).isRequired,
   errors: PropTypes.instanceOf(Array),
   label: PropTypes.string,
   innerRef: PropTypes.oneOfType([

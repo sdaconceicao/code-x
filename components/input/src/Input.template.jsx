@@ -5,6 +5,4 @@ export default {
   component: InputComponent
 };
 
-export const Input = (args) => (
-  <InputComponent {...args} />
-);
+export const Input = (args) => <InputComponent {...args} />;

@@ -1,4 +1,10 @@
-import { FaTimesCircle, FaExclamationCircle, FaInfoCircle, FaCheckCircle, FaInfo } from 'react-icons/fa';
+import {
+  FaTimesCircle,
+  FaExclamationCircle,
+  FaInfoCircle,
+  FaCheckCircle,
+  FaInfo
+} from 'react-icons/fa';
 
 const colors = {
   primary: '#2171bb',
@@ -31,7 +37,7 @@ const colors = {
   g600: '#333',
   g700: '#010101',
   black: '#000'
-}
+};
 
 const theme = {
   form: {
@@ -42,7 +48,8 @@ const theme = {
     margin: '0 .5rem 1rem',
     padding: '.5rem',
     height: '2.25rem',
-    transition: 'color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out',
+    transition:
+      'color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out',
     focusColor: colors.primary,
     focusColorText: colors.white,
     disabledColor: colors.g300,
@@ -78,6 +85,6 @@ const theme = {
     warning: FaExclamationCircle,
     info: FaInfoCircle
   }
-}
+};
 
 export default theme;

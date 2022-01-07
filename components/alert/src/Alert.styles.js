@@ -32,7 +32,5 @@ export default createUseStyles(({ palette, form }) => ({
   icon: {
     marginRight: '.5rem'
   },
-  content: {
-
-  }
+  content: {}
 }));

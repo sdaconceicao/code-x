@@ -2,10 +2,7 @@ import { useState } from 'react';
 import { Meta, Story, Canvas, Source, ArgsTable } from '@storybook/addon-docs';
 import { I18nProvider, i18n } from './index.js';
 
-<Meta 
-  title="Utilities/I18n/I18nProvider"
-  component={I18nProvider}
-/>
+<Meta title="Utilities/I18n/I18nProvider" component={I18nProvider} />
 
 ## I18nProvider
 
@@ -13,45 +10,46 @@ The I18nProvider can be used to control the current messages and locale within t
 dynamically as seen in the example below.
 
 <Canvas>
-  <Story 
+  <Story
     name="Example"
     args={{
       locale: 'en'
     }}
     argTypes={{
-      locale: { 
+      locale: {
         control: { type: 'radio' },
-        options: ['en', 'es'],
+        options: ['en', 'es']
       },
       messages: {
         table: {
-          disable: true,
+          disable: true
         }
       },
       children: {
         table: {
-          disable: true,
+          disable: true
         }
       }
-    }}>
+    }}
+  >
     {(args) => {
-      const messages = { 
-        en: { 
+      const messages = {
+        en: {
           lorem: {
-              ipsum: 'Lorem ipsum in english'
-            }
+            ipsum: 'Lorem ipsum in english'
+          }
         },
         es: {
           lorem: {
-              ipsum: 'Lorem ipsum en espanol'
-            }
+            ipsum: 'Lorem ipsum en espanol'
+          }
         }
       };
       return (
         <I18nProvider messages={messages[args.locale]} {...args}>
           <div>{i18n.getMessage('lorem.ipsum')}</div>
         </I18nProvider>
-      )
+      );
     }}
   </Story>
 </Canvas>

@@ -8,11 +8,9 @@ const Toolbar = ({ options }) => {
   const classes = useStyles();
   return (
     <div className={classes.toolbar}>
-      {options?.map(group => (
+      {options?.map((group) => (
         <ButtonGroup className={classes.controlGroup} key={group.toString()}>
-          {group.map(item => (
-            typeof item === 'string' ? Buttons[item] : item
-          ))}
+          {group.map((item) => (typeof item === 'string' ? Buttons[item] : item))}
         </ButtonGroup>
       ))}
     </div>
@@ -20,9 +18,9 @@ const Toolbar = ({ options }) => {
 };
 
 Toolbar.propTypes = {
-  options: PropTypes.arrayOf(PropTypes.arrayOf(
-    PropTypes.oneOfType([PropTypes.string, PropTypes.node])
-  ))
+  options: PropTypes.arrayOf(
+    PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.string, PropTypes.node]))
+  )
 };
 
 Toolbar.defaultProps = {

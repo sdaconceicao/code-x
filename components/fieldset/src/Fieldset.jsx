@@ -2,17 +2,15 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import useStyles from './Fieldset.styles';
 
-const Fieldset = ({
-  className, errors, label, children, required
-}) => {
+const Fieldset = ({ className, errors, label, children, required }) => {
   const classes = useStyles({ errors });
   return (
     <fieldset className={`${classes.fieldset} ${className}`}>
       {label && (
-      <legend className={classes.legend}>
-        {label}
-        {required && <span className={classes.required}>*</span>}
-      </legend>
+        <legend className={classes.legend}>
+          {label}
+          {required && <span className={classes.required}>*</span>}
+        </legend>
       )}
       <span className={classes.content}>{children}</span>
     </fieldset>
@@ -20,10 +18,7 @@ const Fieldset = ({
 };
 
 Fieldset.propTypes = {
-  children: PropTypes.oneOfType([
-    PropTypes.arrayOf(PropTypes.node),
-    PropTypes.node
-  ]).isRequired,
+  children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]).isRequired,
   className: PropTypes.string,
   errors: PropTypes.instanceOf(Array),
   label: PropTypes.string,

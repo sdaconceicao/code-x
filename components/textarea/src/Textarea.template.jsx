@@ -5,6 +5,4 @@ export default {
   component: TextareaComponent
 };
 
-export const Textarea = (args) => (
-  <TextareaComponent {...args} />
-);
+export const Textarea = (args) => <TextareaComponent {...args} />;

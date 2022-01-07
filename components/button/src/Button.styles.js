@@ -2,9 +2,8 @@ import { createUseStyles } from '@code-x/theme';
 
 export default createUseStyles(({ palette, form }) => ({
   button: {
-    borderRadius: ({ withInput }) => (withInput
-      ? `0 ${form.borderRadius} ${form.borderRadius} 0`
-      : form.borderRadius),
+    borderRadius: ({ withInput }) =>
+      withInput ? `0 ${form.borderRadius} ${form.borderRadius} 0` : form.borderRadius,
     borderWidth: ({ withInput }) => (withInput ? '1px 1px 1px 0' : 1),
     borderStyle: 'solid',
     cursor: 'pointer',

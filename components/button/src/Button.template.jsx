@@ -5,6 +5,4 @@ export default {
   component: ButtonComponent
 };
 
-export const Button = (args) => (
-  <ButtonComponent {...args} />
-);
+export const Button = (args) => <ButtonComponent {...args} />;

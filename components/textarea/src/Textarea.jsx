@@ -12,8 +12,19 @@ export const resizes = {
 };
 
 export const TextareaComponent = ({
-  id, name, label, value, className, errors, resize,
-  onKeyDown, onChange, onBlur, onEnter, innerRef, required,
+  id,
+  name,
+  label,
+  value,
+  className,
+  errors,
+  resize,
+  onKeyDown,
+  onChange,
+  onBlur,
+  onEnter,
+  innerRef,
+  required,
   ...rest
 }) => {
   const [localValue, setLocalValue] = useState(value);
@@ -29,9 +40,14 @@ export const TextareaComponent = ({
   };
 
   const validate = () => {
-    const response = doValidate({
-      name: label || name, value: localValue, required
-    }, [requiredValidator]);
+    const response = doValidate(
+      {
+        name: label || name,
+        value: localValue,
+        required
+      },
+      [requiredValidator]
+    );
     setLocalErrors(response.errors);
     return {
       ...response,

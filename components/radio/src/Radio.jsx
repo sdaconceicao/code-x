@@ -4,8 +4,17 @@ import { withFormElement } from '@code-x/form-element';
 import useStyles from './Radio.styles';
 
 export const RadioComponent = ({
-  id, name, value, className, label, errors, innerRef, addFormElement,
-  onChange, onBlur, onKeyDown,
+  id,
+  name,
+  value,
+  className,
+  label,
+  errors,
+  innerRef,
+  addFormElement,
+  onChange,
+  onBlur,
+  onKeyDown,
   ...rest
 }) => {
   const [checked, setChecked] = useState(rest.checked);
@@ -22,7 +31,7 @@ export const RadioComponent = ({
 
   useImperativeHandle(innerRef, () => ({
     doValidate: () => ({
-      value: (checked ? value : undefined),
+      value: checked ? value : undefined,
       valid: true
     })
   }));
@@ -81,9 +90,7 @@ RadioComponent.defaultProps = {
   onKeyDown: () => {}
 };
 
-const RadioFormElement = (props) => (
-  withFormElement(RadioComponent)({ hideLabel: true, ...props })
-);
+const RadioFormElement = (props) => withFormElement(RadioComponent)({ hideLabel: true, ...props });
 RadioFormElement.displayName = 'Radio';
 
 export default RadioFormElement;

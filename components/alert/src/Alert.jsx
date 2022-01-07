@@ -10,9 +10,7 @@ export const types = {
   info: 'info'
 };
 
-export const Alert = ({
-  children, className, type, icon, ...rest
-}) => {
+export const Alert = ({ children, className, type, icon, ...rest }) => {
   const classes = useStyles();
   const icons = useIcons();
   const iconDisplay = icon && Object.keys(types).includes(type) ? icons[type]?.() : null;

@@ -6,18 +6,20 @@ import Fieldset from './Fieldset';
 <Meta title="Form Components/Fieldset" component={Fieldset} />
 
 # Fieldset
+
 A Fieldset is a wrapper for multiple related form elements
 
 <Canvas>
   <Story name="Example">
-    {args => (
-    <Fieldset label="Example Fieldset">
+    {(args) => (
+      <Fieldset label="Example Fieldset">
         <Input label="Input 1" name="input1" />
         <Input label="Input 2" name="input2" />
-    </Fieldset>
+      </Fieldset>
     )}
   </Story>
 </Canvas>
 
 ## Properties
+
 <ArgsTable story="Example" />

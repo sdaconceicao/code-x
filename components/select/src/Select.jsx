@@ -1,6 +1,4 @@
-import React, {
-  useState, useImperativeHandle, useEffect, useRef
-} from 'react';
+import React, { useState, useImperativeHandle, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 import { withFormElement } from '@code-x/form-element';
 import { doValidate, required as requiredValidator } from '@code-x/validators';
@@ -8,11 +6,20 @@ import { i18n } from '@code-x/i18n';
 import useStyles from './Select.styles';
 
 export const SelectComponent = ({
-  name, value, className, label, innerRef, required, errors,
-  options, placeholderText,
-  getDisplayValue, onChange, onBlur
+  name,
+  value,
+  className,
+  label,
+  innerRef,
+  required,
+  errors,
+  options,
+  placeholderText,
+  getDisplayValue,
+  onChange,
+  onBlur
 }) => {
-  const getOptionFromValue = (val) => options?.find(option => option.value === val);
+  const getOptionFromValue = (val) => options?.find((option) => option.value === val);
   const [localValue, setLocalValue] = useState(getOptionFromValue(value));
   const [localErrors, setLocalErrors] = useState(errors);
   const [open, setOpen] = useState(false);
@@ -21,11 +28,7 @@ export const SelectComponent = ({
   const classes = useStyles({ open, errors: localErrors });
 
   const getPlaceholderText = () => placeholderText || i18n.getMessage('select.placeholder');
-  const getDisplayText = () => (
-    localValue
-      ? getDisplayValue(localValue)
-      : getPlaceholderText()
-  );
+  const getDisplayText = () => (localValue ? getDisplayValue(localValue) : getPlaceholderText());
 
   const handleOpen = () => {
     setOpen(!open);
@@ -67,9 +70,14 @@ export const SelectComponent = ({
   };
 
   const validate = () => {
-    const response = doValidate({
-      name: label || name, value: localValue.value, required
-    }, [requiredValidator]);
+    const response = doValidate(
+      {
+        name: label || name,
+        value: localValue.value,
+        required
+      },
+      [requiredValidator]
+    );
     setLocalErrors(response.errors);
     return {
       errors: response.errors,
@@ -91,8 +99,8 @@ export const SelectComponent = ({
   useEffect(() => {
     setLocalErrors(errors);
   }, [errors]);
-  const renderOptions = () => (
-    options?.map(option => (
+  const renderOptions = () =>
+    options?.map((option) => (
       <li className={classes.option} key={option.value}>
         <button
           className={classes.optionButton}
@@ -103,15 +111,10 @@ export const SelectComponent = ({
           {option.displayName}
         </button>
       </li>
-    ))
-  );
+    ));
 
   return (
-    <div
-      className={`${classes.select} ${className}`}
-      ref={innerRef}
-      aria-expanded={open}
-    >
+    <div className={`${classes.select} ${className}`} ref={innerRef} aria-expanded={open}>
       <button
         type="button"
         className={`${classes.selectButton} ${open ? classes.selectButtonOpen : ''}`}
@@ -155,13 +158,14 @@ SelectComponent.propTypes = {
   /** Function to return how to display the selected value */
   getDisplayValue: PropTypes.func,
   /** HTML options in json array format */
-  options: PropTypes.arrayOf(PropTypes.shape({
-    displayName: PropTypes.string.isRequired,
-    value: PropTypes.string.isRequired
-  })).isRequired,
+  options: PropTypes.arrayOf(
+    PropTypes.shape({
+      displayName: PropTypes.string.isRequired,
+      value: PropTypes.string.isRequired
+    })
+  ).isRequired,
   /** Text to display within select if no value is set */
   placeholderText: PropTypes.string
-
 };
 
 SelectComponent.defaultProps = {

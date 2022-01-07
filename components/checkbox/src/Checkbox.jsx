@@ -4,8 +4,15 @@ import { withFormElement } from '@code-x/form-element';
 import useStyles from './Checkbox.styles';
 
 export const CheckboxComponent = ({
-  id, name, value, className, label, errors, innerRef,
-  onChange, onKeyDown,
+  id,
+  name,
+  value,
+  className,
+  label,
+  errors,
+  innerRef,
+  onChange,
+  onKeyDown,
   ...rest
 }) => {
   const [checked, setChecked] = useState(rest.checked);
@@ -22,7 +29,7 @@ export const CheckboxComponent = ({
 
   useImperativeHandle(innerRef, () => ({
     doValidate: () => ({
-      value: (checked ? value : undefined),
+      value: checked ? value : undefined,
       valid: true
     })
   }));
@@ -76,9 +83,8 @@ CheckboxComponent.defaultProps = {
   onKeyDown: () => {}
 };
 
-const CheckboxFormElement = (props) => (
-  withFormElement(CheckboxComponent)({ hideLabel: true, ...props })
-);
+const CheckboxFormElement = (props) =>
+  withFormElement(CheckboxComponent)({ hideLabel: true, ...props });
 CheckboxFormElement.displayName = 'Checkbox';
 
 export default CheckboxFormElement;

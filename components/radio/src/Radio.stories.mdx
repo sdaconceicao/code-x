@@ -5,21 +5,24 @@ import RadioFormElement, { RadioComponent } from './Radio';
 <Meta title="Form Components/Radio" component={RadioComponent} />
 
 # Radio
+
 A Radio is an html form element for controlling boolean values
 
 <Canvas>
   <Story name="Example">
-    {args => (
-    <RadioFormElement name="example"
-      id="example"
-      label="Label"
-      value="Lorem ipsum"
-      onChange={action('value changed')}
-      {...args}
+    {(args) => (
+      <RadioFormElement
+        name="example"
+        id="example"
+        label="Label"
+        value="Lorem ipsum"
+        onChange={action('value changed')}
+        {...args}
       />
     )}
   </Story>
 </Canvas>
 
 ## Properties
+
 <ArgsTable story="Example" />

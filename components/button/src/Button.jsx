@@ -4,7 +4,17 @@ import useStyles from './Button.styles';
 import { kinds, sizes, displays } from './vars';
 
 export const Button = ({
-  active, children, disabled, className, onClick, type, kind, size, withInput, display, ...rest
+  active,
+  children,
+  disabled,
+  className,
+  onClick,
+  type,
+  kind,
+  size,
+  withInput,
+  display,
+  ...rest
 }) => {
   const classes = useStyles({ withInput, display });
   return (

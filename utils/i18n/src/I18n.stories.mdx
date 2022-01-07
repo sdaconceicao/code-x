@@ -2,10 +2,7 @@ import { useState } from 'react';
 import { Meta, Story, Canvas, Source, ArgsTable } from '@storybook/addon-docs';
 import { I18nProvider, i18n } from './index.js';
 
-<Meta 
-  title="Utilities/I18n/Usage"
-  component={I18nProvider}
-/>
+<Meta title="Utilities/I18n/Usage" component={I18nProvider} />
 
 # i18n
 
@@ -14,39 +11,32 @@ as well as plain js functions.
 
 ## Messages
 
-Messages are stored as json key/value pairs. Objects can be any level deep, and 
+Messages are stored as json key/value pairs. Objects can be any level deep, and
 referenced via dot notation when retrieving via the getMessage method.
 
 ## Methods
 
-### setMessages 
+### setMessages
 
 Adds messages to i18n
 
-<Source 
-  language="js"
-  code={`i18n.setMessages({ lorem: 'ipsum'})`}
-/>
+<Source language="js" code={`i18n.setMessages({ lorem: 'ipsum'})`} />
 
 ### setLocale
 
 Set current locale for i18n
 
-#### Example 
+#### Example
 
-<Source 
-  language="js"
-  code={'i18n.setLocale("en")'}
-/>
-
+<Source language="js" code={'i18n.setLocale("en")'} />
 
 ### getMessage
 
-Retrieve message with a key using dot annotation. Additional params can be passed to perform variable substitution 
+Retrieve message with a key using dot annotation. Additional params can be passed to perform variable substitution
 
 #### message.json
 
-<Source 
+<Source
   language="js"
   code={`{ 
     lorem: {
@@ -57,10 +47,7 @@ Retrieve message with a key using dot annotation. Additional params can be passe
 
 #### Example
 
-<Source 
-  language="js"
-  code={'i18n.getMessage("lorem.ipsum", { name: "John" })'}
-/>
+<Source language="js" code={'i18n.getMessage("lorem.ipsum", { name: "John" })'} />
 
 #### Output
 

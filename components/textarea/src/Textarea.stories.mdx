@@ -3,18 +3,17 @@ import { action } from '@storybook/addon-actions';
 import { TextareaComponent } from './Textarea';
 import { Textarea } from './Textarea.template.jsx';
 
-<Meta 
-  title="Form Components/Textarea" 
-  component={TextareaComponent} 
-/>
+<Meta title="Form Components/Textarea" component={TextareaComponent} />
 
 # Textarea
+
 An Textarea is an html form element
 
 <Canvas>
   <Story name="Example">
-    {args => (
-      <Textarea name="example"
+    {(args) => (
+      <Textarea
+        name="example"
         id="example"
         label="Label"
         type="text"
@@ -22,10 +21,11 @@ An Textarea is an html form element
         label="Lorem"
         onChange={action('value changed')}
         {...args}
-        />
+      />
     )}
   </Story>
 </Canvas>
 
 ## Properties
+
 <ArgsTable story="Example" />
