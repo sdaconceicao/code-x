@@ -2,9 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { useSlate } from 'slate-react';
 import { Button } from '@code-x/button';
-import {
-  isBlockActive, toggleBlock
-} from './utils.js';
+import { isBlockActive, toggleBlock } from './utils.js';
 
 const BlockButton = ({ format, icon }) => {
   const editor = useSlate();
@@ -14,7 +12,7 @@ const BlockButton = ({ format, icon }) => {
       display="inline"
       title={format}
       active={isBlockActive(editor, format)}
-      onMouseDown={e => {
+      onMouseDown={(e) => {
         e.preventDefault();
         toggleBlock(editor, format);
       }}

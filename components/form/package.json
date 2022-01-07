@@ -33,6 +33,7 @@
     "@code-x/form-element": "0.1.0",
     "@code-x/input": "0.1.0",
     "@code-x/radio": "0.1.0",
+    "@code-x/rich-text-editor": "0.1.0",
     "@code-x/select": "0.1.0",
     "@code-x/textarea": "0.1.0",
     "@code-x/theme": "0.1.0",

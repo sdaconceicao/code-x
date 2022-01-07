@@ -1,8 +1,4 @@
-import {
-  Editor,
-  Transforms,
-  Element as SlateElement
-} from 'slate';
+import { Editor, Transforms, Element as SlateElement, Text } from 'slate';
 import { jsx } from 'slate-hyperscript';
 
 export const HOTKEYS = {
@@ -11,22 +7,22 @@ export const HOTKEYS = {
   'mod+u': 'underline',
   'mod+`': 'code'
 };
-export const LIST_TYPES = ['numbered-list', 'bulleted-list'];
+export const LIST_TYPES = ['ul', 'ol'];
 export const ELEMENT_TAGS = {
-  A: el => ({ type: 'link', url: el.getAttribute('href') }),
+  A: (el) => ({ type: 'link', url: el.getAttribute('href') }),
   BLOCKQUOTE: () => ({ type: 'quote' }),
-  H1: () => ({ type: 'heading-one' }),
-  H2: () => ({ type: 'heading-two' }),
-  H3: () => ({ type: 'heading-three' }),
-  H4: () => ({ type: 'heading-four' }),
-  H5: () => ({ type: 'heading-five' }),
-  H6: () => ({ type: 'heading-six' }),
-  IMG: el => ({ type: 'image', url: el.getAttribute('src') }),
-  LI: () => ({ type: 'list-item' }),
-  OL: () => ({ type: 'numbered-list' }),
-  P: () => ({ type: 'paragraph' }),
-  PRE: () => ({ type: 'code' }),
-  UL: () => ({ type: 'bulleted-list' })
+  H1: () => ({ type: 'h1' }),
+  H2: () => ({ type: 'h2' }),
+  H3: () => ({ type: 'h3' }),
+  H4: () => ({ type: 'h4' }),
+  H5: () => ({ type: 'h5' }),
+  H6: () => ({ type: 'h6' }),
+  IMG: (el) => ({ type: 'image', url: el.getAttribute('src') }),
+  LI: () => ({ type: 'li' }),
+  OL: () => ({ type: 'ol' }),
+  UL: () => ({ type: 'ul' }),
+  P: () => ({ type: 'p' }),
+  PRE: () => ({ type: 'code' })
 };
 export const TEXT_TAGS = {
   CODE: () => ({ code: true }),
@@ -38,12 +34,14 @@ export const TEXT_TAGS = {
   U: () => ({ underline: true })
 };
 
-export const deserialize = el => {
+export const deserialize = (el) => {
   if (el.nodeType === 3) {
     return el.textContent;
-  } if (el.nodeType !== 1) {
+  }
+  if (el.nodeType !== 1) {
     return null;
-  } if (el.nodeName === 'BR') {
+  }
+  if (el.nodeName === 'BR') {
     return '\n';
   }
 
@@ -53,9 +51,7 @@ export const deserialize = el => {
   if (nodeName === 'PRE' && el.childNodes[0]?.nodeName === 'CODE') {
     parent = el.childNodes[0];
   }
-  let children = Array.from(parent.childNodes)
-    .map(deserialize)
-    .flat();
+  let children = Array.from(parent.childNodes).map(deserialize).flat();
 
   if (children.length === 0) {
     children = [{ text: '' }];
@@ -72,7 +68,7 @@ export const deserialize = el => {
 
   if (TEXT_TAGS[nodeName]) {
     const attrs = TEXT_TAGS[nodeName](el);
-    return children.map(child => jsx('text', attrs, child));
+    return children.map((child) => jsx('text', attrs, child));
   }
 
   return children;
@@ -90,25 +86,74 @@ export const isBlockActive = (editor, format) => {
   const [match] = Array.from(
     Editor.nodes(editor, {
       at: Editor.unhangRange(editor, selection),
-      match: n => !Editor.isEditor(n) && SlateElement.isElement(n) && n.type === format
+      match: (n) => !Editor.isEditor(n) && SlateElement.isElement(n) && n.type === format
     })
   );
 
   return !!match;
 };
 
+export const serialize = (node) => {
+  if (Text.isText(node)) {
+    let string = node.text;
+    if (node.bold) {
+      string = `<strong>${string}</strong>`;
+    }
+    if (node.italic) {
+      string = `<em>${string}</em>`;
+    }
+    if (node.underline) {
+      string = `<u>${string}</u>`;
+    }
+    if (node.strikethrough) {
+      string = `<del>${string}</del>`;
+    }
+    if (node.code) {
+      string = `<code>${string}</code>`;
+    }
+    return string;
+  }
+
+  const children = node.children?.map((n) => serialize(n)).join('');
+  switch (node.type) {
+    case 'quote':
+      return `<blockquote><p>${children}</p></blockquote>`;
+    case 'p':
+    case 'ul':
+    case 'ol':
+    case 'li':
+    case 'h1':
+    case 'h2':
+    case 'h3':
+    case 'h4':
+    case 'h5':
+    case 'h6':
+      return `<${node.type}>${children}</${node.type}>`;
+    case 'link':
+      return `<a href="${node.url}">${children}</a>`;
+    case 'align-left':
+    case 'align-right':
+    case 'align-center':
+    case 'align-justify': {
+      return `<p style="text-align: ${node.type.split('-')[1]}">${children}</p>`;
+    }
+    default:
+      return children;
+  }
+};
+
+export const getPlainText = (html) => html.replace(/(<([^>]+)>)/gi, '');
+
 export const toggleBlock = (editor, format) => {
   const isActive = isBlockActive(editor, format);
   const isList = LIST_TYPES.includes(format);
 
   Transforms.unwrapNodes(editor, {
-    match: n => !Editor.isEditor(n)
-      && SlateElement.isElement(n)
-      && LIST_TYPES.includes(n.type),
+    match: (n) => !Editor.isEditor(n) && SlateElement.isElement(n) && LIST_TYPES.includes(n.type),
     split: true
   });
   const newProperties = {
-    type: isActive ? 'paragraph' : isList ? 'list-item' : format
+    type: isActive ? 'paragraph' : isList ? 'li' : format
   };
   Transforms.setNodes(editor, newProperties);
 

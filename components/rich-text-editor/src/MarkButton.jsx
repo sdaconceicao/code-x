@@ -2,9 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { useSlate } from 'slate-react';
 import { Button } from '@code-x/button';
-import {
-  isMarkActive, toggleMark
-} from './utils.js';
+import { isMarkActive, toggleMark } from './utils.js';
 
 const MarkButton = ({ format, icon }) => {
   const editor = useSlate();
@@ -14,7 +12,7 @@ const MarkButton = ({ format, icon }) => {
       display="inline"
       title={format}
       active={isMarkActive(editor, format)}
-      onMouseDown={event => {
+      onMouseDown={(event) => {
         event.preventDefault();
         toggleMark(editor, format);
       }}

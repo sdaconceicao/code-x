@@ -1,11 +1,13 @@
 import { createUseStyles } from '@code-x/theme';
 
 export default createUseStyles(({ form }) => ({
+  rte: {
+    border: ({ errors }) => (errors ? form.errorBorder : form.border),
+    borderRadius: form.borderRadius
+  },
   content: {
-    border: form.border,
-    borderRadius: [0, 0, form.borderRadius, form.borderRadius],
     padding: form.padding,
-    borderTop: 'none',
+    borderTop: ({ errors }) => (errors ? form.errorBorder : form.border),
     boxShadow: 'none!important',
     '& p': {
       margin: '.5rem 0'

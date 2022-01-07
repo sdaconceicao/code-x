@@ -6,11 +6,12 @@ import reducer, { actions } from './Form.reducer';
 export const Form = ({ children, className, onSubmit }) => {
   const [dirty, setDirty] = useState(false);
   const [elements, updateElements] = useReducer(reducer, []);
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const result = [];
     const formErrors = [];
-    elements.map(element => {
+    elements.map((element) => {
       const { doValidate } = element.props.innerRef.current;
       const { valid, value, errors } = doValidate();
       if (valid && value) {
@@ -45,11 +46,12 @@ export const Form = ({ children, className, onSubmit }) => {
   };
 
   return (
-    <FormContext.Provider value={{
-      onChange,
-      addFormElement,
-      removeFormElement
-    }}
+    <FormContext.Provider
+      value={{
+        onChange,
+        addFormElement,
+        removeFormElement
+      }}
     >
       <form onSubmit={handleSubmit} className={`${className}`}>
         {children}

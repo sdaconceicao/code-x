@@ -9,7 +9,7 @@ const Toolbar = ({ options }) => {
   return (
     <div className={classes.toolbar}>
       {options?.map(group => (
-        <ButtonGroup className={classes.controlGroup}>
+        <ButtonGroup className={classes.controlGroup} key={group.toString()}>
           {group.map(item => (
             typeof item === 'string' ? Buttons[item] : item
           ))}

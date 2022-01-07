@@ -5,32 +5,48 @@ const Element = ({ attributes, children, element }) => {
   switch (element.type) {
     case 'block-quote':
       return <blockquote {...attributes}>{children}</blockquote>;
-    case 'bulleted-list':
-      return <ul {...attributes}>{children}</ul>;
-    case 'heading-one':
+    case 'h1':
       return <h1 {...attributes}>{children}</h1>;
-    case 'heading-two':
+    case 'h2':
       return <h2 {...attributes}>{children}</h2>;
-    case 'heading-three':
+    case 'h3':
       return <h3 {...attributes}>{children}</h3>;
-    case 'heading-four':
+    case 'h4':
       return <h4 {...attributes}>{children}</h4>;
-    case 'heading-five':
+    case 'h5':
       return <h5 {...attributes}>{children}</h5>;
-    case 'heading-six':
+    case 'h6':
       return <h6 {...attributes}>{children}</h6>;
-    case 'list-item':
+    case 'li':
       return <li {...attributes}>{children}</li>;
-    case 'numbered-list':
+    case 'ul':
+      return <ul {...attributes}>{children}</ul>;
+    case 'ol':
       return <ol {...attributes}>{children}</ol>;
     case 'align-left':
-      return <p {...attributes} style={{ 'text-align': 'left' }}>{children}</p>;
+      return (
+        <p {...attributes} style={{ 'text-align': 'left' }}>
+          {children}
+        </p>
+      );
     case 'align-center':
-      return <p {...attributes} style={{ 'text-align': 'center' }}>{children}</p>;
+      return (
+        <p {...attributes} style={{ 'text-align': 'center' }}>
+          {children}
+        </p>
+      );
     case 'align-right':
-      return <p {...attributes} style={{ 'text-align': 'right' }}>{children}</p>;
+      return (
+        <p {...attributes} style={{ 'text-align': 'right' }}>
+          {children}
+        </p>
+      );
     case 'align-justify':
-      return <p {...attributes} style={{ 'text-align': 'justify' }}>{children}</p>;
+      return (
+        <p {...attributes} style={{ 'text-align': 'justify' }}>
+          {children}
+        </p>
+      );
     case 'link':
       return (
         <a href={element.url} {...attributes}>

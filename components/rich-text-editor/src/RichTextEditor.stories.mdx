@@ -5,20 +5,22 @@ import RichTextEditor, { RichTextEditorComponent } from './RichTextEditor';
 <Meta title="Form Components/RichTextEditor" component={RichTextEditorComponent} />
 
 # RichTextEditor
+
 A ** Rich Text Editor** provides the ability to generate rich text
 
 <Canvas>
   <Story name="Example">
-    {args => (
-      <RichTextEditor 
-        name="example" 
-        label="HTML Editor" 
-        {...args} 
-        value="<p>Lor<strong>em</strong> Ipsum</p><ol><li>Lorem</li><li>Ipsum</li></ol>" 
+    {(args) => (
+      <RichTextEditor
+        name="example"
+        label="HTML Editor"
+        {...args}
+        value="<p>Lor<strong>em</strong> Ipsum</p><ol><li>Lorem</li><li>Ipsum</li></ol>"
       />
     )}
   </Story>
 </Canvas>
 
 ## Properties
+
 <ArgsTable story="Example" />
