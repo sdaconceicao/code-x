@@ -27,7 +27,7 @@ const RadioGroup = ({
         value: localValue,
         required
       },
-      [requiredValidator]
+      required ? [requiredValidator] : undefined
     );
     setLocalErrors(response.errors);
     return { ...response, value: localValue };

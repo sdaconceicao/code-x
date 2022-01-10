@@ -76,7 +76,7 @@ export const SelectComponent = ({
         value: localValue.value,
         required
       },
-      [requiredValidator]
+      required ? [requiredValidator] : undefined
     );
     setLocalErrors(response.errors);
     return {

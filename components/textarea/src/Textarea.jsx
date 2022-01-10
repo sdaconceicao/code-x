@@ -46,7 +46,7 @@ export const TextareaComponent = ({
         value: localValue,
         required
       },
-      [requiredValidator]
+      required ? [requiredValidator] : undefined
     );
     setLocalErrors(response.errors);
     return {

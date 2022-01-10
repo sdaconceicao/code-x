@@ -2,17 +2,14 @@ import required from './required';
 
 describe('required validator', () => {
   it('properly detects empty strings', () => {
-    expect(required({ required, value: '' }).passed).toEqual(false);
-    expect(required({ required }).passed).toEqual(false);
-    expect(required({ required, value: false }).passed).toEqual(false);
-    expect(required({ required, value: 0 }).passed).toEqual(false);
+    expect(required({ value: '' }).valid).toEqual(false);
+    expect(required({}).valid).toEqual(false);
+    expect(required({ value: false }).valid).toEqual(false);
+    expect(required({ value: 0 }).valid).toEqual(false);
   });
   it('properly detects valid strings', () => {
-    expect(required({ required, value: 'test' }).passed).toEqual(true);
-    expect(required({ required, value: 'false' }).passed).toEqual(true);
-    expect(required({ required, value: '0' }).passed).toEqual(true);
-  });
-  it('mark as passed if not required', () => {
-    expect(required({ value: '' }).passed).toEqual(true);
+    expect(required({ value: 'test' }).valid).toEqual(true);
+    expect(required({ value: 'false' }).valid).toEqual(true);
+    expect(required({ value: '0' }).valid).toEqual(true);
   });
 });

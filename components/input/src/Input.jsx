@@ -40,7 +40,7 @@ export const InputComponent = ({
         value: localValue,
         required
       },
-      [requiredValidator]
+      required ? [requiredValidator] : undefined
     );
     setLocalErrors(response.errors);
     return {

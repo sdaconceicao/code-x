@@ -44,7 +44,7 @@ export const RichTextEditorComponent = ({
         value: getPlainText(serializedValue), // Check plaintext to avoid false pos from empty p
         required
       },
-      [requiredValidator]
+      required ? [requiredValidator] : undefined
     );
     setLocalErrors(response.errors);
     return {
