@@ -28,7 +28,6 @@
     "@code-x/babel-preset": "0.1.0",
     "@code-x/button": "^0.1.0",
     "@code-x/checkbox": "0.1.0",
-    "@code-x/eslint-config": "0.1.0",
     "@code-x/form-context": "0.1.0",
     "@code-x/form-element": "0.1.0",
     "@code-x/input": "0.1.0",

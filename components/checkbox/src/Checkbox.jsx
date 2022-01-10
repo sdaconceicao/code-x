@@ -48,6 +48,7 @@ export const CheckboxComponent = ({
         onChange={handleChange}
         value={value}
         onKeyDown={onKeyDown}
+        // eslint-disable-next-line react/jsx-props-no-spreading
         {...rest}
         checked={checked}
       />

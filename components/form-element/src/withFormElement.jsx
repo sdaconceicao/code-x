@@ -1,20 +1,11 @@
+/* eslint-disable react/prop-types */
+/* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
 import FormElementWrapper from './FormElementWrapper';
 
 export const withFormElement =
   (FormElement) =>
-  ({
-    // eslint-disable-next-line react/prop-types
-    className,
-    label,
-    required,
-    optional,
-    error,
-    inline,
-    id,
-    hideLabel,
-    ...rest
-  }) =>
+  ({ className, label, required, optional, error, inline, id, hideLabel, ...rest }) =>
     (
       <FormElementWrapper
         className={className}

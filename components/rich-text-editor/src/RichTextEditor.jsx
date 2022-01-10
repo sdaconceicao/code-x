@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-props-no-spreading */
 import React, { useCallback, useMemo, useEffect, useState, useImperativeHandle } from 'react';
 import PropTypes from 'prop-types';
 import isHotkey from 'is-hotkey';
@@ -9,7 +10,14 @@ import { required as requiredValidator, doValidate } from '@code-x/validators';
 import Toolbar from './Toolbar';
 import Element from './Element';
 import Leaf from './Leaf';
-import { deserialize, getPlainText, serialize, toggleMark, HOTKEYS } from './utils.js';
+import {
+  deserialize,
+  stringToDocument,
+  getPlainText,
+  serialize,
+  toggleMark,
+  HOTKEYS
+} from './utils.js';
 import useStyles from './RichTextEditor.styles';
 
 export const RichTextEditorComponent = ({
@@ -24,8 +32,7 @@ export const RichTextEditorComponent = ({
   required,
   value
 }) => {
-  const document = new DOMParser().parseFromString(value, 'text/html');
-  const [localValue, setLocalValue] = useState(deserialize(document.body));
+  const [localValue, setLocalValue] = useState(deserialize(stringToDocument(value)));
   const [localErrors, setLocalErrors] = useState(errors);
   const renderElement = useCallback((props) => <Element {...props} />, []);
   const renderLeaf = useCallback((props) => <Leaf {...props} />, []);
@@ -35,7 +42,6 @@ export const RichTextEditorComponent = ({
     setLocalValue(val);
     onChange({ name, value: val });
   };
-
   const validate = () => {
     const serializedValue = serialize({ children: localValue });
     const response = doValidate(
@@ -58,7 +64,7 @@ export const RichTextEditorComponent = ({
   }, [errors]);
 
   useEffect(() => {
-    setLocalValue(value);
+    setLocalValue(deserialize(stringToDocument(value)));
   }, [value]);
 
   useImperativeHandle(innerRef, () => ({

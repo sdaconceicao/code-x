@@ -27,6 +27,7 @@ export const Button = ({
       ${className}`}
       type={type}
       onClick={onClick}
+      // eslint-disable-next-line react/jsx-props-no-spreading
       {...rest}
     >
       {children}

@@ -16,11 +16,13 @@ export default (children, onBlur) => {
         })
       : child
   );
+  // Add and remove elements on mount/unmount
   useEffect(() => {
     addFormElement?.(refWithChildren);
     return () => {
       removeFormElement?.(refWithChildren);
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return refWithChildren;

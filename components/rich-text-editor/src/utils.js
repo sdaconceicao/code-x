@@ -34,6 +34,8 @@ export const TEXT_TAGS = {
   U: () => ({ underline: true })
 };
 
+export const stringToDocument = (html) => new DOMParser().parseFromString(html, 'text/html')?.body;
+
 export const deserialize = (el) => {
   if (el.nodeType === 3) {
     return el.textContent;
