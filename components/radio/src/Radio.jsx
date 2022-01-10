@@ -51,6 +51,7 @@ export const RadioComponent = ({
         onKeyDown={onKeyDown}
         onBlur={onBlur}
         value={value}
+        // eslint-disable-next-line react/jsx-props-no-spreading
         {...rest}
         checked={checked}
       />

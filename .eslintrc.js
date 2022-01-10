@@ -15,9 +15,7 @@ module.exports = {
       'error',
       {
         ObjectExpression: { consistent: true, multiline: true },
-        ObjectPattern: { consistent: true, multiline: true },
-        ImportDeclaration: 'never',
-        ExportDeclaration: { multiline: true, minProperties: 3 }
+        ObjectPattern: { consistent: true, multiline: true }
       }
     ],
     'prefer-destructuring': ['error', { object: true, array: false }],
@@ -30,7 +28,7 @@ module.exports = {
   },
   overrides: [
     {
-      files: ['src/**/*.test*'],
+      files: ['**/*.test*'],
       env: {
         jest: true
       },
@@ -44,12 +42,28 @@ module.exports = {
       }
     },
     {
-      files: ['.storybook/**', 'src/**/*.stories.js?(x)', 'src/**/*.template.js?(x)'],
+      files: ['cypress/**'],
+      globals: {
+        cy: true
+      },
+      rules: {
+        'import/no-extraneous-dependencies': 'off'
+      }
+    },
+    {
+      files: ['**/.storybook/**', '**/*.stories.js?(x)', '**/*.template.js?(x)'],
       rules: {
         'import/no-extraneous-dependencies': 'off',
         'react/jsx-props-no-spreading': 'off',
         'react/prop-types': 'off'
       }
     }
-  ]
+  ],
+  parser: '@babel/eslint-parser',
+  parserOptions: {
+    requireConfigFile: false,
+    babelOptions: {
+      presets: ['@babel/preset-react']
+    }
+  }
 };

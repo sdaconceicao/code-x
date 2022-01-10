@@ -80,6 +80,7 @@ export const InputComponent = ({
       name={name}
       ref={innerRef}
       className={`${classes.input} ${className}`}
+      // eslint-disable-next-line react/jsx-props-no-spreading
       {...rest}
       onChange={handleChange}
       onKeyDown={handleKeyDown}

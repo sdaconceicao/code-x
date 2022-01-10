@@ -10,12 +10,12 @@ export const types = {
   info: 'info'
 };
 
-export const Alert = ({ children, className, type, icon, ...rest }) => {
+export const Alert = ({ children, className, type, icon }) => {
   const classes = useStyles();
   const icons = useIcons();
   const iconDisplay = icon && Object.keys(types).includes(type) ? icons[type]?.() : null;
   return (
-    <div className={`${classes.alert} ${classes[type]} ${className} `} {...rest}>
+    <div className={`${classes.alert} ${classes[type]} ${className} `}>
       {iconDisplay && <div className={classes.icon}>{iconDisplay}</div>}
       <div className={classes.content}>{children}</div>
     </div>

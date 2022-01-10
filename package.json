@@ -5,12 +5,13 @@
   "private": true,
   "scripts": {
     "install": "lerna bootstrap",
+    "lint": "eslint . --ext .js --fix --ext .jsx --fix",
+    "prettier": "prettier --write '**/*.(js|jsx|mdx)'",
     "test": "npm run test:unit:ci && npm run test:int:ci",
     "test:unit": "jest --watch",
     "test:unit:ci": "jest",
     "test:int": "cypress open-ct",
-    "test:int:ci": "cypress run-ct",
-    "prettier": "prettier --write '**/*.(js|jsx|mdx)'"
+    "test:int:ci": "cypress run-ct"
   },
   "repository": {
     "type": "git",
@@ -28,6 +29,7 @@
   },
   "homepage": "https://github.com/sdaconceicao/code-x#readme",
   "devDependencies": {
+    "@babel/eslint-parser": "^7.16.0",
     "@code-x/babel-preset": "./config/babel-preset",
     "@cypress/react": "^5.9.4",
     "@cypress/webpack-dev-server": "^1.4.0",
@@ -37,6 +39,15 @@
     "cypress": "^8.3.1",
     "cypress-axe": "^0.13.0",
     "cypress-plugin-snapshots": "^1.4.4",
+    "eslint": "^7.18.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-cypress": "^2.12.1",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-react": "^7.22.0",
+    "eslint-plugin-react-hooks": "^4.2.0",
     "jest": "27.3.1",
     "jest-environment-jsdom": "^27.0.6",
     "lerna": "^3.18.1",

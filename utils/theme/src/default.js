@@ -1,10 +1,4 @@
-import {
-  FaTimesCircle,
-  FaExclamationCircle,
-  FaInfoCircle,
-  FaCheckCircle,
-  FaInfo
-} from 'react-icons/fa';
+import { FaTimesCircle, FaExclamationCircle, FaInfoCircle, FaCheckCircle } from 'react-icons/fa';
 
 const colors = {
   primary: '#2171bb',

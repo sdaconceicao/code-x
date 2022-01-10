@@ -82,6 +82,7 @@ export const TextareaComponent = ({
       name={name}
       ref={innerRef}
       className={`${classes.textarea} ${className}`}
+      // eslint-disable-next-line react/jsx-props-no-spreading
       {...rest}
       value={localValue}
       onChange={handleChange}
