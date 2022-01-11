@@ -1,44 +1,45 @@
 {
-    "name": "@code-x/documentation",
-    "version": "0.1.0",
-    "description": "A React visual design library",
-    "private": true,
-    "scripts": {
-      "start": "start-storybook -p 6006",
-      "build-storybook": "build-storybook"
-    },
-    "repository": {
-      "type": "git",
-      "url": "git+https://github.com/sdaconceicao/code-x.git"
-    },
-    "keywords": [
-      "react",
-      "asset",
-      "library"
-    ],
-    "author": "Stephen da Conceicao",
-    "license": "ISC",
-    "bugs": {
-      "url": "https://github.com/sdaconceicao/code-x/issues"
-    },
-    "homepage": "https://github.com/sdaconceicao/code-x#readme",
-    "devDependencies": {
-      "@babel/plugin-proposal-export-default-from": "7.14.5",
-      "@code-x/babel-preset": "0.1.0",
-      "@code-x/i18n": "0.1.0",
-      "@code-x/label": "^0.1.0",
-      "@code-x/select": "^0.1.0",
-      "@code-x/theme": "^0.1.0",
-      "@code-x/validators": "^0.1.0",
-      "@storybook/addon-a11y": "^6.3.12",
-      "@storybook/addon-actions": "^6.3.12",
-      "@storybook/addon-docs": "^6.3.12",
-      "@storybook/addon-essentials": "^6.3.12",
-      "@storybook/addon-links": "^6.3.12",
-      "@storybook/react": "^6.3.12",
-      "babel-loader": "^8.0.6",
-      "react-jss": "^10.0.0",
-      "webpack": "^4.46.0",
-      "webpack-cli": "^3.3.11"
-    }
+  "name": "@code-x/documentation",
+  "version": "0.1.0",
+  "description": "A React visual design library",
+  "private": true,
+  "scripts": {
+    "build-storybook": "npm run clean && build-storybook -o ../../docs",
+    "clean": "shx rm -rf ../../docs",
+    "start": "start-storybook -p 6006"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sdaconceicao/code-x.git"
+  },
+  "keywords": [
+    "react",
+    "asset",
+    "library"
+  ],
+  "author": "Stephen da Conceicao",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sdaconceicao/code-x/issues"
+  },
+  "homepage": "https://github.com/sdaconceicao/code-x#readme",
+  "devDependencies": {
+    "@babel/plugin-proposal-export-default-from": "7.14.5",
+    "@code-x/babel-preset": "0.1.0",
+    "@code-x/i18n": "0.1.0",
+    "@code-x/label": "^0.1.0",
+    "@code-x/select": "^0.1.0",
+    "@code-x/theme": "^0.1.0",
+    "@code-x/validators": "^0.1.0",
+    "@storybook/addon-a11y": "^6.3.12",
+    "@storybook/addon-actions": "^6.3.12",
+    "@storybook/addon-docs": "^6.3.12",
+    "@storybook/addon-essentials": "^6.3.12",
+    "@storybook/addon-links": "^6.3.12",
+    "@storybook/react": "^6.3.12",
+    "babel-loader": "^8.0.6",
+    "react-jss": "^10.0.0",
+    "webpack": "^4.46.0",
+    "webpack-cli": "^3.3.11"
   }
+}
