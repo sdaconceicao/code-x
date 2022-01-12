@@ -1,9 +1,13 @@
-name: Deploy Docs
+name: Build Docs
 
-on: workflow_dispatch
+on:
+  push:
+    paths: ['stories/**', 'apps/**', 'components/**', 'utils/**']
+    branches: [master]
+  workflow_dispatch:
 
 jobs:
-  build:
+  buildDocs:
     runs-on: ubuntu-latest
 
     strategy:
@@ -17,7 +21,18 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'npm'
-      - run: npm ci
+      - name: Cache node modules
+        id: cache-node-modules
+        uses: actions/cache@v2
+        env:
+          cache-name: cache-node-modules
+        with:
+          path: node_modules
+          key: ${{ matrix.node-version }}-${{ env.cache-name }}-${{ hashFiles('package-lock.json') }}
+
+      - name: Install dependencies
+        if: steps.cache-node-modules.outputs.cache-hit != 'true'
+        run: npm ci
       - run: npm run lint
       - run: npm test
       - run: npm run deploy-docs
