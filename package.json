@@ -4,15 +4,15 @@
   "description": "A React visual design library",
   "private": true,
   "scripts": {
+    "build-docs": "lerna run build-storybook",
     "install": "lerna bootstrap",
     "lint": "eslint . --ext .js --fix --ext .jsx --fix",
     "prettier": "prettier --write '**/*.(js|jsx|mdx)'",
-    "deploy-docs": "lerna run build-storybook",
     "test": "npm run test:unit:ci && npm run test:int:ci",
-    "test:unit": "jest --watch",
-    "test:unit:ci": "jest",
     "test:int": "cypress open-ct",
-    "test:int:ci": "cypress run-ct"
+    "test:int:ci": "cypress run-ct",
+    "test:unit": "jest --watch",
+    "test:unit:ci": "jest"
   },
   "repository": {
     "type": "git",

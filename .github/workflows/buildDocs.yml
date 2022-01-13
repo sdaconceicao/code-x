@@ -39,9 +39,7 @@ jobs:
         if: steps.cache-node-modules-cypress.outputs.cache-hit == 'true'
         run: lerna bootstrap
 
-      - run: npm run lint
-      - run: npm test
-      - run: npm run deploy-docs
+      - run: npm run build-docs
       - name: Add & Commit
         uses: EndBug/add-and-commit@v7.5.0
         with:
@@ -49,4 +47,4 @@ jobs:
           author_name: GitHub Actions
           author_email: actions@github.com
           branch: master
-          message: Updating github docs
+          message: 'docs: Rebuilding docs'
