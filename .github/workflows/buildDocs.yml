@@ -1,10 +1,9 @@
 name: Build Docs
 
 on:
-  push:
+  pull_request:
     paths: ['stories/**', 'apps/**', 'components/**', 'utils/**']
     branches: [master]
-  workflow_dispatch:
 
 jobs:
   buildDocs:
@@ -44,7 +43,4 @@ jobs:
         uses: EndBug/add-and-commit@v7.5.0
         with:
           add: 'docs'
-          author_name: GitHub Actions
-          author_email: actions@github.com
-          branch: master
           message: 'docs: Rebuilding docs'
