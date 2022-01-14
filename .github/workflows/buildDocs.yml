@@ -1,22 +1,22 @@
 name: Build Docs
 
 on:
-  workflow_run:
-    workflows: ['Testing']
-    branches-ignore: [master] # only run this while in a PR
-    types:
-      - completed
+  pull_request:
+    paths: ['stories/**', 'apps/**', 'components/**', 'utils/**']
+    branches: [master]
 
 jobs:
-  on-success:
+  buildDocs:
     runs-on: ubuntu-latest
 
     strategy:
       matrix:
         node-version: [16.x]
-    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+
     steps:
       - uses: actions/checkout@v2
+        with:
+          token: ${{ secrets.SVC_PAT }}
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v2
         with:
@@ -46,8 +46,3 @@ jobs:
         with:
           add: 'docs'
           message: 'docs: Rebuilding docs'
-  on-failure:
-    runs-on: ubuntu-latest
-    if: ${{ github.event.workflow_run.conclusion == 'failure' }}
-    steps:
-      - run: echo "Build skipped due to prior failure"
