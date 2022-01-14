@@ -21,11 +21,12 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: technote-space/get-diff-action@v6
+        id: git-diff
         with:
           PATTERNS: |
-            +(components)/**/*.js
-            +(utils)/**/*.js
-            +(apps)/**/*.js
+            +components/**/*.*
+            +utils/**/*.*
+            +apps/**/*.*
 
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v2
@@ -46,6 +47,12 @@ jobs:
         if: steps.cache-node-modules-cypress.outputs.cache-hit != 'true'
         run: npm ci
 
+      - name: GIT DIFF
+        run: echo ${{ env.GIT_DIFF }}
+
+      - name: GIT DIFF_VALUES
+        run: echo ${{ steps.git-diff.outputs.diff }}
+
       - name: Bootstrap if cached
         if: steps.cache-node-modules-cypress.outputs.cache-hit == 'true'
         run: lerna bootstrap
@@ -55,4 +62,11 @@ jobs:
 
       - name: Build Docs
         run: npm run build-docs
+        if: env.GIT_DIFF
+
+      - name: Add & Commit
+        uses: EndBug/add-and-commit@v7.5.0
+        with:
+          add: 'docs'
+          message: 'docs: Rebuilding docs'
         if: env.GIT_DIFF
