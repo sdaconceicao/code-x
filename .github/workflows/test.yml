@@ -20,6 +20,13 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
+      - uses: technote-space/get-diff-action@v6
+        with:
+          PATTERNS: |
+            +(components)/**/*.js
+            +(utils)/**/*.js
+            +(apps)/**/*.js
+
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v2
         with:
@@ -45,3 +52,7 @@ jobs:
 
       - run: npm run lint
       - run: npm test
+
+      - name: Build Docs
+        run: npm run build-docs
+        if: env.GIT_DIFF
