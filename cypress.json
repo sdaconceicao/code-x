@@ -1,7 +1,7 @@
 {
   "fixturesFolder": false,
   "componentFolder": "./",
-  "testFiles": "components/**/*.int.{js,ts,jsx,tsx}",
+  "testFiles": "components/**/*.int.test.{js,ts,jsx,tsx}",
   "env": {
     "cypress-plugin-snapshots": {
       "imageConfig": {

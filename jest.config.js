@@ -8,7 +8,7 @@ module.exports = {
   moduleDirectories: ['node_modules'],
   rootDir: './',
   setupFilesAfterEnv: ['<rootDir>/jest.setup.js'],
-  testMatch: ['**/*.unit.{js,jsx}'],
+  testMatch: ['**/*.unit.test.{js,jsx}'],
   modulePathIgnorePatterns: ['dist'],
   testEnvironment: 'jsdom'
 };
