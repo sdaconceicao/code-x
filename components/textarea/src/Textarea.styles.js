@@ -1,6 +1,6 @@
 import { createUseStyles } from '@code-x/theme';
 
-export default createUseStyles(({ form }) => ({
+export default createUseStyles(({ form, font }) => ({
   textarea: {
     border: ({ errors }) => (errors ? form.errorBorder : form.border),
     borderRadius: ({ withButton }) =>
@@ -9,6 +9,7 @@ export default createUseStyles(({ form }) => ({
     backgroundColor: form.backgroundColor,
     width: '100%',
     resize: ({ resize }) => resize,
+    ...font,
     '&:focus': {
       outline: 'none',
       boxShadow: `0 0 0 1pt ${form.focusColor}`

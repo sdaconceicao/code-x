@@ -47,7 +47,8 @@ const theme = {
     focusColor: colors.primary,
     focusColorText: colors.white,
     disabledColor: colors.g300,
-    backgroundColor: colors.g200
+    backgroundColor: colors.g200,
+    controlBackgroundColor: colors.g300
   },
   palette: {
     primaryBg: colors.primary,
@@ -70,8 +71,9 @@ const theme = {
     tertiaryBorderHover: colors.tertiaryDark,
     ...colors
   },
-  fonts: {
-    fontFamily: 'arial'
+  font: {
+    fontFamily: "'Roboto', 'Arial', 'sans-serif'",
+    fontSize: '.9rem'
   },
   icons: {
     success: FaCheckCircle,

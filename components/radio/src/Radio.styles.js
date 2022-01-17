@@ -1,10 +1,11 @@
 import { createUseStyles } from '@code-x/theme';
 
-export default createUseStyles(({ palette, form }) => ({
+export default createUseStyles(({ palette, form, font }) => ({
   label: {
     display: 'grid',
     gridTemplateColumns: '1rem auto',
-    gap: '.5rem'
+    gap: '.35rem',
+    ...font
   },
   radio: {
     appearance: 'none',
@@ -12,8 +13,8 @@ export default createUseStyles(({ palette, form }) => ({
     margin: 0,
     font: 'inherit',
     color: palette.primary,
-    width: '1.15rem',
-    height: '1.15rem',
+    width: '1.1rem',
+    height: '1.1rem',
     border: `1px solid ${form.borderColor}`,
     borderRadius: '50%',
     transform: 'translateY(-0.075rem)',
