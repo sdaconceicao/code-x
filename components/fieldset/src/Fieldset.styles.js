@@ -1,16 +1,23 @@
 import { createUseStyles } from '@code-x/theme';
 
-export default createUseStyles(({ form, palette }) => ({
+export default createUseStyles(({ form, font, palette }) => ({
   fieldset: {
-    border: form.border,
+    border: 'none',
+    outline: form.border,
     borderRadius: form.borderRadius,
     backgroundColor: form.backgroundColor,
     borderColor: ({ errors }) => (errors ? palette.error : form.borderColor),
-    paddingTop: '1.5rem',
-    margin: form.margin
+    paddingTop: '0.5rem',
+    borderWidth: 4,
+    marginTop: '1.5rem',
+    position: 'relative'
   },
   legend: {
-    color: form.color
+    color: form.color,
+    position: 'absolute',
+    top: '-1.25rem',
+    left: 0,
+    ...font
   },
   required: {
     color: palette.error

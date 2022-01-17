@@ -10,7 +10,7 @@ export default create({
 
   // UI
   appBg: '#555',
-  appContentBg: '#eee',
+  appContentBg: '#bbb',
   appBorderColor: 'grey',
   appBorderRadius: 4,
   textColor: '#000',
@@ -18,7 +18,7 @@ export default create({
   textMutedColor: '#444',
 
   // Typography
-  fontBase: '"Open Sans", sans-serif',
+  fontBase: '"Roboto", sans-serif',
   fontCode: 'monospace',
 
   // Toolbar default and active colors

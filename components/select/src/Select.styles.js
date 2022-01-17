@@ -1,6 +1,6 @@
 import { createUseStyles } from '@code-x/theme';
 
-export default createUseStyles(({ form, palette }) => ({
+export default createUseStyles(({ form, font }) => ({
   select: {},
   selectButton: {
     position: 'relative',
@@ -11,6 +11,7 @@ export default createUseStyles(({ form, palette }) => ({
     width: '100%',
     textAlign: 'left',
     borderRadius: form.borderRadius,
+    ...font,
     '&:focus': {
       outline: 'none',
       boxShadow: `0 0 0 1pt ${form.focusColor}`
@@ -27,9 +28,9 @@ export default createUseStyles(({ form, palette }) => ({
       position: 'absolute',
       right: 0,
       top: 0,
-      height: 31,
+      height: 33,
       width: 29,
-      backgroundColor: palette.g300,
+      backgroundColor: form.controlBackgroundColor,
       borderRadius: [0, 3, 3, 0],
       borderLeft: `1px solid ${form.borderColor}`
     },
@@ -37,7 +38,7 @@ export default createUseStyles(({ form, palette }) => ({
       content: '""',
       position: 'absolute',
       right: 12,
-      top: ({ open }) => (open ? 14 : 10),
+      top: ({ open }) => (open ? 15 : 12),
       border: `solid ${form.borderColor}`,
       borderWidth: [0, 1, 1, 0],
       display: 'inline-block',
@@ -60,6 +61,7 @@ export default createUseStyles(({ form, palette }) => ({
   },
   option: {
     borderBottom: `1px solid ${form.borderColor}`,
+    ...font,
     '&:last-child': {
       borderBottom: 'none'
     }
