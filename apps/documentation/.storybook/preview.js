@@ -7,6 +7,7 @@ import theme from '@code-x/theme';
 import { enUSMessages as enUSLabelMessages } from '@code-x/label';
 import { enUSMessages as enUSValidationMessages } from '@code-x/validators';
 import { enUSMessages as enUSSelectMessages } from '@code-x/select';
+import storybookTheme from './theme';
 
 const messages = { ...enUSLabelMessages, ...enUSValidationMessages, ...enUSSelectMessages };
 const useStyles = createUseStyles({
@@ -38,7 +39,8 @@ const withThemeProvider = (Story, context) => {
 addParameters({
   docs: {
     container: DocsContainer,
-    page: DocsPage
+    page: DocsPage,
+    theme: storybookTheme
   }
 });
 
