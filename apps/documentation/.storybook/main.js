@@ -7,9 +7,10 @@ module.exports = {
     '../../../utils/**/*.stories.(js|mdx)'
   ],
   addons: [
+    '@storybook/addon-controls',
+    '@react-theming/storybook-addon',
     '@storybook/addon-a11y',
     '@storybook/addon-docs',
-    '@storybook/addon-controls',
     '@storybook/addon-actions'
   ],
   webpackFinal: async (config, { configType }) => {

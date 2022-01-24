@@ -1,6 +1,7 @@
 import React from 'react';
-import { addParameters } from '@storybook/react';
+import { addParameters, addDecorator } from '@storybook/react';
 import { DocsPage, DocsContainer } from '@storybook/addon-docs';
+import { withThemes } from '@react-theming/storybook-addon';
 import { ThemeProvider, createUseStyles } from 'react-jss';
 import { I18nProvider } from '@code-x/i18n';
 import theme from '@code-x/theme';
@@ -27,15 +28,6 @@ const withI18nProvider = (Story) => (
   </I18nProvider>
 );
 
-const withThemeProvider = (Story, context) => {
-  const classes = useStyles();
-  return (
-    <ThemeProvider theme={theme}>
-      <Story classes={classes} {...context} />
-    </ThemeProvider>
-  );
-};
-
 addParameters({
   docs: {
     container: DocsContainer,
@@ -44,4 +36,4 @@ addParameters({
   }
 });
 
-export const decorators = [withThemeProvider, withI18nProvider];
+export const decorators = [withThemes(ThemeProvider, [theme]), withI18nProvider];
