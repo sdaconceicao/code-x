@@ -1,0 +1,55 @@
+import { Meta, Story, Canvas, Source } from '@storybook/addon-docs';
+
+<Meta title="Elements/Image/Hooks" component={Image} />
+
+# Hooks
+
+The following hooks can be used with a React component that loads images.
+
+## useImageLoad
+
+A hook which detects image loading, and provides basic sizing/orientation info.
+
+### Example
+
+<Story name="useImageLoad">
+  <Source language="js" code={"useImageLoad('https://picsum.photos/800/300')"} />
+</Story>
+
+### Output
+
+<Source
+  language="json"
+  code={`{
+    width: 800,
+    height: 300,
+    orientation: 'landscape'
+  }`}
+/>
+
+## useImageMeta
+
+A hook which returns image meta data.
+
+### Example
+
+<Story name="useImageMeta">
+  <Source language="js" code={"useImageMeta('https://picsum.photos/800/300')"} />
+</Story>
+
+### Output
+
+<Source
+  language="json"
+  code={`{
+    ColorSpace: 65535,
+    ComponentsConfiguration: "YCbCr",
+    ExifIFDPointer: 102,
+    ExifVersion: "0210",
+    FlashpixVersion: "0100",
+    Orientation: 1,
+    PixelXDimension: 800,
+    PixelYDimension: 300,
+    ResolutionUnit: 2
+  }`}
+/>

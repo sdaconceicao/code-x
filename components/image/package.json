@@ -1,0 +1,44 @@
+{
+  "name": "@code-x/image",
+  "version": "0.1.0",
+  "description": "Image Component with hooks",
+  "author": "Stephen da Conceicao <daconcei472@gmail.com>",
+  "homepage": "https://github.com/sdaconceicao/code-x/tree/master/packages/checkbox#readme",
+  "license": "ISC",
+  "main": "src/index",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sdaconceicao/code-x.git"
+  },
+  "scripts": {
+    "build": "npm run clean && npm run copy && rollup -c",
+    "clean": "shx rm -rf dist",
+    "copy": "shx mkdir dist && shx cp {package.json,README.md,.npmignore} dist"
+  },
+  "bugs": {
+    "url": "https://github.com/sdaconceicao/code-x/issues"
+  },
+  "peerDependencies": {
+    "prop-types": "^15.7.2",
+    "react": "^16.10.2",
+    "react-dom": "^16.10.2"
+  },
+  "devDependencies": {
+    "@code-x/babel-preset": "0.1.0",
+    "@code-x/cypress-config": "0.1.0",
+    "prop-types": "^15.7.2",
+    "react": "^16.10.2",
+    "react-dom": "^16.10.2",
+    "rollup": "^2.29.0",
+    "rollup-plugin-babel": "^4.3.0",
+    "rollup-plugin-node-resolve": "^4.0.0",
+    "shx": "^0.3.2"
+  },
+  "dependencies": {
+    "exif-js": "^2.3.0",
+    "piexifjs": "^1.0.6"
+  },
+  "browserslist": [
+    "defaults"
+  ]
+}
