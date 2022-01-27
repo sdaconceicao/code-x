@@ -1,5 +1,5 @@
 import EXIF from 'exif-js';
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import useImageLoad from './useImageLoad';
 /**
  * Pulls exif data from jpegs
@@ -8,27 +8,26 @@ import useImageLoad from './useImageLoad';
  */
 export default (src) => {
   const [imageMeta, setImageMeta] = useState();
-  const { image, loaded, ...imageProps } = useImageLoad(src);
-  const getImageMeta = (loadedImage) => {
+  const { image, loaded } = useImageLoad(src);
+  const getImageMeta = useCallback((loadedImage) => {
     return new Promise((resolve) => {
+      // eslint-disable-next-line func-names
       EXIF.getData(loadedImage, function () {
-        // Fat arrow does not work here
+        // Fat arrow does not work here, needs to be function
         const exif = EXIF.getAllTags(this);
         resolve({
-          ...exif,
-          ...imageProps
+          ...exif
         });
       });
     });
-  };
-
+  }, []);
   useEffect(() => {
     if (loaded) {
       getImageMeta(image).then((data) => {
         setImageMeta(data);
       });
     }
-  }, [loaded, image]);
+  }, [loaded, image, getImageMeta]);
 
   return imageMeta;
 };
