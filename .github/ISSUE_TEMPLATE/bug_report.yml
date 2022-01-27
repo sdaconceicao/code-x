@@ -1,0 +1,37 @@
+name: Bug Report
+description: File a bug report
+body:
+  - type: input
+    id: os
+    attributes:
+      label: Operating system
+      description: 'Which operating system do you use? Please provide the version as well.'
+      placeholder: 'macOS Big Sur 11.5.2'
+    validations:
+      required: true
+  - type: input
+    id: browser
+    attributes:
+      label: Browser
+      description: 'Which browser were you using? Please provide the version as well.'
+      placeholder: 'Chrome 97.0.4692.99'
+    validations:
+      required: true
+  - type: textarea
+    id: bug-description
+    attributes:
+      label: Bug description
+      description: What went wrong.?
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: Which steps do we need to take to reproduce this error?
+  - type: textarea
+    id: logs
+    attributes:
+      label: Relevant log output
+      description: If applicable, provide relevant log output. No need for backticks here.
+      render: shell
