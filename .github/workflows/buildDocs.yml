@@ -1,9 +1,10 @@
 name: Build Docs
 
 on:
-  pull_request:
+  push:
     paths: ['stories/**', 'apps/**', 'components/**', 'utils/**']
     branches: [master]
+  workflow_dispatch:
 
 jobs:
   buildDocs:
@@ -46,3 +47,6 @@ jobs:
         with:
           add: 'docs'
           message: 'docs: Rebuilding docs'
+          author_name: sdaconceicaoBot
+          author_email: daconcei472+bot@gmail.com
+          branch: master

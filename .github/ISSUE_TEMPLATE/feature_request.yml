@@ -1,0 +1,8 @@
+name: Feature Request
+description: Request a new feature for Code-x
+body:
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: Provide a description of the feature you're requesting.
