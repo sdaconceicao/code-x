@@ -34,11 +34,13 @@ const colors = {
 };
 
 const theme = {
+  name: 'default',
   form: {
     border: `1px solid ${colors.g400}`,
     borderColor: colors.g400,
     borderRadius: '.25rem',
     errorBorder: `1px solid ${colors.error}`,
+    labelColor: colors.mediumDark,
     margin: '0 .5rem 1rem',
     padding: '.5rem',
     height: '2.25rem',

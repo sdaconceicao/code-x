@@ -5,11 +5,12 @@ export default createUseStyles(({ palette, form, font }) => ({
     display: 'grid',
     gridTemplateColumns: '1rem auto',
     gap: '.35rem',
+    color: form.labelColor,
     ...font
   },
   radio: {
     appearance: 'none',
-    backgroundColor: 'white',
+    backgroundColor: form.backgroundColor,
     margin: 0,
     font: 'inherit',
     color: palette.primary,

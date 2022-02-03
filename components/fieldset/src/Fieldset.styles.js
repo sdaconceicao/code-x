@@ -5,7 +5,7 @@ export default createUseStyles(({ form, font, palette }) => ({
     border: 'none',
     outline: form.border,
     borderRadius: form.borderRadius,
-    backgroundColor: form.backgroundColor,
+    backgroundColor: form.controlBackgroundColor,
     borderColor: ({ errors }) => (errors ? palette.error : form.borderColor),
     paddingTop: '0.5rem',
     borderWidth: 4,
@@ -13,7 +13,7 @@ export default createUseStyles(({ form, font, palette }) => ({
     position: 'relative'
   },
   legend: {
-    color: form.color,
+    color: form.labelColor,
     position: 'absolute',
     top: '-1.25rem',
     left: 0,

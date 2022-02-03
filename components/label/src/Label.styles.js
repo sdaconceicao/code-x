@@ -1,8 +1,8 @@
 import { createUseStyles } from 'react-jss';
 
-export default createUseStyles(({ font, palette }) => ({
+export default createUseStyles(({ font, form, palette }) => ({
   label: {
-    color: palette.mediumDark,
+    color: form.labelColor,
     display: ({ inline }) => (inline ? 'inline' : 'block'),
     ...font
   },
@@ -11,7 +11,7 @@ export default createUseStyles(({ font, palette }) => ({
   },
   optional: {
     fontStyle: 'italic',
-    color: palette.mediumDark,
+    color: palette.labelColor,
     float: 'right'
   }
 }));
