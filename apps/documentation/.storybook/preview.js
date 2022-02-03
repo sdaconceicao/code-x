@@ -4,7 +4,7 @@ import { DocsPage, DocsContainer } from '@storybook/addon-docs';
 import { withThemes } from '@react-theming/storybook-addon';
 import { ThemeProvider, createUseStyles } from 'react-jss';
 import { I18nProvider } from '@code-x/i18n';
-import theme from '@code-x/theme';
+import theme, { dark } from '@code-x/theme';
 import { enUSMessages as enUSLabelMessages } from '@code-x/label';
 import { enUSMessages as enUSValidationMessages } from '@code-x/validators';
 import { enUSMessages as enUSSelectMessages } from '@code-x/select';
@@ -36,4 +36,4 @@ addParameters({
   }
 });
 
-export const decorators = [withThemes(ThemeProvider, [theme]), withI18nProvider];
+export const decorators = [withThemes(ThemeProvider, [theme, dark]), withI18nProvider];
