@@ -5,8 +5,8 @@ import FormElementWrapper from './FormElementWrapper';
 
 export const withFormElement =
   (FormElement) =>
-  ({ className, label, required, optional, inline, id, hideLabel, ...rest }) => {
-    return (
+  ({ className, label, required, optional, inline, id, hideLabel, ...rest }) =>
+    (
       <FormElementWrapper
         className={className}
         label={hideLabel ? null : label}
@@ -15,9 +15,8 @@ export const withFormElement =
         id={id}
         inline={inline}
       >
-        <FormElement label={label} required={required} {...rest} />
+        <FormElement id={id} label={label} required={required} {...rest} />
       </FormElementWrapper>
     );
-  };
 
 export default withFormElement;
