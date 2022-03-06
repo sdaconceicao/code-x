@@ -80,9 +80,8 @@ export const SelectComponent = ({
     );
     setLocalErrors(response.errors);
     return {
-      errors: response.errors,
-      value: localValue.value,
-      valid: response.passed
+      ...response,
+      value: localValue.value
     };
   };
 
