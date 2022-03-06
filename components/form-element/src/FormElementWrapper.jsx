@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { Label } from '@code-x/label';
 import { useFormContext } from '@code-x/form-context';
@@ -14,10 +14,8 @@ const FormElementWrapper = ({
   flex,
   children
 }) => {
-  const [errors, setErrors] = useState();
-  const handleBlur = (e) => setErrors(e.errors);
-  const childrenWithContext = useFormContext(children, handleBlur);
   const classes = useStyles({ inline, flex });
+  const { children: childrenWithContext, errors } = useFormContext(children);
 
   return (
     <div className={`${classes.formComponent} ${className}`}>

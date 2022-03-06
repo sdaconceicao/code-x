@@ -8,6 +8,7 @@
     "install": "lerna bootstrap",
     "lint": "eslint . --ext .js --fix --ext .jsx --fix",
     "prettier": "prettier --write '**/*.(js|jsx|mdx)'",
+    "publish:dry-run": "lerna publish --no-git-tag-version --no-push --dist-tag beta",
     "test": "npm run test:unit:ci && npm run test:int:ci",
     "test:int": "cypress open-ct",
     "test:int:ci": "cypress run-ct",

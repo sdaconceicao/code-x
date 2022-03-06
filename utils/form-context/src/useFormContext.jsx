@@ -1,18 +1,25 @@
-import { Children, useContext, useEffect, useRef, cloneElement } from 'react';
+import { Children, useContext, useEffect, useRef, cloneElement, useState } from 'react';
 import FormContext from './Form.context';
 
-export default (children, onBlur) => {
+export default (children) => {
   const ref = useRef();
   const { addFormElement, removeFormElement, onChange: handleChange } = useContext(FormContext);
+  const [errors, setErrors] = useState();
+  const handleBlur = (e) => setErrors(e.errors);
+
   const refWithChildren = Children.map(children, (child) =>
     child.props.name && child.props.addFormElement !== false
       ? cloneElement(child, {
-          onBlur,
+          onBlur: (e) => {
+            child.props.onBlur?.(e);
+            handleBlur(e);
+          },
           onChange: (e) => {
             child.props.onChange?.(e);
             handleChange?.(e);
           },
-          innerRef: ref
+          innerRef: ref,
+          errors
         })
       : child
   );
@@ -24,6 +31,5 @@ export default (children, onBlur) => {
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
-  return refWithChildren;
+  return { children: refWithChildren, errors };
 };
