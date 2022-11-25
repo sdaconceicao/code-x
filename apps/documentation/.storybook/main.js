@@ -13,12 +13,22 @@ module.exports = {
     '@storybook/addon-docs',
     '@storybook/addon-actions'
   ],
+  typescript: {
+    check: false,
+    checkOptions: {},
+    esModuleInterop: true,
+    reactDocgen: 'react-docgen-typescript',
+    reactDocgenTypescriptOptions: {
+      shouldExtractLiteralValuesFromEnum: true,
+      propFilter: (prop) => (prop.parent ? !/node_modules/.test(prop.parent.fileName) : true)
+    }
+  },
   webpackFinal: async (config, { configType }) => {
     config.module.rules.push({
-      test: /.jsx?$/,
+      test: /\.(js|jsx|ts|tsx)$/,
       exclude: /node_modules\/(?!@code-x\/*)/,
       resolve: {
-        extensions: ['.js', '.jsx'],
+        extensions: ['.js', '.jsx', '.ts', '.tsx'],
         alias: {
           'core-js/modules': path.resolve(__dirname, '..', 'node_modules/core-js/modules'),
           react: path.join(__dirname, '..', '..', '..', 'node_modules', 'react')

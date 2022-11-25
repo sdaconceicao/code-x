@@ -1,8 +1,0 @@
-# Ignore build and dist directories
-/build
-/dist
-/node_modules
-/coverage
-.idea
-.DS_Store
-/packages/*/node_modules
