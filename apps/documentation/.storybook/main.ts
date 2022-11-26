@@ -21,26 +21,5 @@ module.exports = {
       shouldExtractLiteralValuesFromEnum: true,
       propFilter: (prop) => (prop.parent ? !/node_modules/.test(prop.parent.fileName) : true)
     }
-  },
-  webpackFinal: async (config, { configType }) => {
-    config.module.rules.push({
-      test: /\.(js|jsx|ts|tsx)$/,
-      exclude: /node_modules\/(?!@code-x\/*)/,
-      resolve: {
-        extensions: ['.js', '.jsx', '.ts', '.tsx'],
-        alias: {
-          'core-js/modules': path.resolve(__dirname, '..', 'node_modules/core-js/modules'),
-          react: path.join(__dirname, '..', '..', '..', 'node_modules', 'react')
-        }
-      }
-    });
-    config.resolve.alias = {
-      ...config.resolve.alias,
-      ...{
-        react: path.join(__dirname, '..', '..', '..', 'node_modules', 'react'),
-        'react-dom': path.join(__dirname, '..', '..', '..', 'node_modules', 'react-dom')
-      }
-    };
-    return config;
   }
 };
