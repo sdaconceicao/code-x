@@ -1,21 +1,22 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import useStyles from './Button.styles';
-import { kinds, sizes, displays } from './vars';
+import { Button as ButtonProps, Type, Kind, Size, Display } from './Button.d';
 
 export const Button = ({
-  active,
+  id = '',
+  active = false,
   children,
-  disabled,
+  disabled = false,
   className,
   onClick,
-  type,
-  kind,
-  size,
-  withInput,
-  display,
+  display = Display.block,
+  type = Type.button,
+  kind = Kind.primary,
+  size = Size.md,
+  withInput = false,
   ...rest
-}) => {
+}: ButtonProps) => {
   const classes = useStyles({ withInput, display });
   return (
     <button
@@ -33,44 +34,6 @@ export const Button = ({
       {children}
     </button>
   );
-};
-
-Button.propTypes = {
-  /** Is Button active */
-  active: PropTypes.bool,
-  /** HTML id of element */
-  id: PropTypes.string,
-  /** Classname to override default element styling */
-  className: PropTypes.string,
-  /** State of button */
-  disabled: PropTypes.bool,
-  /** Display type */
-  display: PropTypes.oneOf(Object.keys(displays)),
-  /** HTML button type */
-  type: PropTypes.oneOf(['submit', 'button']),
-  /** Size of button */
-  size: PropTypes.oneOf(Object.keys(sizes)),
-  /** Visual kind of button */
-  kind: PropTypes.oneOf(Object.keys(kinds)),
-  /** Button attached to an input */
-  withInput: PropTypes.bool,
-  /** Contents of button */
-  children: PropTypes.oneOfType([PropTypes.string, PropTypes.node]).isRequired,
-  /** Callback for button click */
-  onClick: PropTypes.func
-};
-
-Button.defaultProps = {
-  active: false,
-  id: '',
-  disabled: false,
-  type: 'button',
-  kind: kinds.primary,
-  size: sizes.md,
-  withInput: false,
-  display: displays.block,
-  className: '',
-  onClick: undefined
 };
 
 export default Button;

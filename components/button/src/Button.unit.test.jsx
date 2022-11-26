@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
 import { composeStories } from '@storybook/testing-react';
-import * as stories from './Button.template.jsx';
+import * as stories from './Button.template.js';
 
 const { Button } = composeStories(stories);
 
