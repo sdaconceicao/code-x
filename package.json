@@ -55,7 +55,7 @@
     "lerna": "^3.18.1",
     "lerna-update-wizard": "^0.17.8",
     "prettier": "^2.5.1",
-    "react-scripts": "^4.0.3",
+    "react-scripts": "^5.0.1",
     "webpack-dev-server": "^3.11.2"
   }
 }
