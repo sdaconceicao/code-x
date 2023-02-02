@@ -52,7 +52,7 @@
     "eslint-plugin-react-hooks": "^4.2.0",
     "jest": "27.3.1",
     "jest-environment-jsdom": "^27.0.6",
-    "lerna": "^3.18.1",
+    "lerna": "^6.4.1",
     "lerna-update-wizard": "^0.17.8",
     "prettier": "^2.5.1",
     "react-scripts": "^4.0.3",
